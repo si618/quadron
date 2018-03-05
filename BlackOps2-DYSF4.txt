@@ -1,0 +1,216 @@
+# diff all
+
+# version
+# Betaflight / DYSF4PRO (DYS4) 3.2.3 Dec 11 2017 / 07:39:56 (cb962eda1) MSP API: 1.36
+
+# reset configuration to default settings
+defaults nosave
+
+# name
+name SI
+
+# resources
+resource PPM 1 NONE
+resource CAMERA_CONTROL 1 B14
+
+# mixer
+
+# servo
+
+# servo mix
+
+
+# feature
+feature MOTOR_STOP
+feature TELEMETRY
+feature LED_STRIP
+feature AIRMODE
+feature ANTI_GRAVITY
+feature DYNAMIC_FILTER
+
+# beeper
+beeper -GYRO_CALIBRATED
+beeper -RX_LOST
+beeper -RX_LOST_LANDING
+beeper -DISARMING
+beeper -ARMING
+beeper -ARMING_GPS_FIX
+beeper -BAT_CRIT_LOW
+beeper -BAT_LOW
+beeper -RX_SET
+beeper -ACC_CALIBRATION
+beeper -ACC_CALIBRATION_FAIL
+beeper -READY_BEEP
+beeper -MULTI_BEEPS
+beeper -DISARM_REPEAT
+beeper -ARMED
+beeper -SYSTEM_INIT
+beeper -ON_USB
+beeper -BLACKBOX_ERASE
+
+# map
+map TAER1234
+
+# serial
+serial 0 64 115200 57600 0 115200
+serial 2 32 115200 57600 0 115200
+serial 5 2048 115200 57600 0 115200
+
+# led
+led 0 12,3:NED:ATW:0
+led 1 13,2:NED:ATW:0
+led 2 14,1:NED:ATW:0
+led 3 15,0:NED:ATW:0
+led 4 12,12:ESD:ATW:0
+led 5 13,13:ESD:ATW:0
+led 6 14,14:ESD:ATW:0
+led 7 15,15:ESD:ATW:0
+led 8 8,15:S:ATW:0
+led 9 8,14:S:ATW:0
+led 10 8,13:S:ATW:0
+led 11 8,12:S:ATW:0
+led 12 7,15:S:ATW:0
+led 13 7,14:S:ATW:0
+led 14 7,13:S:ATW:0
+led 15 7,12:S:ATW:0
+led 16 3,12:SWD:ATW:0
+led 17 2,13:SWD:ATW:0
+led 18 1,14:SWD:ATW:0
+led 19 0,15:SWD:ATW:0
+led 20 3,3:NWD:ATW:0
+led 21 2,2:NWD:ATW:0
+led 22 1,1:NWD:ATW:0
+led 23 0,0:NWD:ATW:0
+
+# color
+
+# mode_color
+
+# aux
+aux 0 0 0 1800 2100
+aux 1 13 2 1800 2100
+aux 2 26 3 1800 2100
+aux 3 35 2 1400 1600
+
+# adjrange
+adjrange 0 0 1 900 1150 12 1
+adjrange 1 1 1 1400 1600 12 1
+adjrange 2 1 1 1875 2100 12 1
+
+# rxrange
+
+# vtx
+
+# rxfail
+rxfail 4 s 1000
+rxfail 5 s 1000
+rxfail 6 s 1000
+rxfail 7 s 1000
+
+# master
+set gyro_notch1_hz = 0
+set gyro_notch2_hz = 0
+set baro_hardware = NONE
+set serialrx_provider = SBUS
+set motor_pwm_protocol = DSHOT600
+set bat_capacity = 1400
+set vbat_scale = 108
+set beeper_dshot_beacon_tone = 3
+set small_angle = 180
+set pid_process_denom = 1
+set osd_vbat_pos = 503
+set osd_rssi_pos = 40
+set osd_tim_1_pos = 54
+set osd_tim_2_pos = 33
+set osd_flymode_pos = 333
+set osd_throttle_pos = 225
+set osd_vtx_channel_pos = 377
+set osd_crosshairs = 200
+set osd_ah_sbar = 200
+set osd_ah_pos = 200
+set osd_current_pos = 485
+set osd_mah_drawn_pos = 480
+set osd_craft_name_pos = 495
+set osd_gps_speed_pos = 218
+set osd_gps_lon_pos = 82
+set osd_gps_lat_pos = 65
+set osd_gps_sats_pos = 51
+set osd_home_dir_pos = 302
+set osd_home_dist_pos = 303
+set osd_compass_bar_pos = 266
+set osd_altitude_pos = 247
+set osd_pid_roll_pos = 423
+set osd_pid_pitch_pos = 455
+set osd_pid_yaw_pos = 487
+set osd_debug_pos = 1
+set osd_power_pos = 321
+set osd_pidrate_profile_pos = 345
+set osd_warnings_pos = 2058
+set osd_avg_cell_voltage_pos = 76
+set osd_pit_ang_pos = 257
+set osd_rol_ang_pos = 289
+set osd_battery_usage_pos = 392
+set osd_disarmed_pos = 2092
+set osd_nheading_pos = 311
+set osd_nvario_pos = 279
+set osd_esc_tmp_pos = 82
+set osd_esc_rpm_pos = 83
+set osd_stat_max_spd = OFF
+set osd_stat_min_rssi = OFF
+set osd_stat_used_mah = OFF
+set osd_stat_tim_1 = ON
+set vcd_video_system = 1
+set camera_control_internal_resistance = 99
+
+# profile
+profile 0
+
+set dterm_lowpass_type = PT1
+set dterm_notch_hz = 0
+set dterm_setpoint_weight = 180
+
+# profile
+profile 1
+
+set dterm_lowpass_type = PT1
+set dterm_notch_hz = 0
+set dterm_setpoint_weight = 180
+
+# profile
+profile 2
+
+
+# restore original profile selection
+profile 0
+
+# rateprofile
+rateprofile 0
+
+set roll_srate = 40
+set pitch_srate = 40
+set yaw_srate = 40
+
+# rateprofile
+rateprofile 1
+
+set rc_rate = 125
+set rc_rate_yaw = 125
+set roll_srate = 65
+set pitch_srate = 65
+set yaw_srate = 65
+
+# rateprofile
+rateprofile 2
+
+set rc_rate = 132
+set rc_rate_yaw = 132
+set roll_srate = 78
+set pitch_srate = 78
+set yaw_srate = 78
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
+save
+# 
