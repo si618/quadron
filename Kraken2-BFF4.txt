@@ -151,6 +151,7 @@ profile 0
 set dterm_lowpass_type = PT1
 set dterm_notch_hz = 0
 set dterm_notch_cutoff = 0
+set anti_gravity_gain = 2000
 set dterm_setpoint_weight = 180
 set crash_recovery = ON
 set p_pitch = 60

@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.3.0 Feb 15 2018 / 08:08:27 (1bcfa5ddb) MSP API: 1.37
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.3.0 Mar  2 2018 / 03:38:27 (177472b4f) MSP API: 1.37
 
 # reset configuration to default settings
 defaults nosave
@@ -149,6 +149,7 @@ profile 0
 set dterm_lowpass_type = PT1
 set dterm_notch_hz = 0
 set dterm_notch_cutoff = 0
+set anti_gravity_gain = 2000
 set dterm_setpoint_weight = 180
 set crash_recovery = ON
 set p_pitch = 60
