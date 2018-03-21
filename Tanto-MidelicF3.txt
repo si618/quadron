@@ -1,0 +1,128 @@
+# diff all
+
+# version
+# Betaflight/MIDELICF3 3.1.0 May 21 2017 / 18:53:06 ()
+
+# reset configuration to default settings
+defaults
+
+# name
+name SI
+
+# resources
+
+# feature
+feature VBAT
+feature TELEMETRY
+feature CURRENT_METER
+feature AIRMODE
+
+# beeper
+
+# map
+map TAER1234
+
+# serial
+
+# aux
+aux 0 0 0 1725 2100
+aux 1 27 1 1300 1700
+aux 2 2 1 1700 2100
+
+# adjrange
+adjrange 0 0 2 900 1200 12 2
+adjrange 1 1 2 1350 1625 12 2
+adjrange 2 2 2 1825 2100 12 2
+
+# rxrange
+
+# rxfail
+
+# master
+set motor_pwm_protocol = MULTISHOT
+set small_angle = 180
+set gyro_sync_denom = 2
+set gyro_notch1_hz = 0
+set gyro_notch2_hz = 0
+set pid_process_denom = 1
+
+# profile
+profile 0
+
+set dterm_lowpass_type = PT1
+set setpoint_relax_ratio = 1
+set dterm_setpoint_weight = 100
+rateprofile 0
+
+# rateprofile
+rateprofile 0
+
+set rc_rate = 123
+set rc_rate_yaw = 123
+set roll_srate = 45
+set pitch_srate = 45
+set yaw_srate = 45
+
+# rateprofile
+rateprofile 1
+
+
+# rateprofile
+rateprofile 2
+
+set rc_rate = 120
+set rc_rate_yaw = 120
+set roll_srate = 80
+set pitch_srate = 80
+set yaw_srate = 80
+
+# restore original rateprofile selection
+rateprofile 0
+
+# profile
+profile 1
+
+rateprofile 0
+
+# rateprofile
+rateprofile 0
+
+
+# rateprofile
+rateprofile 1
+
+
+# rateprofile
+rateprofile 2
+
+
+# restore original rateprofile selection
+rateprofile 0
+
+# profile
+profile 2
+
+rateprofile 0
+
+# rateprofile
+rateprofile 0
+
+
+# rateprofile
+rateprofile 1
+
+
+# rateprofile
+rateprofile 2
+
+
+# restore original rateprofile selection
+rateprofile 0
+
+# restore original profile selection
+profile 0
+
+# save configuration
+save
+
+# 
