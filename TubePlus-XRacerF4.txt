@@ -10,6 +10,8 @@ defaults nosave
 name SI-FI
 
 # resources
+resource MOTOR 1 A02
+resource MOTOR 4 B00
 
 # mixer
 mixer QUADP
