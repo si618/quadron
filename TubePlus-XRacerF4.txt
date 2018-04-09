@@ -50,7 +50,8 @@ beeper -BLACKBOX_ERASE
 map TAER1234
 
 # serial
-serial 5 64 115200 57600 0 115200
+serial 2 64 115200 57600 0 115200
+serial 5 8192 115200 57600 0 115200
 
 # led
 
