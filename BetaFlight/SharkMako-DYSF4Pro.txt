@@ -87,6 +87,7 @@ set serialrx_provider = SBUS
 set motor_pwm_protocol = DSHOT600
 set bat_capacity = 450
 set vbat_warning_cell_voltage = 33
+set small_angle = 180
 set pid_process_denom = 1
 set osd_warnings = 63
 set osd_vbat_pos = 2455
