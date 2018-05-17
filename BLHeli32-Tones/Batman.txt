@@ -1,0 +1,27 @@
+## ESC#1 ## 
+Set Music On
+Set Gen. Length 13
+Set Gen. Interval 0
+Paste these notes:
+D#5 8 P8 D#5 8 P8 D5 8 P8 D5 8 P8 C#5 8 P8 C#5 8 P8 D5 8 P8 D5 8 P8  D#5 4 P4 D#5 2
+
+## ESC#2 ## 
+Set Music On
+Set Gen. Length 13
+Set Gen. Interval 0
+Paste these notes:
+G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 4 P4 G#4 2
+
+## ESC#3 ## 
+Set Music On
+Set Gen. Length 13
+Set Gen. Interval 0
+Paste these notes:
+D#6 8 P8 D#6 8 P8 D6 8 P8 D6 8 P8 C#6 8 P8 C#6 8 P8 D6 8 P8 D6 8 P8  G#6 4 P4 G#6 2 
+
+## ESC#4 ## 
+Set Music On
+Set Gen. Length 13
+Set Gen. Interval 0
+Paste these notes:
+G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 G#4 8 P8 D#6 4 P4 D#6 2 
