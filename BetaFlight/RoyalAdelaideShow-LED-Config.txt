@@ -1,21 +1,26 @@
-# Royal Adelaide Show automatic LED colour configuration via VTX frequency
-# Requires: BetaFlight 3.3 or higher
-# See: https://github.com/betaflight/betaflight/wiki/LED-Strip-functionality
+# Royal Adelaide Show LED colour configuration using VTX frequency
+# Requires: BetaFlight 3.3 or higher with supported VTX wired to FC via UART
+# TBS SmartAudio: https://github.com/betaflight/betaflight/wiki/Unify-Smartaudio
+# ImmersionRC Tramp: https://github.com/betaflight/betaflight/wiki/IRC-Tramp
+# LED setup: https://github.com/betaflight/betaflight/wiki/LED-Strip-functionality
 #
 # Define desired LED layout as per usual via the "LED Strip" tab in BetaFlight configurator
-# Group select LEDs, set function to "Color" or "Arm State", ensure "VTX" switch is enabled
-# Save and then go into "CLI" tab and enter the following values
+# Group select LEDs, set Function to "Color" or "Arm State", ensure "VTX" toggle is enabled
+# Save changes, then go into "CLI" tab, copy text below and paste into command prompt
 
-# Red (HSV=0,0,255) = 5740 = color index 3
+# Set red to 5740 (colour index 3)
 color 3 0,0,255
 
-# Green (HSV=120,0,255) = 5780 = color index 4
+# Set green to 5780 (colour index 4)
 color 4 120,0,255
 
-# Blue (HSV=240,0,255) = 5820 = color index 6
+# Set blue to 5820 (colour index 6)
 color 6 240,0,255
 
-# White (HSV=0,255,255) = 5860 = color index 10
+# Set white to 5860 (colour index 10)
 color 10 0,255,255
 
-# Remember to save! :)
+save
+
+# To change colours back, enter "diff all defaults" in CLI to see the default values used
+
