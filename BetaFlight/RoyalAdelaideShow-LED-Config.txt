@@ -6,7 +6,8 @@
 #
 # Define desired LED layout as per usual via the "LED Strip" tab in BetaFlight configurator
 # Group select LEDs, set Function to "Color" or "Arm State", ensure "VTX" toggle is enabled
-# Save changes, then go into "CLI" tab, copy text below and paste into command prompt
+# Save changes, confirm LED colours change with frequency, then go into "CLI" tab and copy
+# and paste the following text into CLI command prompt:
 
 # Set red to 5740 (colour index 3)
 color 3 0,0,255
@@ -22,5 +23,5 @@ color 10 0,255,255
 
 save
 
-# To change colours back, enter "diff all defaults" in CLI to see the default values used
-
+# To tweak colours, format is: "color_index" "Hue", "Saturation", "Value"
+# To revert colours, enter "diff all default" in CLI to see default values
