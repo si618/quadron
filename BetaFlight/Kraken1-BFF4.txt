@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.3.0 Mar  2 2018 / 03:38:27 (177472b4f) MSP API: 1.37
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.3.3 May 31 2018 / 12:55:00 (3565182d3) MSP API: 1.38
 
 # reset configuration to default settings
 defaults nosave
@@ -103,8 +103,6 @@ set osd_tim_2_pos = 33
 set osd_flymode_pos = 333
 set osd_throttle_pos = 225
 set osd_vtx_channel_pos = 377
-set osd_crosshairs = 200
-set osd_ah_sbar = 200
 set osd_ah_pos = 200
 set osd_current_pos = 453
 set osd_mah_drawn_pos = 2552
@@ -123,12 +121,12 @@ set osd_pid_yaw_pos = 487
 set osd_debug_pos = 1
 set osd_power_pos = 321
 set osd_pidrate_profile_pos = 345
-set osd_warnings_pos = 2049
+set osd_warnings_pos = 2058
 set osd_avg_cell_voltage_pos = 76
 set osd_pit_ang_pos = 257
 set osd_rol_ang_pos = 289
 set osd_battery_usage_pos = 392
-set osd_disarmed_pos = 2069
+set osd_disarmed_pos = 2092
 set osd_nheading_pos = 311
 set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
@@ -139,9 +137,6 @@ set osd_stat_endbatt = ON
 set osd_stat_tim_1 = ON
 set debug_mode = NOTCH
 set rate_6pos_switch = ON
-set vtx_channel = 3
-set vtx_power = 3
-set vtx_freq = 5780
 set vcd_video_system = 1
 
 # profile
@@ -151,13 +146,13 @@ set dterm_lowpass_type = PT1
 set dterm_notch_hz = 0
 set dterm_notch_cutoff = 0
 set anti_gravity_gain = 2000
-set setpoint_relax_ratio = 1
+set setpoint_relax_ratio = 0
 set dterm_setpoint_weight = 180
 set crash_recovery = ON
-set p_pitch = 60
-set d_pitch = 40
-set p_roll = 42
-set d_roll = 35
+set p_pitch = 73
+set d_pitch = 37
+set p_roll = 48
+set d_roll = 32
 
 # profile
 profile 1
@@ -225,7 +220,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 2
 
 # save configuration
 save

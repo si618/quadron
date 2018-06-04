@@ -23,5 +23,5 @@ color 10 0,255,255
 
 save
 
-# To tweak colours, format: color "color_index" "Hue", "Saturation", "Value"
-# To revert colours, enter "diff all default" in CLI to see default values
+# To tweak colours use format: color "color_index" "Hue", "Saturation", "Value"
+# To revert colours enter: "diff all default" in CLI to see default values
