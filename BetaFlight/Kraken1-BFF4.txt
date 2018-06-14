@@ -1,7 +1,12 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.3.3 May 31 2018 / 12:55:00 (3565182d3) MSP API: 1.38
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.4.0 Jun 10 2018 / 02:20:37 (a5ba01666) MSP API: 1.39
+
+board_name BETAFLIGHTF4
+manufacturer_id 
+mcu_id 0036003f3336511439313337
+signature 
 
 # reset configuration to default settings
 defaults nosave
@@ -21,8 +26,6 @@ resource CAMERA_CONTROL 1 A01
 
 # feature
 feature AIRMODE
-feature ANTI_GRAVITY
-feature DYNAMIC_FILTER
 
 # beeper
 beeper -GYRO_CALIBRATED
@@ -33,6 +36,7 @@ beeper -ARMING
 beeper -ARMING_GPS_FIX
 beeper -BAT_CRIT_LOW
 beeper -BAT_LOW
+beeper -GPS_STATUS
 beeper -RX_SET
 beeper -ACC_CALIBRATION
 beeper -ACC_CALIBRATION_FAIL
@@ -43,6 +47,10 @@ beeper -ARMED
 beeper -SYSTEM_INIT
 beeper -ON_USB
 beeper -BLACKBOX_ERASE
+beeper -CRASH FLIP
+beeper -CAM_CONNECTION_OPEN
+
+# beacon
 
 # map
 map TAER1234
@@ -66,29 +74,22 @@ aux 2 26 3 1850 2100 0
 aux 3 35 2 1400 1600 0
 
 # adjrange
-adjrange 0 0 1 900 2100 12 1
+adjrange 0 0 1 900 2100 12 1 0 0
 
 # rxrange
 
 # vtx
 
 # rxfail
-rxfail 4 s 1000
-rxfail 5 s 1000
-rxfail 6 s 1000
-rxfail 7 s 1000
 
 # master
-set gyro_notch1_hz = 0
-set gyro_notch1_cutoff = 0
-set gyro_notch2_hz = 0
-set gyro_notch2_cutoff = 0
-set gyro_stage2_lowpass_hz = 200
 set mag_hardware = NONE
 set baro_hardware = NONE
+set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
+set dshot_idle_value = 500
 set motor_pwm_protocol = DSHOT1200
-set bat_capacity = 1300
+set bat_capacity = 1500
 set vbat_max_cell_voltage = 44
 set current_meter = ADC
 set battery_meter = ADC
@@ -131,39 +132,33 @@ set osd_nheading_pos = 311
 set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
 set osd_esc_rpm_pos = 83
-set osd_stat_max_spd = OFF
-set osd_stat_min_rssi = OFF
-set osd_stat_endbatt = ON
 set osd_stat_tim_1 = ON
-set debug_mode = NOTCH
+set osd_stat_max_spd = OFF
+set osd_stat_endbatt = ON
+set osd_stat_min_rssi = OFF
 set rate_6pos_switch = ON
-set vcd_video_system = 1
+set vtx_power = 3
 
 # profile
 profile 0
 
-set dterm_lowpass_type = PT1
-set dterm_notch_hz = 0
 set dterm_notch_cutoff = 0
-set anti_gravity_gain = 2000
-set setpoint_relax_ratio = 0
 set dterm_setpoint_weight = 180
 set crash_recovery = ON
-set p_pitch = 73
-set d_pitch = 37
-set p_roll = 48
-set d_roll = 32
+set iterm_relax = RPY
+set p_pitch = 70
+set i_pitch = 52
+set p_roll = 45
+set i_roll = 42
+set p_yaw = 68
 
 # profile
 profile 1
 
-set dterm_lowpass_type = FIR
-set dterm_notch_hz = 0
 
 # profile
 profile 2
 
-set dterm_notch_hz = 0
 
 # restore original profile selection
 profile 0
@@ -195,9 +190,12 @@ set yaw_srate = 45
 # rateprofile
 rateprofile 3
 
-set roll_srate = 50
-set pitch_srate = 50
-set yaw_srate = 50
+set roll_rc_rate = 110
+set pitch_rc_rate = 110
+set yaw_rc_rate = 110
+set roll_srate = 55
+set pitch_srate = 55
+set yaw_srate = 55
 
 # rateprofile
 rateprofile 4
@@ -220,8 +218,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save
-# 

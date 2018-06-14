@@ -87,6 +87,7 @@ set gyro_stage2_lowpass_hz = 200
 set mag_hardware = NONE
 set baro_hardware = NONE
 set serialrx_provider = CRSF
+set dshot_idle_value = 500
 set motor_pwm_protocol = DSHOT1200
 set bat_capacity = 1300
 set vbat_max_cell_voltage = 44
@@ -139,9 +140,6 @@ set osd_stat_endbatt = ON
 set osd_stat_tim_1 = ON
 set debug_mode = NOTCH
 set rate_6pos_switch = ON
-set vtx_channel = 3
-set vtx_power = 3
-set vtx_freq = 5780
 set vcd_video_system = 1
 
 # profile
@@ -151,13 +149,13 @@ set dterm_lowpass_type = PT1
 set dterm_notch_hz = 0
 set dterm_notch_cutoff = 0
 set anti_gravity_gain = 2000
-set setpoint_relax_ratio = 1
+set setpoint_relax_ratio = 0
 set dterm_setpoint_weight = 180
 set crash_recovery = ON
-set p_pitch = 60
-set d_pitch = 40
-set p_roll = 42
-set d_roll = 35
+set p_pitch = 65
+set d_pitch = 36
+set p_roll = 45
+set d_roll = 32
 
 # profile
 profile 1
@@ -225,7 +223,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 2
 
 # save configuration
 save
