@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.4.0 Jun 10 2018 / 02:20:37 (a5ba01666) MSP API: 1.39
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.4.0 Jun 17 2018 / 08:21:09 (2fe9d7990) MSP API: 1.39
 
 board_name BETAFLIGHTF4
 manufacturer_id 
@@ -145,7 +145,10 @@ profile 0
 set dterm_notch_cutoff = 0
 set dterm_setpoint_weight = 180
 set crash_recovery = ON
-set iterm_relax = RPY
+set iterm_relax = RP
+set iterm_relax_type = SETPOINT
+set iterm_relax_cutoff = 12
+set throttle_boost = 5
 set p_pitch = 70
 set i_pitch = 52
 set p_roll = 45
