@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.4.0 Jun 17 2018 / 08:21:09 (2fe9d7990) MSP API: 1.39
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.4.0 Jul  8 2018 / 04:03:40 (cce8a59be) MSP API: 1.39
 
 board_name BETAFLIGHTF4
 manufacturer_id 
@@ -12,7 +12,7 @@ signature
 defaults nosave
 
 # name
-name SI
+name SI-FI
 
 # resources
 resource CAMERA_CONTROL 1 A01
@@ -49,8 +49,10 @@ beeper -ON_USB
 beeper -BLACKBOX_ERASE
 beeper -CRASH FLIP
 beeper -CAM_CONNECTION_OPEN
+beeper -CAM_CONNECTION_CLOSED
 
 # beacon
+beacon RX_SET
 
 # map
 map TAER1234
@@ -83,8 +85,10 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # rxfail
 
 # master
+set acc_calibration = -29,-12,-355
 set mag_hardware = NONE
 set baro_hardware = NONE
+set rc_interp_ch = RPYT
 set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
 set dshot_idle_value = 500
@@ -107,7 +111,7 @@ set osd_vtx_channel_pos = 377
 set osd_ah_pos = 200
 set osd_current_pos = 453
 set osd_mah_drawn_pos = 2552
-set osd_craft_name_pos = 2543
+set osd_craft_name_pos = 2540
 set osd_gps_speed_pos = 218
 set osd_gps_lon_pos = 82
 set osd_gps_lat_pos = 65
@@ -122,12 +126,12 @@ set osd_pid_yaw_pos = 487
 set osd_debug_pos = 1
 set osd_power_pos = 321
 set osd_pidrate_profile_pos = 345
-set osd_warnings_pos = 2058
+set osd_warnings_pos = 2049
 set osd_avg_cell_voltage_pos = 76
 set osd_pit_ang_pos = 257
 set osd_rol_ang_pos = 289
 set osd_battery_usage_pos = 392
-set osd_disarmed_pos = 2092
+set osd_disarmed_pos = 2069
 set osd_nheading_pos = 311
 set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
@@ -137,7 +141,6 @@ set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
 set osd_stat_min_rssi = OFF
 set rate_6pos_switch = ON
-set vtx_power = 3
 
 # profile
 profile 0
@@ -148,12 +151,6 @@ set crash_recovery = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
-set throttle_boost = 5
-set p_pitch = 70
-set i_pitch = 52
-set p_roll = 45
-set i_roll = 42
-set p_yaw = 68
 
 # profile
 profile 1
@@ -221,7 +218,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 0
 
 # save configuration
 save
