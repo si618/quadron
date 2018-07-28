@@ -139,8 +139,8 @@ set osd_battery_usage_pos = 392
 set osd_disarmed_pos = 2069
 set osd_nheading_pos = 311
 set osd_nvario_pos = 279
-set osd_esc_tmp_pos = 82
-set osd_esc_rpm_pos = 83
+set osd_esc_tmp_pos = 417
+set osd_esc_rpm_pos = 449
 set osd_stat_tim_1 = ON
 set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
@@ -154,10 +154,14 @@ profile 0
 
 set dterm_notch_cutoff = 0
 set crash_recovery = ON
+set smart_feedforward = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
 set throttle_boost = 2
+set f_pitch = 200
+set f_roll = 200
+set f_yaw = 200
 
 # profile
 profile 1

@@ -5,7 +5,7 @@
 
 board_name CLRACINGF4
 manufacturer_id 
-mcu_id 001c001f3037470536353634
+mcu_id 0037003a3037470236353634
 signature 
 
 # reset configuration to default settings
@@ -150,10 +150,14 @@ profile 0
 
 set dterm_notch_cutoff = 0
 set crash_recovery = ON
+set smart_feedforward = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
 set throttle_boost = 2
+set f_pitch = 200
+set f_roll = 200
+set f_yaw = 200
 
 # profile
 profile 1
