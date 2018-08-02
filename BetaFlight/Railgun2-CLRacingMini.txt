@@ -27,7 +27,6 @@ name SI-FI
 feature TELEMETRY
 feature LED_STRIP
 feature AIRMODE
-feature ESC_SENSOR
 
 # beeper
 beeper -GYRO_CALIBRATED
@@ -59,9 +58,8 @@ beacon RX_SET
 map TAER1234
 
 # serial
-serial 2 1024 115200 57600 0 115200
+serial 2 64 115200 57600 0 115200
 serial 3 2048 115200 57600 0 115200
-serial 5 64 115200 57600 0 115200
 
 # led
 led 0 0,0::CVW:0
@@ -96,9 +94,11 @@ adjrange 0 0 1 900 2100 12 1 0 0
 set acc_calibration = -4,-46,36
 set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
-set motor_pwm_protocol = DSHOT1200
+set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1300
-set vbat_scale = 112
+set vbat_max_cell_voltage = 44
+set vbat_warning_cell_voltage = 34
+set vbat_scale = 113
 set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 set pid_process_denom = 1
@@ -150,7 +150,6 @@ profile 0
 
 set dterm_notch_cutoff = 0
 set crash_recovery = ON
-set smart_feedforward = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12

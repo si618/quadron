@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.4.0 Jul  8 2018 / 04:03:40 (cce8a59be) MSP API: 1.39
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.5.0 Jul 25 2018 / 10:18:17 (74d883bfa) MSP API: 1.40
 
 board_name BETAFLIGHTF4
 manufacturer_id 
@@ -15,7 +15,6 @@ defaults nosave
 name SI-FI
 
 # resources
-resource CAMERA_CONTROL 1 A01
 
 # mixer
 
@@ -25,6 +24,7 @@ resource CAMERA_CONTROL 1 A01
 
 
 # feature
+feature LED_STRIP
 feature AIRMODE
 
 # beeper
@@ -64,16 +64,50 @@ serial 2 8192 115200 57600 0 115200
 serial 5 0 115200 57600 0 115200
 
 # led
+led 0 0,0::CVW:0
+led 1 1,0::CVW:0
+led 2 2,0::CVW:0
+led 3 3,0::CVW:0
+led 4 4,0::CVW:0
+led 5 5,0::CVW:0
+led 6 6,0::CVW:0
+led 7 7,0::CVW:0
+led 8 8,0::CVW:0
+led 9 9,0::CVW:0
+led 10 10,0::CVW:0
+led 11 11,0::CVW:0
+led 12 12,0::CVW:0
+led 13 13,0::CVW:0
+led 14 14,0::CVW:0
+led 15 15,0::CVW:0
+led 16 15,1::CVW:0
+led 17 14,1::CVW:0
+led 18 13,1::CVW:0
+led 19 12,1::CVW:0
+led 20 11,1::CVW:0
+led 21 10,1::CVW:0
+led 22 9,1::CVW:0
+led 23 8,1::CVW:0
+led 24 7,1::CVW:0
+led 25 6,1::CVW:0
+led 26 5,1::CVW:0
+led 27 4,1::CVW:0
+led 28 3,1::CVW:0
+led 29 2,1::CVW:0
 
 # color
+color 3 0,0,255
+color 4 120,0,255
+color 6 240,0,255
+color 10 0,255,255
 
 # mode_color
 
 # aux
-aux 0 0 0 1800 2100 0
-aux 1 13 2 1850 2100 0
-aux 2 26 3 1850 2100 0
-aux 3 35 2 1400 1600 0
+aux 0 0 0 1800 2100 0 0
+aux 1 13 2 1850 2100 0 0
+aux 2 26 3 1850 2100 0 0
+aux 3 35 2 1400 1600 0 0
 
 # adjrange
 adjrange 0 0 1 900 2100 12 1 0 0
@@ -85,14 +119,11 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # rxfail
 
 # master
-set acc_calibration = -29,-12,-355
+set acc_calibration = 45,36,-348
 set mag_hardware = NONE
 set baro_hardware = NONE
-set rc_interp_ch = RPYT
-set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
-set dshot_idle_value = 500
-set motor_pwm_protocol = DSHOT1200
+set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1500
 set vbat_max_cell_voltage = 44
 set current_meter = ADC
@@ -146,11 +177,16 @@ set rate_6pos_switch = ON
 profile 0
 
 set dterm_notch_cutoff = 0
-set dterm_setpoint_weight = 180
 set crash_recovery = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
+set i_pitch = 55
+set f_pitch = 255
+set i_roll = 50
+set f_roll = 255
+set i_yaw = 50
+set f_yaw = 200
 
 # profile
 profile 1
@@ -218,7 +254,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 2
 
 # save configuration
 save
