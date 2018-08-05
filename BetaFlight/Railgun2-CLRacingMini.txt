@@ -89,9 +89,13 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # vtx
 
 # rxfail
+rxfail 4 s 1000
+rxfail 6 s 1500
 
 # master
-set acc_calibration = -4,-46,36
+set dyn_notch_quality = 10
+set dyn_notch_width_percent = 25
+set acc_calibration = -38,27,-167
 set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
 set motor_pwm_protocol = DSHOT600
@@ -154,8 +158,11 @@ set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
 set throttle_boost = 2
+set i_pitch = 55
 set f_pitch = 200
+set i_roll = 50
 set f_roll = 200
+set i_yaw = 50
 set f_yaw = 200
 
 # profile
@@ -224,7 +231,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save

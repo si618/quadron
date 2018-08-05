@@ -95,14 +95,18 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # vtx
 
 # rxfail
+rxfail 4 s 1000
+rxfail 6 s 1500
 
 # master
-set acc_calibration = -4,-46,36
+set dyn_notch_quality = 10
+set dyn_notch_width_percent = 25
+set acc_calibration = -8,-45,21
 set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
 set motor_pwm_protocol = DSHOT1200
 set bat_capacity = 1300
-set vbat_scale = 112
+set vbat_max_cell_voltage = 44
 set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 set pid_process_denom = 1
@@ -159,8 +163,12 @@ set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
 set throttle_boost = 2
+set i_pitch = 55
 set f_pitch = 200
+set i_roll = 50
 set f_roll = 200
+set p_yaw = 67
+set i_yaw = 50
 set f_yaw = 200
 
 # profile
