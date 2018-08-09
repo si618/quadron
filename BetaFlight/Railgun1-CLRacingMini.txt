@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 3.5.0 Jul 25 2018 / 10:19:14 (74d883bfa) MSP API: 1.40
+# Betaflight / CLRACINGF4 (CLR4) 3.5.0 Aug  2 2018 / 01:53:03 (d0a9a0fd9) MSP API: 1.40
 
 board_name CLRACINGF4
 manufacturer_id 
@@ -158,15 +158,14 @@ profile 0
 
 set dterm_notch_cutoff = 0
 set crash_recovery = ON
-set smart_feedforward = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
 set throttle_boost = 2
 set i_pitch = 55
-set f_pitch = 200
+set f_pitch = 255
 set i_roll = 50
-set f_roll = 200
+set f_roll = 255
 set p_yaw = 67
 set i_yaw = 50
 set f_yaw = 200
@@ -237,7 +236,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save
