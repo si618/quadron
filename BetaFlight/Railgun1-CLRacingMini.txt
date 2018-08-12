@@ -101,12 +101,14 @@ rxfail 6 s 1500
 # master
 set dyn_notch_quality = 10
 set dyn_notch_width_percent = 25
-set acc_calibration = -8,-45,21
+set acc_hardware = NONE
 set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
-set motor_pwm_protocol = DSHOT1200
+set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1300
 set vbat_max_cell_voltage = 44
+set vbat_warning_cell_voltage = 34
+set vbat_scale = 113
 set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 set pid_process_denom = 1
@@ -143,8 +145,8 @@ set osd_battery_usage_pos = 392
 set osd_disarmed_pos = 2069
 set osd_nheading_pos = 311
 set osd_nvario_pos = 279
-set osd_esc_tmp_pos = 417
-set osd_esc_rpm_pos = 449
+set osd_esc_tmp_pos = 82
+set osd_esc_rpm_pos = 83
 set osd_stat_tim_1 = ON
 set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
@@ -152,22 +154,21 @@ set osd_stat_min_rssi = OFF
 set osd_stat_bbox = OFF
 set osd_stat_bb_no = OFF
 set rate_6pos_switch = ON
+set vtx_power = 2
 
 # profile
 profile 0
 
 set dterm_notch_cutoff = 0
-set crash_recovery = ON
 set iterm_relax = RP
 set iterm_relax_type = SETPOINT
 set iterm_relax_cutoff = 12
 set throttle_boost = 2
-set i_pitch = 55
-set f_pitch = 255
-set i_roll = 50
-set f_roll = 255
-set p_yaw = 67
-set i_yaw = 50
+set i_pitch = 105
+set f_pitch = 300
+set i_roll = 100
+set f_roll = 300
+set i_yaw = 100
 set f_yaw = 200
 
 # profile
