@@ -161,8 +161,8 @@ profile 0
 
 set dterm_notch_cutoff = 0
 set iterm_relax = RP
-set iterm_relax_type = SETPOINT
-set iterm_relax_cutoff = 12
+set iterm_relax_type = GRYO
+set iterm_relax_cutoff = 11
 set throttle_boost = 2
 set i_pitch = 105
 set f_pitch = 300
