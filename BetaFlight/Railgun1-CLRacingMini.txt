@@ -104,6 +104,7 @@ set dyn_notch_width_percent = 25
 set acc_hardware = NONE
 set acc_calibration = -8,-45,21
 set rc_smoothing_type = FILTER
+set rc_smoothing_input_hz = 9
 set serialrx_provider = CRSF
 set blackbox_device = NONE
 set motor_pwm_protocol = DSHOT1200
@@ -160,6 +161,8 @@ set rate_6pos_switch = ON
 # profile
 profile 0
 
+set dterm_lowpass_hz = 110
+set dterm_lowpass2_hz = 0
 set dterm_notch_cutoff = 0
 set iterm_relax = RP
 set throttle_boost = 2
@@ -236,7 +239,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save
