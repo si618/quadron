@@ -104,7 +104,6 @@ set dyn_notch_width_percent = 25
 set acc_hardware = NONE
 set acc_calibration = -8,-45,21
 set rc_smoothing_type = FILTER
-set rc_smoothing_input_hz = 9
 set serialrx_provider = CRSF
 set blackbox_device = NONE
 set motor_pwm_protocol = DSHOT1200
@@ -239,7 +238,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save

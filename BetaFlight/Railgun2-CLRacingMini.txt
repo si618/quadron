@@ -154,6 +154,8 @@ set rate_6pos_switch = ON
 # profile
 profile 0
 
+set dterm_lowpass_hz = 110
+set dterm_lowpass2_hz = 0
 set dterm_notch_cutoff = 0
 set iterm_relax = RP
 set throttle_boost = 2
