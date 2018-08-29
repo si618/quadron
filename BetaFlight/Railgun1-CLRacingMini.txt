@@ -15,10 +15,10 @@ defaults nosave
 name SI-FI
 
 # resources
-resource MOTOR 1 A03
-resource MOTOR 2 B00
-resource MOTOR 3 A02
-resource MOTOR 4 B01
+RESOURCE MOTOR 1 B01
+RESOURCE MOTOR 2 A02
+RESOURCE MOTOR 3 B00
+RESOURCE MOTOR 4 A03
 
 # mixer
 
@@ -31,7 +31,6 @@ resource MOTOR 4 B01
 feature TELEMETRY
 feature LED_STRIP
 feature AIRMODE
-feature ESC_SENSOR
 
 # beeper
 beeper -GYRO_CALIBRATED
@@ -106,7 +105,7 @@ set acc_calibration = -8,-45,21
 set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
 set blackbox_device = NONE
-set motor_pwm_protocol = DSHOT1200
+set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1300
 set vbat_max_cell_voltage = 44
 set vbat_warning_cell_voltage = 34
