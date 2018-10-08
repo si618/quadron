@@ -15,10 +15,10 @@ defaults nosave
 name SI-FI
 
 # resources
-RESOURCE MOTOR 1 B01
-RESOURCE MOTOR 2 A02
-RESOURCE MOTOR 3 B00
-RESOURCE MOTOR 4 A03
+resource MOTOR 1 B01
+resource MOTOR 2 A02
+resource MOTOR 3 B00
+resource MOTOR 4 A03
 
 # mixer
 
@@ -109,7 +109,8 @@ set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1300
 set vbat_max_cell_voltage = 44
 set vbat_warning_cell_voltage = 34
-set vbat_scale = 113
+set vbat_scale = 112
+set ibata_scale = 240
 set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 set pid_process_denom = 1
@@ -164,11 +165,11 @@ set dterm_lowpass2_hz = 0
 set dterm_notch_cutoff = 0
 set iterm_relax = RP
 set throttle_boost = 2
-set i_pitch = 100
+set i_pitch = 90
 set f_pitch = 300
-set i_roll = 90
+set i_roll = 80
 set f_roll = 300
-set i_yaw = 120
+set i_yaw = 110
 set f_yaw = 200
 
 # profile
@@ -237,7 +238,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save

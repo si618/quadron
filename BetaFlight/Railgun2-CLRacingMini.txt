@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 3.5.0 Aug 14 2018 / 03:26:59 (1d710afd7) MSP API: 1.40
+# Betaflight / CLRACINGF4 (CLR4) 3.5.1 Sep  8 2018 / 05:03:13 (d9fb5ca13) MSP API: 1.40
 
 board_name CLRACINGF4
 manufacturer_id 
@@ -25,7 +25,6 @@ name SI-FI
 
 # feature
 feature TELEMETRY
-feature LED_STRIP
 feature AIRMODE
 
 # beeper
@@ -105,11 +104,13 @@ set motor_pwm_protocol = DSHOT600
 set bat_capacity = 1300
 set vbat_max_cell_voltage = 44
 set vbat_warning_cell_voltage = 34
-set vbat_scale = 113
+set vbat_scale = 112
+set ibata_scale = 230
 set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 set pid_process_denom = 1
-set osd_vbat_pos = 2529
+set osd_warn_core_temp = OFF
+set osd_vbat_pos = 2433
 set osd_rssi_pos = 40
 set osd_tim_1_pos = 54
 set osd_tim_2_pos = 33
@@ -118,8 +119,8 @@ set osd_throttle_pos = 225
 set osd_vtx_channel_pos = 377
 set osd_ah_pos = 200
 set osd_current_pos = 453
-set osd_mah_drawn_pos = 2552
-set osd_craft_name_pos = 2540
+set osd_mah_drawn_pos = 2456
+set osd_craft_name_pos = 2446
 set osd_gps_speed_pos = 218
 set osd_gps_lon_pos = 82
 set osd_gps_lat_pos = 65

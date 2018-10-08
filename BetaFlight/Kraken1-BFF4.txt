@@ -1,7 +1,7 @@
 # diff all
 
 # version
-# Betaflight / BETAFLIGHTF4 (BFF4) 3.5.0 Aug 14 2018 / 03:26:02 (1d710afd7) MSP API: 1.40
+# Betaflight / BETAFLIGHTF4 (BFF4) 3.5.1 Aug 31 2018 / 00:32:49 (d0002fe) MSP API: 1.40
 
 board_name BETAFLIGHTF4
 manufacturer_id 
@@ -173,6 +173,7 @@ set osd_stat_tim_1 = ON
 set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
 set osd_stat_min_rssi = OFF
+set debug_mode = CRASH_RECOVERY
 set rate_6pos_switch = ON
 
 # profile
