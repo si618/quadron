@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF405 (MKF4) 3.5.2 Oct 16 2018 / 22:03:47 (a5e270fee) MSP API: 1.40
+# Betaflight / MATEKF405 (MKF4) 4.0.0 Nov  5 2018 / 23:05:40 (0d095ed) MSP API: 1.41
 
 board_name MATEKF405
 manufacturer_id 
@@ -36,7 +36,9 @@ resource CAMERA_CONTROL 1 A15
 
 
 # feature
+feature -SOFTSERIAL
 #feature -AIRMODE
+#feature SOFTSERIAL
 feature AIRMODE
 
 # beeper
@@ -74,19 +76,19 @@ beeper -SYSTEM_INIT
 beeper -ON_USB
 #beeper BLACKBOX_ERASE
 beeper -BLACKBOX_ERASE
-#beeper CRASH FLIP
-beeper -CRASH FLIP
+#beeper CRASH_FLIP
+beeper -CRASH_FLIP
 #beeper CAM_CONNECTION_OPEN
 beeper -CAM_CONNECTION_OPEN
-#beeper CAM_CONNECTION_CLOSED
-beeper -CAM_CONNECTION_CLOSED
+#beeper CAM_CONNECTION_CLOSE
+beeper -CAM_CONNECTION_CLOSE
 
 # beacon
 #beacon -RX_SET
 beacon RX_SET
 
 # map
-#map AETR1234qþléÿÿÿq]
+#map AETR1234
 map TAER1234
 
 # serial
@@ -113,11 +115,11 @@ color 10 120,0,255
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 13 2 1750 2100 0 0
+aux 1 26 3 1775 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 26 3 1775 2100 0 0
+aux 2 35 2 1350 1650 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 35 2 1350 1650 0 0
+aux 3 49 2 1750 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -130,14 +132,18 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # rxfail
 
 # master
+#set gyro_use_32khz = OFF
+set gyro_use_32khz = ON
 #set acc_calibration = 0,0,0
-set acc_calibration = 61,0,37
+set acc_calibration = 97,-60,22
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
+#set blackbox_device = SDCARD
+set blackbox_device = SPIFLASH
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
 #set beeper_dshot_beacon_tone = 1
@@ -145,9 +151,13 @@ set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
 #set pid_process_denom = 4
-set pid_process_denom = 1
+set pid_process_denom = 2
+#set osd_warn_core_temp = ON
+set osd_warn_core_temp = OFF
+#set osd_warn_fail_safe = ON
+set osd_warn_fail_safe = OFF
 #set osd_vbat_pos = 234
-set osd_vbat_pos = 2529
+set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_tim_1_pos = 234
@@ -165,9 +175,9 @@ set osd_ah_pos = 200
 #set osd_current_pos = 234
 set osd_current_pos = 453
 #set osd_mah_drawn_pos = 234
-set osd_mah_drawn_pos = 2552
+set osd_mah_drawn_pos = 2456
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2541
+set osd_craft_name_pos = 2444
 #set osd_gps_speed_pos = 234
 set osd_gps_speed_pos = 218
 #set osd_gps_lon_pos = 234
@@ -216,6 +226,8 @@ set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
 set osd_esc_rpm_pos = 83
+#set osd_core_temp_pos = 234
+set osd_core_temp_pos = 2440
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
@@ -224,35 +236,27 @@ set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
 #set osd_stat_min_rssi = ON
 set osd_stat_min_rssi = OFF
-#set osd_stat_bbox = ON
-set osd_stat_bbox = OFF
-#set osd_stat_bb_no = ON
-set osd_stat_bb_no = OFF
+#set debug_mode = NONE
+set debug_mode = DYN_LPF
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
+#set cpu_overclock = OFF
+set cpu_overclock = 216MHZ
+#set vcd_video_system = AUTO
+set vcd_video_system = NTSC
 
 # profile
 profile 0
 
-#set dterm_lowpass_hz = 100
-set dterm_lowpass_hz = 110
-#set dterm_notch_cutoff = 160
-set dterm_notch_cutoff = 0
-#set iterm_relax = OFF
-set iterm_relax = RP
-#set throttle_boost = 5
-set throttle_boost = 2
 #set i_pitch = 50
-set i_pitch = 90
+set i_pitch = 75
 #set f_pitch = 60
 set f_pitch = 200
 #set i_roll = 45
-set i_roll = 80
+set i_roll = 65
 #set f_roll = 60
 set f_roll = 200
-#set i_yaw = 45
-set i_yaw = 110
-#set f_yaw = 60
+#set f_yaw = 100
 set f_yaw = 125
 
 # profile
@@ -351,7 +355,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 1
 
 # save configuration
 save
