@@ -135,7 +135,7 @@ adjrange 0 0 1 900 2100 12 1 0 0
 #set gyro_use_32khz = OFF
 set gyro_use_32khz = ON
 #set acc_calibration = 0,0,0
-set acc_calibration = 97,-60,22
+set acc_calibration = -55,-42,33
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
@@ -146,6 +146,8 @@ set serialrx_provider = CRSF
 set blackbox_device = SPIFLASH
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
+#set align_board_yaw = 0
+set align_board_yaw = 270
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
