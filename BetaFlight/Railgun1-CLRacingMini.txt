@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 3.5.1 Sep  8 2018 / 05:03:13 (d9fb5ca13) MSP API: 1.40
+# Betaflight / CLRACINGF4 (CLR4) 3.5.3 Nov 14 2018 / 23:17:07 (61d5abf00) MSP API: 1.40
 
 board_name CLRACINGF4
 manufacturer_id 
@@ -88,7 +88,7 @@ beeper -CAM_CONNECTION_CLOSED
 beacon RX_SET
 
 # map
-#map AETR1234,
+#map AETR1234
 map TAER1234
 
 # serial
