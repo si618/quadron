@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Nov 14 2018 / 22:55:13 (f57b3f3dc) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 3.5.3 Nov 14 2018 / 23:17:07 (61d5abf00) MSP API: 1.40
 
 board_name CLRACINGF4
 manufacturer_id 
@@ -66,12 +66,12 @@ beeper -SYSTEM_INIT
 beeper -ON_USB
 #beeper BLACKBOX_ERASE
 beeper -BLACKBOX_ERASE
-#beeper CRASH_FLIP
-beeper -CRASH_FLIP
+#beeper CRASH FLIP
+beeper -CRASH FLIP
 #beeper CAM_CONNECTION_OPEN
 beeper -CAM_CONNECTION_OPEN
-#beeper CAM_CONNECTION_CLOSE
-beeper -CAM_CONNECTION_CLOSE
+#beeper CAM_CONNECTION_CLOSED
+beeper -CAM_CONNECTION_CLOSED
 
 # beacon
 #beacon -RX_SET
@@ -88,8 +88,24 @@ serial 2 64 115200 57600 0 115200
 serial 3 2048 115200 57600 0 115200
 
 # led
+#led 0 0,0::C:0
+led 0 0,0::CVW:0
+#led 1 0,0::C:0
+led 1 1,0::CVW:0
+#led 2 0,0::C:0
+led 2 2,0::CVW:0
+#led 3 0,0::C:0
+led 3 3,0::CVW:0
 
 # color
+#color 3 30,0,255
+color 3 0,0,255
+#color 4 60,0,255
+color 4 120,0,255
+#color 6 120,0,255
+color 6 240,0,255
+#color 10 240,0,255
+color 10 0,255,255
 
 # mode_color
 
@@ -97,11 +113,11 @@ serial 3 2048 115200 57600 0 115200
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 26 3 1775 2100 0 0
+aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 2 1350 1650 0 0
+aux 2 26 3 1775 2100 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 2 1800 2100 0 0
+aux 3 35 2 1350 1650 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -118,6 +134,16 @@ rxfail 4 s 1000
 rxfail 6 s 1500
 
 # master
+#set dyn_notch_quality = 70
+set dyn_notch_quality = 10
+#set dyn_notch_width_percent = 50
+set dyn_notch_width_percent = 25
+#set acc_hardware = AUTO
+set acc_hardware = NONE
+#set acc_calibration = 0,0,0
+set acc_calibration = -38,27,-167
+#set rc_smoothing_type = INTERPOLATION
+set rc_smoothing_type = FILTER
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
@@ -208,6 +234,8 @@ set osd_battery_usage_pos = 392
 set osd_disarmed_pos = 2069
 #set osd_nheading_pos = 234
 set osd_nheading_pos = 311
+#set osd_nvario_pos = 234
+set osd_nvario_pos = 279
 #set osd_esc_tmp_pos = 234
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
@@ -232,12 +260,24 @@ set vcd_video_system = NTSC
 # profile
 profile 0
 
+#set dterm_notch_cutoff = 160
+set dterm_notch_cutoff = 0
+#set iterm_relax = OFF
+set iterm_relax = RP
+#set throttle_boost = 5
+set throttle_boost = 2
+#set i_pitch = 50
+set i_pitch = 90
 #set f_pitch = 60
-set f_pitch = 188
+set f_pitch = 300
+#set i_roll = 45
+set i_roll = 80
 #set f_roll = 60
-set f_roll = 188
-#set f_yaw = 100
-set f_yaw = 123
+set f_roll = 300
+#set i_yaw = 45
+set i_yaw = 110
+#set f_yaw = 60
+set f_yaw = 200
 
 # profile
 profile 1
