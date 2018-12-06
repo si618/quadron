@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF405 (MKF4) 4.0.0 Nov  5 2018 / 23:05:40 (0d095ed) MSP API: 1.41
+# Betaflight / MATEKF405 (MKF4) 4.0.0 Dec  6 2018 / 02:29:05 (fa7dabefc) MSP API: 1.41
 
 board_name MATEKF405
 manufacturer_id 
@@ -132,10 +132,6 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # rxfail
 
 # master
-#set gyro_use_32khz = OFF
-set gyro_use_32khz = ON
-#set acc_calibration = 0,0,0
-set acc_calibration = -55,-42,33
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
@@ -153,7 +149,7 @@ set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
 #set pid_process_denom = 4
-set pid_process_denom = 2
+set pid_process_denom = 1
 #set osd_warn_core_temp = ON
 set osd_warn_core_temp = OFF
 #set osd_warn_fail_safe = ON
@@ -229,7 +225,7 @@ set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
 set osd_esc_rpm_pos = 83
 #set osd_core_temp_pos = 234
-set osd_core_temp_pos = 2440
+set osd_core_temp_pos = 2439
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
@@ -239,23 +235,21 @@ set osd_stat_endbatt = ON
 #set osd_stat_min_rssi = ON
 set osd_stat_min_rssi = OFF
 #set debug_mode = NONE
-set debug_mode = DYN_LPF
+set debug_mode = GYRO_FILTERED
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
-#set cpu_overclock = OFF
-set cpu_overclock = 216MHZ
+#set vtx_channel = 1
+set vtx_channel = 3
+#set vtx_freq = 5740
+set vtx_freq = 5780
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 
 # profile
 profile 0
 
-#set i_pitch = 50
-set i_pitch = 75
 #set f_pitch = 60
 set f_pitch = 200
-#set i_roll = 45
-set i_roll = 65
 #set f_roll = 60
 set f_roll = 200
 #set f_yaw = 100
@@ -357,7 +351,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 1
+rateprofile 3
 
 # save configuration
 save
