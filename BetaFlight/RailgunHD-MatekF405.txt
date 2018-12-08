@@ -138,6 +138,8 @@ set mag_hardware = NONE
 set baro_hardware = NONE
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
+#set blackbox_p_ratio = 32
+set blackbox_p_ratio = 64
 #set blackbox_device = SDCARD
 set blackbox_device = SPIFLASH
 #set motor_pwm_protocol = ONESHOT125
@@ -248,6 +250,8 @@ set vcd_video_system = NTSC
 # profile
 profile 0
 
+#set crash_recovery = OFF
+set crash_recovery = ON
 #set f_pitch = 60
 set f_pitch = 200
 #set f_roll = 60

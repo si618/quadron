@@ -148,8 +148,6 @@ rxfail 6 s 1500
 set dyn_notch_quality = 10
 #set dyn_notch_width_percent = 50
 set dyn_notch_width_percent = 25
-#set acc_hardware = AUTO
-set acc_hardware = NONE
 #set acc_calibration = 0,0,0
 set acc_calibration = -8,-45,21
 #set rc_smoothing_type = INTERPOLATION
@@ -158,6 +156,8 @@ set rc_smoothing_type = FILTER
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
 set blackbox_device = NONE
+#set dshot_idle_value = 450
+set dshot_idle_value = 500
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
 #set bat_capacity = 0
@@ -268,12 +268,10 @@ set vtx_freq = 5780
 # profile
 profile 0
 
-#set dterm_lowpass_hz = 100
-set dterm_lowpass_hz = 110
-#set dterm_lowpass2_hz = 200
-set dterm_lowpass2_hz = 0
 #set dterm_notch_cutoff = 160
 set dterm_notch_cutoff = 0
+#set crash_recovery = OFF
+set crash_recovery = ON
 #set iterm_relax = OFF
 set iterm_relax = RP
 #set throttle_boost = 5

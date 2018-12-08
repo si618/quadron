@@ -244,6 +244,14 @@ set vtx_freq = 5780
 # profile
 profile 0
 
+#set crash_recovery = OFF
+set crash_recovery = ON
+#set f_pitch = 60
+set f_pitch = 200
+#set f_roll = 60
+set f_roll = 200
+#set f_yaw = 100
+set f_yaw = 125
 
 # profile
 profile 1
@@ -341,7 +349,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save

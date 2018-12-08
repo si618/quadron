@@ -85,7 +85,7 @@ map TAER1234
 #serial 2 0 115200 57600 0 115200
 serial 2 64 115200 57600 0 115200
 #serial 3 0 115200 57600 0 115200
-serial 3 2048 115200 57600 0 115200
+serial 3 8192 115200 57600 0 115200
 
 # led
 #led 0 0,0::C:0
@@ -138,10 +138,8 @@ rxfail 6 s 1500
 set dyn_notch_quality = 10
 #set dyn_notch_width_percent = 50
 set dyn_notch_width_percent = 25
-#set acc_hardware = AUTO
-set acc_hardware = NONE
 #set acc_calibration = 0,0,0
-set acc_calibration = -38,27,-167
+set acc_calibration = 35,15,-208
 #set rc_smoothing_type = INTERPOLATION
 set rc_smoothing_type = FILTER
 #set serialrx_provider = SPEK1024
@@ -254,6 +252,10 @@ set osd_stat_bbox = OFF
 set osd_stat_bb_no = OFF
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
+#set vtx_channel = 1
+set vtx_channel = 5
+#set vtx_freq = 5740
+set vtx_freq = 5820
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 
@@ -262,6 +264,8 @@ profile 0
 
 #set dterm_notch_cutoff = 160
 set dterm_notch_cutoff = 0
+#set crash_recovery = OFF
+set crash_recovery = ON
 #set iterm_relax = OFF
 set iterm_relax = RP
 #set throttle_boost = 5
