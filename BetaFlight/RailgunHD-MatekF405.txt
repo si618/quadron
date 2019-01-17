@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF405 (MKF4) 4.0.0 Dec  6 2018 / 02:29:05 (fa7dabefc) MSP API: 1.41
+# Betaflight / MATEKF405 (MKF4) 4.0.0 Jan 16 2019 / 13:31:49 (e0fc9300e) MSP API: 1.41
 
 board_name MATEKF405
 manufacturer_id 
@@ -27,6 +27,8 @@ resource MOTOR 4 C08
 resource MOTOR 5 NONE
 #resource CAMERA_CONTROL 1 NONE
 resource CAMERA_CONTROL 1 A15
+
+# dmaopt
 
 # mixer
 
@@ -136,6 +138,16 @@ adjrange 0 0 1 900 2100 12 1 0 0
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
+#set rc_interp = AUTO
+set rc_interp = MANUAL
+#set rc_interp_int = 19
+set rc_interp_int = 9
+#set rc_smoothing_input_hz = 0
+set rc_smoothing_input_hz = 30
+#set rc_smoothing_derivative_hz = 0
+set rc_smoothing_derivative_hz = 30
+#set rc_smoothing_input_type = BIQUAD
+set rc_smoothing_input_type = PT1
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
 #set blackbox_p_ratio = 32
@@ -243,25 +255,54 @@ set rate_6pos_switch = ON
 #set vtx_channel = 1
 set vtx_channel = 3
 #set vtx_freq = 5740
-set vtx_freq = 5780
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 
 # profile
 profile 0
 
+#set dyn_lpf_dterm_min_hz = 150
+set dyn_lpf_dterm_min_hz = 120
+#set dyn_lpf_dterm_max_hz = 250
+set dyn_lpf_dterm_max_hz = 180
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 120
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 170
+#set dterm_notch_hz = 0
+set dterm_notch_hz = 200
+#set dterm_notch_cutoff = 0
+set dterm_notch_cutoff = 150
 #set crash_recovery = OFF
 set crash_recovery = ON
-#set f_pitch = 60
-set f_pitch = 200
-#set f_roll = 60
-set f_roll = 200
-#set f_yaw = 100
-set f_yaw = 125
+#set throttle_boost = 5
+set throttle_boost = 1
+#set launch_angle_limit = 0
+set launch_angle_limit = 68
 
 # profile
 profile 1
 
+#set dyn_lpf_dterm_min_hz = 150
+set dyn_lpf_dterm_min_hz = 120
+#set dyn_lpf_dterm_max_hz = 250
+set dyn_lpf_dterm_max_hz = 180
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 120
+#set dterm_lowpass2_type = BIQUAD
+set dterm_lowpass2_type = PT1
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 170
+#set dterm_notch_hz = 0
+set dterm_notch_hz = 200
+#set dterm_notch_cutoff = 0
+set dterm_notch_cutoff = 150
+#set throttle_boost = 5
+set throttle_boost = 1
+#set p_yaw = 45
+set p_yaw = 35
+#set dterm_cut_gain = 15
+set dterm_cut_gain = 35
 
 # profile
 profile 2
@@ -355,7 +396,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 0
 
 # save configuration
 save
