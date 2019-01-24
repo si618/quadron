@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 3.5.3 Nov 14 2018 / 23:17:07 (61d5abf00) MSP API: 1.40
+# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Jan 23 2019 / 13:07:11 (a4ce8b560) MSP API: 1.41
 
 board_name CLRACINGF4
 manufacturer_id 
@@ -23,6 +23,8 @@ resource MOTOR 2 A02
 resource MOTOR 3 B00
 #resource MOTOR 4 A02
 resource MOTOR 4 A03
+
+# dmaopt
 
 # mixer
 
@@ -76,12 +78,14 @@ beeper -SYSTEM_INIT
 beeper -ON_USB
 #beeper BLACKBOX_ERASE
 beeper -BLACKBOX_ERASE
-#beeper CRASH FLIP
-beeper -CRASH FLIP
+#beeper CRASH_FLIP
+beeper -CRASH_FLIP
 #beeper CAM_CONNECTION_OPEN
 beeper -CAM_CONNECTION_OPEN
-#beeper CAM_CONNECTION_CLOSED
-beeper -CAM_CONNECTION_CLOSED
+#beeper CAM_CONNECTION_CLOSE
+beeper -CAM_CONNECTION_CLOSE
+#beeper RC_SMOOTHING_INIT_FAIL
+beeper -RC_SMOOTHING_INIT_FAIL
 
 # beacon
 #beacon -RX_SET
@@ -128,6 +132,8 @@ aux 1 13 2 1750 2100 0 0
 aux 2 26 3 1775 2100 0 0
 #aux 3 0 0 900 900 0 0
 aux 3 35 2 1350 1650 0 0
+#aux 4 0 0 900 900 0 0
+aux 4 49 1 1400 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -138,34 +144,32 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # vtx
 
 # rxfail
-#rxfail 4 h 1500
-rxfail 4 s 1000
-#rxfail 6 h 1500
-rxfail 6 s 1500
 
 # master
-#set dyn_notch_quality = 70
-set dyn_notch_quality = 10
-#set dyn_notch_width_percent = 50
-set dyn_notch_width_percent = 25
+#set dyn_lpf_gyro_max_hz = 450
+set dyn_lpf_gyro_max_hz = 500
 #set acc_calibration = 0,0,0
-set acc_calibration = -8,-45,21
-#set rc_smoothing_type = INTERPOLATION
-set rc_smoothing_type = FILTER
+set acc_calibration = -1,-21,-151
+#set rc_interp = AUTO
+set rc_interp = MANUAL
+#set rc_interp_int = 19
+set rc_interp_int = 9
+#set rc_smoothing_input_hz = 0
+set rc_smoothing_input_hz = 30
+#set rc_smoothing_derivative_hz = 0
+set rc_smoothing_derivative_hz = 30
+#set rc_smoothing_input_type = BIQUAD
+set rc_smoothing_input_type = PT1
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
 set blackbox_device = NONE
-#set dshot_idle_value = 450
+#set dshot_idle_value = 550
 set dshot_idle_value = 500
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
 #set bat_capacity = 0
 set bat_capacity = 1300
-#set vbat_max_cell_voltage = 43
-set vbat_max_cell_voltage = 44
-#set vbat_warning_cell_voltage = 35
-set vbat_warning_cell_voltage = 34
 #set vbat_scale = 110
 set vbat_scale = 112
 #set ibata_scale = 250
@@ -261,33 +265,51 @@ set osd_stat_bb_no = OFF
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_channel = 1
-set vtx_channel = 3
+set vtx_channel = 7
 #set vtx_freq = 5740
-set vtx_freq = 5780
+set vtx_freq = 5860
 
 # profile
 profile 0
 
-#set dterm_notch_cutoff = 160
-set dterm_notch_cutoff = 0
+#set dyn_lpf_dterm_min_hz = 150
+set dyn_lpf_dterm_min_hz = 120
+#set dyn_lpf_dterm_max_hz = 250
+set dyn_lpf_dterm_max_hz = 180
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 120
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 170
+#set dterm_notch_hz = 0
+set dterm_notch_hz = 200
+#set dterm_notch_cutoff = 0
+set dterm_notch_cutoff = 150
 #set crash_recovery = OFF
 set crash_recovery = ON
-#set iterm_relax = OFF
-set iterm_relax = RP
 #set throttle_boost = 5
-set throttle_boost = 2
-#set i_pitch = 50
-set i_pitch = 90
+set throttle_boost = 1
+#set i_pitch = 75
+set i_pitch = 70
+#set d_pitch = 44
+set d_pitch = 27
 #set f_pitch = 60
-set f_pitch = 200
-#set i_roll = 45
-set i_roll = 80
+set f_pitch = 70
+#set p_roll = 46
+set p_roll = 40
+#set i_roll = 65
+set i_roll = 50
+#set d_roll = 40
+set d_roll = 27
 #set f_roll = 60
-set f_roll = 200
-#set i_yaw = 45
-set i_yaw = 110
-#set f_yaw = 60
-set f_yaw = 125
+set f_roll = 50
+#set p_yaw = 45
+set p_yaw = 40
+#set i_yaw = 100
+set i_yaw = 80
+#set f_yaw = 100
+set f_yaw = 38
+#set launch_angle_limit = 0
+set launch_angle_limit = 68
 
 # profile
 profile 1
@@ -385,7 +407,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save
