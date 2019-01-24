@@ -129,11 +129,9 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 26 3 1775 2100 0 0
+aux 2 35 2 1350 1650 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 35 2 1350 1650 0 0
-#aux 4 0 0 900 900 0 0
-aux 4 49 1 1400 2100 0 0
+aux 3 49 3 1400 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -262,6 +260,10 @@ set osd_stat_min_rssi = OFF
 set osd_stat_bbox = OFF
 #set osd_stat_bb_no = ON
 set osd_stat_bb_no = OFF
+#set osd_stat_min_link_quality = OFF
+set osd_stat_min_link_quality = ON
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_channel = 1
