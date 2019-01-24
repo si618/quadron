@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / OMNIBUSF4FW (OBFW) 4.0.0 Dec  5 2018 / 00:30:26 (c400186e7) MSP API: 1.41
+# Betaflight / OMNIBUSF4FW (OBFW) 4.0.0 Jan 23 2019 / 13:34:51 (a4ce8b560) MSP API: 1.41
 
 board_name OMNIBUSF4FW
 manufacturer_id 
@@ -23,6 +23,8 @@ resource MOTOR 2 B05
 resource MOTOR 3 B00
 #resource MOTOR 4 B05
 resource MOTOR 4 A03
+
+# dmaopt
 
 # mixer
 
@@ -78,6 +80,8 @@ beeper -CRASH_FLIP
 beeper -CAM_CONNECTION_OPEN
 #beeper CAM_CONNECTION_CLOSE
 beeper -CAM_CONNECTION_CLOSE
+#beeper RC_SMOOTHING_INIT_FAIL
+beeper -RC_SMOOTHING_INIT_FAIL
 
 # beacon
 #beacon -RX_SET
@@ -125,11 +129,21 @@ adjrange 0 0 1 900 2100 12 1 0 0
 #set gyro_to_use = FIRST
 set gyro_to_use = SECOND
 #set acc_calibration = 0,0,0
-set acc_calibration = -44,-132,-195
+set acc_calibration = -43,-91,-238
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
+#set rc_interp = AUTO
+set rc_interp = MANUAL
+#set rc_interp_int = 19
+set rc_interp_int = 9
+#set rc_smoothing_input_hz = 0
+set rc_smoothing_input_hz = 30
+#set rc_smoothing_derivative_hz = 0
+set rc_smoothing_derivative_hz = 30
+#set rc_smoothing_input_type = BIQUAD
+set rc_smoothing_input_type = PT1
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set motor_pwm_protocol = ONESHOT125
@@ -140,10 +154,6 @@ set align_board_roll = 180
 set align_board_yaw = 270
 #set bat_capacity = 0
 set bat_capacity = 1300
-#set vbat_max_cell_voltage = 43
-set vbat_max_cell_voltage = 44
-#set vbat_warning_cell_voltage = 35
-set vbat_warning_cell_voltage = 34
 #set current_meter = ADC
 set current_meter = ESC
 #set beeper_dshot_beacon_tone = 1
@@ -234,6 +244,10 @@ set osd_stat_min_rssi = OFF
 set osd_stat_bbox = OFF
 #set osd_stat_bb_no = ON
 set osd_stat_bb_no = OFF
+#set osd_stat_min_link_quality = OFF
+set osd_stat_min_link_quality = ON
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_channel = 1
@@ -246,12 +260,10 @@ profile 0
 
 #set crash_recovery = OFF
 set crash_recovery = ON
-#set f_pitch = 60
-set f_pitch = 200
-#set f_roll = 60
-set f_roll = 200
-#set f_yaw = 100
-set f_yaw = 125
+#set throttle_boost = 5
+set throttle_boost = 1
+#set launch_angle_limit = 0
+set launch_angle_limit = 68
 
 # profile
 profile 1
@@ -349,7 +361,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save
