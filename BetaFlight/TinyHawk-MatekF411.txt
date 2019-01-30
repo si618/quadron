@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF411 (MK41) 3.5.1 Sep  8 2018 / 05:32:10 (d9fb5ca13) MSP API: 1.40
+# Betaflight / MATEKF411 (MK41) 4.0.0 Jan 29 2019 / 22:11:49 (ae194f2eb) MSP API: 1.41
 
 board_name MATEKF411
 manufacturer_id 
@@ -12,9 +12,11 @@ signature
 defaults nosave
 
 # name
-name SI-FI
+name si-fi
 
 # resources
+
+# dmaopt
 
 # mixer
 
@@ -26,13 +28,57 @@ name SI-FI
 # feature
 
 # beeper
+#beeper GYRO_CALIBRATED
+beeper -GYRO_CALIBRATED
+#beeper RX_LOST
+beeper -RX_LOST
+#beeper RX_LOST_LANDING
+beeper -RX_LOST_LANDING
+#beeper DISARMING
+beeper -DISARMING
+#beeper ARMING
+beeper -ARMING
+#beeper ARMING_GPS_FIX
+beeper -ARMING_GPS_FIX
+#beeper BAT_CRIT_LOW
+beeper -BAT_CRIT_LOW
+#beeper BAT_LOW
+beeper -BAT_LOW
+#beeper GPS_STATUS
+beeper -GPS_STATUS
+#beeper RX_SET
+beeper -RX_SET
+#beeper ACC_CALIBRATION
+beeper -ACC_CALIBRATION
+#beeper ACC_CALIBRATION_FAIL
+beeper -ACC_CALIBRATION_FAIL
+#beeper READY_BEEP
+beeper -READY_BEEP
+#beeper DISARM_REPEAT
+beeper -DISARM_REPEAT
+#beeper ARMED
+beeper -ARMED
+#beeper SYSTEM_INIT
+beeper -SYSTEM_INIT
+#beeper ON_USB
+beeper -ON_USB
+#beeper BLACKBOX_ERASE
+beeper -BLACKBOX_ERASE
+#beeper CRASH_FLIP
+beeper -CRASH_FLIP
+#beeper CAM_CONNECTION_OPEN
+beeper -CAM_CONNECTION_OPEN
+#beeper CAM_CONNECTION_CLOSE
+beeper -CAM_CONNECTION_CLOSE
+#beeper RC_SMOOTHING_INIT_FAIL
+beeper -RC_SMOOTHING_INIT_FAIL
 
 # beacon
 #beacon -RX_SET
 beacon RX_SET
 
 # map
-#map AETR1234H2
+#map AETR1234
 map TAER1234
 
 # serial
@@ -47,15 +93,15 @@ serial 1 2048 115200 57600 0 115200
 
 # aux
 #aux 0 0 0 900 900 0 0
-aux 0 0 0 1775 2100 0 0
+aux 0 0 0 1275 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 1 1 1700 2100 0 0
+aux 1 1 2 1700 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 2 1 1350 1650 0 0
+aux 2 2 2 1350 1650 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 13 2 1575 2100 0 0
+aux 3 13 3 1600 2100 0 0
 #aux 4 0 0 900 900 0 0
-aux 4 35 3 1600 2100 0 0
+aux 4 35 3 1350 1600 0 0
 
 # adjrange
 
@@ -66,104 +112,72 @@ aux 4 35 3 1600 2100 0 0
 # rxfail
 
 # master
-#set acc_calibration = 0,0,0
-set acc_calibration = -138,15,139
+#set dyn_lpf_gyro_max_hz = 450
+set dyn_lpf_gyro_max_hz = 778
 #set baro_hardware = AUTO
 set baro_hardware = NONE
 #set max_check = 1900
 set max_check = 2000
 #set rssi_channel = 0
 set rssi_channel = 9
-#set dshot_idle_value = 450
+#set dshot_idle_value = 550
 set dshot_idle_value = 600
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
-#set vbat_max_cell_voltage = 43
-set vbat_max_cell_voltage = 45
-#set vbat_min_cell_voltage = 33
-set vbat_min_cell_voltage = 32
-#set vbat_warning_cell_voltage = 35
-set vbat_warning_cell_voltage = 33
+#set vbat_max_cell_voltage = 430
+set vbat_max_cell_voltage = 450
+#set vbat_min_cell_voltage = 330
+set vbat_min_cell_voltage = 320
+#set vbat_warning_cell_voltage = 350
+set vbat_warning_cell_voltage = 330
+#set beeper_dshot_beacon_tone = 1
+set beeper_dshot_beacon_tone = 3
 #set crashflip_motor_percent = 0
 set crashflip_motor_percent = 20
 #set small_angle = 25
 set small_angle = 45
 #set pid_process_denom = 4
 set pid_process_denom = 1
+#set thrust_linear = 0
+set thrust_linear = 50
 #set osd_warn_core_temp = ON
 set osd_warn_core_temp = OFF
 #set osd_vbat_pos = 234
-set osd_vbat_pos = 2421
+set osd_vbat_pos = 2456
 #set osd_rssi_pos = 234
-set osd_rssi_pos = 2372
+set osd_rssi_pos = 2433
 #set osd_tim_2_pos = 234
-set osd_tim_2_pos = 2389
+set osd_tim_2_pos = 341
 #set osd_vtx_channel_pos = 234
-set osd_vtx_channel_pos = 2403
+set osd_vtx_channel_pos = 355
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2442
+set osd_craft_name_pos = 2445
 #set osd_warnings_pos = 2377
-set osd_warnings_pos = 329
-#set vtx_band = 4
-set vtx_band = 5
-#set vtx_channel = 1
-set vtx_channel = 4
-#set vtx_freq = 5740
-set vtx_freq = 5769
+set osd_warnings_pos = 2410
+#set osd_stat_min_link_quality = OFF
+set osd_stat_min_link_quality = ON
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 
 # profile
 profile 0
 
-#set dterm_lowpass_hz = 100
-set dterm_lowpass_hz = 80
-#set dterm_lowpass2_hz = 200
+#set dterm_lowpass2_hz = 150
 set dterm_lowpass2_hz = 170
-#set dterm_notch_cutoff = 160
-set dterm_notch_cutoff = 0
-#set feedforward_transition = 0
-set feedforward_transition = 25
-#set iterm_rotation = ON
-set iterm_rotation = OFF
-#set iterm_relax = OFF
-set iterm_relax = RPY
-#set yaw_lowpass_hz = 0
-set yaw_lowpass_hz = 100
-#set throttle_boost = 5
-set throttle_boost = 4
 #set p_pitch = 50
-set p_pitch = 100
-#set i_pitch = 50
-set i_pitch = 120
-#set d_pitch = 27
-set d_pitch = 90
-#set f_pitch = 60
-set f_pitch = 90
+set p_pitch = 90
+#set d_pitch = 44
+set d_pitch = 45
 #set p_roll = 46
-set p_roll = 100
-#set i_roll = 45
-set i_roll = 120
-#set d_roll = 25
-set d_roll = 90
-#set f_roll = 60
-set f_roll = 90
-#set p_yaw = 65
-set p_yaw = 90
-#set i_yaw = 45
-set i_yaw = 90
-#set d_yaw = 0
-set d_yaw = 40
-#set f_yaw = 60
-set f_yaw = 80
-#set p_level = 50
-set p_level = 25
-#set i_level = 50
-set i_level = 20
-#set level_limit = 55
-set level_limit = 25
-#set abs_control_gain = 0
-set abs_control_gain = 5
+set p_roll = 90
+#set d_roll = 40
+set d_roll = 45
+#set p_yaw = 45
+set p_yaw = 50
+#set dterm_cut_percent = 65
+set dterm_cut_percent = 0
 
 # profile
 profile 1
@@ -179,26 +193,20 @@ profile 0
 # rateprofile
 rateprofile 0
 
-#set thr_expo = 0
-set thr_expo = 50
 #set roll_rc_rate = 100
-set roll_rc_rate = 80
+set roll_rc_rate = 90
 #set pitch_rc_rate = 100
-set pitch_rc_rate = 80
+set pitch_rc_rate = 90
 #set yaw_rc_rate = 100
-set yaw_rc_rate = 80
-#set roll_expo = 0
-set roll_expo = 60
-#set pitch_expo = 0
-set pitch_expo = 60
-#set yaw_expo = 0
-set yaw_expo = 20
+set yaw_rc_rate = 110
 #set roll_srate = 70
 set roll_srate = 60
 #set pitch_srate = 70
 set pitch_srate = 60
 #set yaw_srate = 70
 set yaw_srate = 60
+#set tpa_rate = 50
+set tpa_rate = 0
 
 # rateprofile
 rateprofile 1
