@@ -1,32 +1,28 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF405 (MKF4) 4.0.0 Jan 16 2019 / 13:31:49 (e0fc9300e) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Jan 29 2019 / 21:50:04 (ae194f2eb) MSP API: 1.41
 
-board_name MATEKF405
+board_name CLRACINGF4
 manufacturer_id 
-mcu_id 003d002a3536470c33313130
+mcu_id 0048004c5848500d20323852
 signature 
 
 # reset configuration to default settings
 defaults nosave
 
 # name
-name si-fi
+name SI-FI
 
 # resources
-#resource MOTOR 1 C06
-resource MOTOR 1 C07
-#resource MOTOR 2 C07
-resource MOTOR 2 C09
-#resource MOTOR 3 C08
-resource MOTOR 3 C06
-#resource MOTOR 4 C09
-resource MOTOR 4 C08
-#resource MOTOR 5 A15
-resource MOTOR 5 NONE
-#resource CAMERA_CONTROL 1 NONE
-resource CAMERA_CONTROL 1 A15
+#resource MOTOR 1 B00
+resource MOTOR 1 A03
+#resource MOTOR 2 B01
+resource MOTOR 2 B00
+#resource MOTOR 3 A03
+resource MOTOR 3 A02
+#resource MOTOR 4 A02
+resource MOTOR 4 B01
 
 # dmaopt
 
@@ -38,9 +34,11 @@ resource CAMERA_CONTROL 1 A15
 
 
 # feature
-feature -SOFTSERIAL
+#feature -TELEMETRY
+#feature -LED_STRIP
 #feature -AIRMODE
-#feature SOFTSERIAL
+feature TELEMETRY
+feature LED_STRIP
 feature AIRMODE
 
 # beeper
@@ -68,6 +66,8 @@ beeper -ACC_CALIBRATION
 beeper -ACC_CALIBRATION_FAIL
 #beeper READY_BEEP
 beeper -READY_BEEP
+#beeper MULTI_BEEPS
+beeper -MULTI_BEEPS
 #beeper DISARM_REPEAT
 beeper -DISARM_REPEAT
 #beeper ARMED
@@ -84,6 +84,8 @@ beeper -CRASH_FLIP
 beeper -CAM_CONNECTION_OPEN
 #beeper CAM_CONNECTION_CLOSE
 beeper -CAM_CONNECTION_CLOSE
+#beeper RC_SMOOTHING_INIT_FAIL
+beeper -RC_SMOOTHING_INIT_FAIL
 
 # beacon
 #beacon -RX_SET
@@ -94,14 +96,20 @@ beacon RX_SET
 map TAER1234
 
 # serial
-#serial 0 0 115200 57600 0 115200
-serial 0 64 115200 57600 0 115200
-#serial 1 64 115200 57600 0 115200
-serial 1 0 115200 57600 0 115200
-#serial 2 0 115200 57600 0 115200
-serial 2 2048 115200 57600 0 115200
+#serial 3 0 115200 57600 0 115200
+serial 3 2048 115200 57600 0 115200
+#serial 5 0 115200 57600 0 115200
+serial 5 64 115200 57600 0 115200
 
 # led
+#led 0 0,0::C:0
+led 0 0,0::CVW:0
+#led 1 0,0::C:0
+led 1 1,0::CVW:0
+#led 2 0,0::C:0
+led 2 2,0::CVW:0
+#led 3 0,0::C:0
+led 3 3,0::CVW:0
 
 # color
 #color 3 30,0,255
@@ -117,11 +125,11 @@ color 10 120,0,255
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 26 3 1775 2100 0 0
+aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
 aux 2 35 2 1350 1650 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 2 1750 2100 0 0
+aux 3 49 3 1400 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -134,10 +142,10 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # rxfail
 
 # master
-#set mag_hardware = AUTO
-set mag_hardware = NONE
-#set baro_hardware = AUTO
-set baro_hardware = NONE
+#set dyn_lpf_gyro_max_hz = 450
+set dyn_lpf_gyro_max_hz = 500
+#set acc_calibration = 0,0,0
+set acc_calibration = -1,-21,-151
 #set rc_interp = AUTO
 set rc_interp = MANUAL
 #set rc_interp_int = 19
@@ -148,28 +156,28 @@ set rc_smoothing_input_hz = 30
 set rc_smoothing_derivative_hz = 30
 #set rc_smoothing_input_type = BIQUAD
 set rc_smoothing_input_type = PT1
-#set serialrx_provider = SBUS
+#set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
-#set blackbox_p_ratio = 32
-set blackbox_p_ratio = 64
 #set blackbox_device = SDCARD
-set blackbox_device = SPIFLASH
+set blackbox_device = NONE
+#set dshot_idle_value = 550
+set dshot_idle_value = 500
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
-#set align_board_yaw = 0
-set align_board_yaw = 270
+#set bat_capacity = 0
+set bat_capacity = 1300
+#set vbat_scale = 110
+set vbat_scale = 112
+#set ibata_scale = 250
+set ibata_scale = 230
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
 #set pid_process_denom = 4
 set pid_process_denom = 1
-#set osd_warn_core_temp = ON
-set osd_warn_core_temp = OFF
-#set osd_warn_fail_safe = ON
-set osd_warn_fail_safe = OFF
 #set osd_vbat_pos = 234
-set osd_vbat_pos = 2433
+set osd_vbat_pos = 2529
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_tim_1_pos = 234
@@ -187,9 +195,9 @@ set osd_ah_pos = 200
 #set osd_current_pos = 234
 set osd_current_pos = 453
 #set osd_mah_drawn_pos = 234
-set osd_mah_drawn_pos = 2456
+set osd_mah_drawn_pos = 2552
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2444
+set osd_craft_name_pos = 2540
 #set osd_gps_speed_pos = 234
 set osd_gps_speed_pos = 218
 #set osd_gps_lon_pos = 234
@@ -219,7 +227,7 @@ set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
 #set osd_warnings_pos = 2377
-set osd_warnings_pos = 2058
+set osd_warnings_pos = 2049
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
 #set osd_pit_ang_pos = 234
@@ -229,7 +237,7 @@ set osd_rol_ang_pos = 289
 #set osd_battery_usage_pos = 234
 set osd_battery_usage_pos = 392
 #set osd_disarmed_pos = 234
-set osd_disarmed_pos = 2124
+set osd_disarmed_pos = 2069
 #set osd_nheading_pos = 234
 set osd_nheading_pos = 311
 #set osd_nvario_pos = 234
@@ -238,8 +246,6 @@ set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
 set osd_esc_rpm_pos = 83
-#set osd_core_temp_pos = 234
-set osd_core_temp_pos = 2439
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
@@ -248,61 +254,42 @@ set osd_stat_max_spd = OFF
 set osd_stat_endbatt = ON
 #set osd_stat_min_rssi = ON
 set osd_stat_min_rssi = OFF
-#set debug_mode = NONE
-set debug_mode = GYRO_FILTERED
+#set osd_stat_bbox = ON
+set osd_stat_bbox = OFF
+#set osd_stat_bb_no = ON
+set osd_stat_bb_no = OFF
+#set osd_stat_min_link_quality = OFF
+set osd_stat_min_link_quality = ON
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_channel = 1
-set vtx_channel = 3
+set vtx_channel = 7
 #set vtx_freq = 5740
-#set vcd_video_system = AUTO
-set vcd_video_system = NTSC
+set vtx_freq = 5860
 
 # profile
 profile 0
 
-#set dyn_lpf_dterm_min_hz = 150
-set dyn_lpf_dterm_min_hz = 120
-#set dyn_lpf_dterm_max_hz = 250
-set dyn_lpf_dterm_max_hz = 180
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 120
-#set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 170
-#set dterm_notch_hz = 0
-set dterm_notch_hz = 200
-#set dterm_notch_cutoff = 0
-set dterm_notch_cutoff = 150
-#set crash_recovery = OFF
-set crash_recovery = ON
+#set dterm_lowpass2_type = BIQUAD
+set dterm_lowpass2_type = PT1
 #set throttle_boost = 5
 set throttle_boost = 1
-#set launch_angle_limit = 0
-set launch_angle_limit = 68
+#set f_pitch = 60
+set f_pitch = 80
+#set f_roll = 60
+set f_roll = 80
+#set p_yaw = 45
+set p_yaw = 35
+#set f_yaw = 100
+set f_yaw = 120
+#set dterm_cut_gain = 15
+set dterm_cut_gain = 35
 
 # profile
 profile 1
 
-#set dyn_lpf_dterm_min_hz = 150
-set dyn_lpf_dterm_min_hz = 120
-#set dyn_lpf_dterm_max_hz = 250
-set dyn_lpf_dterm_max_hz = 180
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 120
-#set dterm_lowpass2_type = BIQUAD
-set dterm_lowpass2_type = PT1
-#set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 170
-#set dterm_notch_hz = 0
-set dterm_notch_hz = 200
-#set dterm_notch_cutoff = 0
-set dterm_notch_cutoff = 150
-#set throttle_boost = 5
-set throttle_boost = 1
-#set p_yaw = 45
-set p_yaw = 35
-#set dterm_cut_gain = 15
-set dterm_cut_gain = 35
 
 # profile
 profile 2
@@ -396,7 +383,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 2
 
 # save configuration
 save
