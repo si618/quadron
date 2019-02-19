@@ -94,8 +94,8 @@ map TAER1234
 # serial
 #serial 0 64 115200 57600 0 115200
 serial 0 0 115200 57600 0 115200
-#serial 1 0 115200 57600 0 115200
-serial 1 2048 115200 57600 0 115200
+#serial 3 1024 115200 57600 0 115200
+serial 3 0 115200 57600 0 115200
 #serial 5 0 115200 57600 0 115200
 serial 5 64 115200 57600 0 115200
 
@@ -361,7 +361,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save
