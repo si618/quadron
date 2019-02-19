@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF411 (MK41) 4.0.0 Jan 29 2019 / 22:11:49 (ae194f2eb) MSP API: 1.41
+# Betaflight / MATEKF411 (MK41) 4.0.0 Feb 13 2019 / 08:58:12 (b2c0d0155) MSP API: 1.41
 
 board_name MATEKF411
 manufacturer_id 
@@ -13,6 +13,8 @@ defaults nosave
 
 # name
 name si-fi
+
+# display_name
 
 # resources
 
@@ -26,6 +28,8 @@ name si-fi
 
 
 # feature
+feature -AIRMODE
+#feature AIRMODE
 
 # beeper
 #beeper GYRO_CALIBRATED
@@ -95,57 +99,53 @@ serial 1 2048 115200 57600 0 115200
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1275 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 1 2 1700 2100 0 0
+aux 1 1 2 1275 1675 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 2 2 1350 1650 0 0
+aux 2 13 3 1700 2100 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 13 3 1700 2100 0 0
+aux 3 28 2 900 1300 0 0
 #aux 4 0 0 900 900 0 0
-aux 4 35 3 1650 2100 0 0
-#aux 5 0 0 900 900 0 0
-aux 5 49 3 1350 1650 0 0
+aux 4 49 3 1350 1650 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
-adjrange 0 0 1 900 2100 12 1 0 0
+adjrange 0 1 1 900 2100 12 1 0 0
 
 # rxrange
 
 # vtx
 
+# vtxtable
+
 # rxfail
 
 # master
-#set dyn_lpf_gyro_max_hz = 450
-set dyn_lpf_gyro_max_hz = 778
 #set acc_calibration = 0,0,0
-set acc_calibration = -12,101,66
+set acc_calibration = -60,-68,-116
 #set baro_hardware = AUTO
 set baro_hardware = NONE
-#set max_check = 1900
-set max_check = 2000
-#set rssi_channel = 0
-set rssi_channel = 9
-#set dshot_idle_value = 550
-set dshot_idle_value = 600
+#set fpv_mix_degrees = 0
+set fpv_mix_degrees = 10
+#set airmode_start_throttle_percent = 25
+set airmode_start_throttle_percent = 15
 #set motor_pwm_protocol = ONESHOT125
 set motor_pwm_protocol = DSHOT600
+#set bat_capacity = 0
+set bat_capacity = 450
 #set vbat_max_cell_voltage = 430
 set vbat_max_cell_voltage = 450
 #set vbat_min_cell_voltage = 330
 set vbat_min_cell_voltage = 320
 #set vbat_warning_cell_voltage = 350
-set vbat_warning_cell_voltage = 330
+set vbat_warning_cell_voltage = 340
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
 #set crashflip_motor_percent = 0
-set crashflip_motor_percent = 20
+set crashflip_motor_percent = 75
 #set small_angle = 25
-set small_angle = 45
+set small_angle = 180
 #set pid_process_denom = 4
-set pid_process_denom = 1
-#set thrust_linear = 0
-set thrust_linear = 50
+set pid_process_denom = 2
 #set osd_warn_core_temp = ON
 set osd_warn_core_temp = OFF
 #set osd_vbat_pos = 234
@@ -155,11 +155,13 @@ set osd_rssi_pos = 2433
 #set osd_tim_2_pos = 234
 set osd_tim_2_pos = 341
 #set osd_vtx_channel_pos = 234
-set osd_vtx_channel_pos = 355
+set osd_vtx_channel_pos = 2438
 #set osd_craft_name_pos = 234
 set osd_craft_name_pos = 2445
 #set osd_warnings_pos = 2377
 set osd_warnings_pos = 2410
+#set osd_core_temp_pos = 234
+set osd_core_temp_pos = 2451
 #set osd_stat_min_link_quality = OFF
 set osd_stat_min_link_quality = ON
 #set osd_stat_max_fft = OFF
@@ -172,28 +174,136 @@ set vcd_video_system = NTSC
 # profile
 profile 0
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 80
 #set dterm_lowpass2_hz = 150
 set dterm_lowpass2_hz = 170
+#set vbat_pid_gain = OFF
+set vbat_pid_gain = ON
+#set pidsum_limit = 500
+set pidsum_limit = 1000
+#set pidsum_limit_yaw = 400
+set pidsum_limit_yaw = 1000
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 100
+#set throttle_boost = 5
+set throttle_boost = 8
 #set p_pitch = 50
-set p_pitch = 90
-#set d_pitch = 44
-set d_pitch = 45
+set p_pitch = 100
+#set i_pitch = 75
+set i_pitch = 120
+#set d_pitch = 38
+set d_pitch = 46
+#set f_pitch = 60
+set f_pitch = 176
 #set p_roll = 46
-set p_roll = 90
-#set d_roll = 40
-set d_roll = 45
+set p_roll = 100
+#set i_roll = 65
+set i_roll = 120
+#set d_roll = 35
+set d_roll = 46
+#set f_roll = 60
+set f_roll = 176
 #set p_yaw = 45
-set p_yaw = 50
-#set dterm_cut_percent = 65
-set dterm_cut_percent = 0
+set p_yaw = 95
+#set i_yaw = 100
+set i_yaw = 90
+#set f_yaw = 100
+set f_yaw = 176
+#set level_limit = 55
+set level_limit = 60
 
 # profile
 profile 1
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 80
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 170
+#set feedforward_transition = 0
+set feedforward_transition = 25
+#set iterm_rotation = ON
+set iterm_rotation = OFF
+#set iterm_relax = RP
+set iterm_relax = RPY
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 100
+#set throttle_boost = 5
+set throttle_boost = 4
+#set p_pitch = 50
+set p_pitch = 100
+#set i_pitch = 75
+set i_pitch = 120
+#set d_pitch = 38
+set d_pitch = 90
+#set f_pitch = 60
+set f_pitch = 90
+#set p_roll = 46
+set p_roll = 100
+#set i_roll = 65
+set i_roll = 120
+#set d_roll = 35
+set d_roll = 90
+#set f_roll = 60
+set f_roll = 90
+#set p_yaw = 45
+set p_yaw = 90
+#set i_yaw = 100
+set i_yaw = 90
+#set d_yaw = 0
+set d_yaw = 40
+#set f_yaw = 100
+set f_yaw = 80
+#set level_limit = 55
+set level_limit = 60
+#set abs_control_gain = 0
+set abs_control_gain = 5
 
 # profile
 profile 2
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 80
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 170
+#set feedforward_transition = 0
+set feedforward_transition = 25
+#set iterm_rotation = ON
+set iterm_rotation = OFF
+#set iterm_relax = RP
+set iterm_relax = RPY
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 100
+#set throttle_boost = 5
+set throttle_boost = 4
+#set p_pitch = 50
+set p_pitch = 100
+#set i_pitch = 75
+set i_pitch = 120
+#set d_pitch = 38
+set d_pitch = 90
+#set f_pitch = 60
+set f_pitch = 90
+#set p_roll = 46
+set p_roll = 100
+#set i_roll = 65
+set i_roll = 120
+#set d_roll = 35
+set d_roll = 90
+#set f_roll = 60
+set f_roll = 90
+#set p_yaw = 45
+set p_yaw = 90
+#set i_yaw = 100
+set i_yaw = 90
+#set d_yaw = 0
+set d_yaw = 40
+#set f_yaw = 100
+set f_yaw = 80
+#set level_limit = 55
+set level_limit = 25
+#set abs_control_gain = 0
+set abs_control_gain = 5
 
 # restore original profile selection
 profile 0
@@ -202,39 +312,17 @@ profile 0
 rateprofile 0
 
 #set roll_rc_rate = 100
-set roll_rc_rate = 90
-#set pitch_rc_rate = 100
-set pitch_rc_rate = 90
-#set yaw_rc_rate = 100
-set yaw_rc_rate = 110
-#set roll_srate = 70
-set roll_srate = 35
-#set pitch_srate = 70
-set pitch_srate = 35
-#set yaw_srate = 70
-set yaw_srate = 35
-#set tpa_rate = 50
-set tpa_rate = 0
-
-# rateprofile
-rateprofile 1
-
-#set roll_srate = 70
-set roll_srate = 40
-#set pitch_srate = 70
-set pitch_srate = 40
-#set yaw_srate = 70
-set yaw_srate = 40
-
-# rateprofile
-rateprofile 2
-
-#set roll_rc_rate = 100
 set roll_rc_rate = 123
 #set pitch_rc_rate = 100
 set pitch_rc_rate = 123
 #set yaw_rc_rate = 100
 set yaw_rc_rate = 123
+#set roll_expo = 0
+set roll_expo = 60
+#set pitch_expo = 0
+set pitch_expo = 60
+#set yaw_expo = 0
+set yaw_expo = 20
 #set roll_srate = 70
 set roll_srate = 45
 #set pitch_srate = 70
@@ -243,57 +331,71 @@ set pitch_srate = 45
 set yaw_srate = 45
 
 # rateprofile
-rateprofile 3
+rateprofile 1
+
+#set roll_rc_rate = 100
+set roll_rc_rate = 132
+#set pitch_rc_rate = 100
+set pitch_rc_rate = 132
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 132
+#set roll_expo = 0
+set roll_expo = 60
+#set pitch_expo = 0
+set pitch_expo = 60
+#set yaw_expo = 0
+set yaw_expo = 20
+
+# rateprofile
+rateprofile 2
 
 #set roll_rc_rate = 100
 set roll_rc_rate = 90
 #set pitch_rc_rate = 100
 set pitch_rc_rate = 90
 #set yaw_rc_rate = 100
-set yaw_rc_rate = 110
+set yaw_rc_rate = 180
 #set roll_srate = 70
-set roll_srate = 60
+set roll_srate = 0
 #set pitch_srate = 70
-set pitch_srate = 60
+set pitch_srate = 0
 #set yaw_srate = 70
-set yaw_srate = 60
-#set tpa_rate = 50
-set tpa_rate = 0
+set yaw_srate = 0
+
+# rateprofile
+rateprofile 3
+
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 207
+#set roll_srate = 70
+set roll_srate = 0
+#set pitch_srate = 70
+set pitch_srate = 0
+#set yaw_srate = 70
+set yaw_srate = 0
 
 # rateprofile
 rateprofile 4
 
 #set roll_rc_rate = 100
-set roll_rc_rate = 160
+set roll_rc_rate = 90
 #set pitch_rc_rate = 100
-set pitch_rc_rate = 160
+set pitch_rc_rate = 90
 #set yaw_rc_rate = 100
-set yaw_rc_rate = 160
-#set roll_srate = 70
-set roll_srate = 60
-#set pitch_srate = 70
-set pitch_srate = 60
-#set yaw_srate = 70
-set yaw_srate = 60
+set yaw_rc_rate = 90
 
 # rateprofile
 rateprofile 5
 
-#set roll_rc_rate = 100
-set roll_rc_rate = 162
-#set pitch_rc_rate = 100
-set pitch_rc_rate = 162
-#set yaw_rc_rate = 100
-set yaw_rc_rate = 162
 #set roll_srate = 70
-set roll_srate = 73
+set roll_srate = 80
 #set pitch_srate = 70
-set pitch_srate = 73
+set pitch_srate = 80
 #set yaw_srate = 70
-set yaw_srate = 73
+set yaw_srate = 80
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 3
 
 # save configuration
 save
