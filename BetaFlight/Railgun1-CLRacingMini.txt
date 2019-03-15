@@ -185,6 +185,8 @@ set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 #set pid_process_denom = 4
 set pid_process_denom = 1
+#set transient_throttle_limit = 15
+set transient_throttle_limit = 10
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2529
 #set osd_rssi_pos = 234
@@ -281,6 +283,8 @@ set vtx_freq = 5780
 # profile
 profile 0
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
 
 # profile
 profile 1
@@ -301,6 +305,28 @@ profile 2
 
 #set dterm_lowpass_hz = 150
 set dterm_lowpass_hz = 0
+#set iterm_relax_cutoff = 20
+set iterm_relax_cutoff = 35
+#set i_pitch = 70
+set i_pitch = 85
+#set d_pitch = 38
+set d_pitch = 28
+#set i_roll = 60
+set i_roll = 80
+#set d_roll = 35
+set d_roll = 30
+#set p_yaw = 35
+set p_yaw = 30
+#set i_yaw = 100
+set i_yaw = 90
+#set f_yaw = 0
+set f_yaw = 30
+#set abs_control_gain = 10
+set abs_control_gain = 0
+#set d_min_roll = 20
+set d_min_roll = 16
+#set d_min_pitch = 22
+set d_min_pitch = 18
 
 # restore original profile selection
 profile 0
@@ -314,6 +340,10 @@ set roll_srate = 35
 set pitch_srate = 35
 #set yaw_srate = 70
 set yaw_srate = 35
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 1
@@ -324,6 +354,10 @@ set roll_srate = 40
 set pitch_srate = 40
 #set yaw_srate = 70
 set yaw_srate = 40
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 2
@@ -340,6 +374,10 @@ set roll_srate = 45
 set pitch_srate = 45
 #set yaw_srate = 70
 set yaw_srate = 45
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 3
@@ -356,6 +394,10 @@ set roll_srate = 55
 set pitch_srate = 55
 #set yaw_srate = 70
 set yaw_srate = 55
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 4
@@ -372,6 +414,10 @@ set roll_srate = 60
 set pitch_srate = 60
 #set yaw_srate = 70
 set yaw_srate = 60
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 5
@@ -388,6 +434,10 @@ set roll_srate = 73
 set pitch_srate = 73
 #set yaw_srate = 70
 set yaw_srate = 73
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
 rateprofile 0
