@@ -1,18 +1,21 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Feb 24 2019 / 00:32:26 (40d6c4422) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
 
 board_name CLRACINGF4
 manufacturer_id 
 mcu_id 0048004c5848500d20323852
 signature 
 
-# reset configuration to default settings
-defaults nosave
-
 # name
-name SI-FI
+name SI-FI HD
 
 # resources
 #resource MOTOR 1 B00
@@ -24,7 +27,9 @@ resource MOTOR 3 A02
 #resource MOTOR 4 A02
 resource MOTOR 4 B01
 
-# dmaopt
+# timer
+
+# dma
 
 # mixer
 
@@ -137,15 +142,11 @@ adjrange 0 0 1 900 2100 12 1 0 0
 
 # vtx
 
-# vtxtable
-
 # rxfail
 
 # display_name
 
 # master
-#set acc_calibration = 0,0,0
-set acc_calibration = 19,-45,-179
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set motor_pwm_protocol = ONESHOT125
@@ -163,7 +164,7 @@ set small_angle = 180
 #set pid_process_denom = 4
 set pid_process_denom = 1
 #set osd_vbat_pos = 234
-set osd_vbat_pos = 2529
+set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_tim_1_pos = 234
@@ -181,9 +182,9 @@ set osd_ah_pos = 200
 #set osd_current_pos = 234
 set osd_current_pos = 453
 #set osd_mah_drawn_pos = 234
-set osd_mah_drawn_pos = 2552
+set osd_mah_drawn_pos = 2456
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2540
+set osd_craft_name_pos = 2444
 #set osd_gps_speed_pos = 234
 set osd_gps_speed_pos = 218
 #set osd_gps_lon_pos = 234
@@ -252,22 +253,58 @@ set osd_stat_max_fft = ON
 set rate_6pos_switch = ON
 #set vtx_channel = 1
 set vtx_channel = 3
-#set vtx_power = 1
-set vtx_power = 2
 #set vtx_freq = 5740
 set vtx_freq = 5780
+#set vcd_video_system = AUTO
+set vcd_video_system = NTSC
 
 # profile
 profile 0
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
 
 # profile
 profile 1
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
+#set d_min_roll = 20
+set d_min_roll = 0
+#set d_min_pitch = 22
+set d_min_pitch = 0
+#set d_min_boost_gain = 27
+set d_min_boost_gain = 0
+#set d_min_advance = 20
+set d_min_advance = 0
 
 # profile
 profile 2
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
+#set iterm_relax_cutoff = 20
+set iterm_relax_cutoff = 35
+#set i_pitch = 70
+set i_pitch = 85
+#set d_pitch = 38
+set d_pitch = 28
+#set i_roll = 60
+set i_roll = 80
+#set d_roll = 35
+set d_roll = 30
+#set p_yaw = 35
+set p_yaw = 30
+#set i_yaw = 100
+set i_yaw = 90
+#set f_yaw = 0
+set f_yaw = 30
+#set abs_control_gain = 10
+set abs_control_gain = 0
+#set d_min_roll = 20
+set d_min_roll = 16
+#set d_min_pitch = 22
+set d_min_pitch = 18
 
 # restore original profile selection
 profile 0
@@ -281,6 +318,10 @@ set roll_srate = 35
 set pitch_srate = 35
 #set yaw_srate = 70
 set yaw_srate = 35
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 1
@@ -291,6 +332,10 @@ set roll_srate = 40
 set pitch_srate = 40
 #set yaw_srate = 70
 set yaw_srate = 40
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 2
@@ -307,6 +352,10 @@ set roll_srate = 45
 set pitch_srate = 45
 #set yaw_srate = 70
 set yaw_srate = 45
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 3
@@ -323,6 +372,10 @@ set roll_srate = 55
 set pitch_srate = 55
 #set yaw_srate = 70
 set yaw_srate = 55
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 4
@@ -339,6 +392,10 @@ set roll_srate = 60
 set pitch_srate = 60
 #set yaw_srate = 70
 set yaw_srate = 60
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 5
@@ -355,9 +412,13 @@ set roll_srate = 73
 set pitch_srate = 73
 #set yaw_srate = 70
 set yaw_srate = 73
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save

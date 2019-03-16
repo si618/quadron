@@ -1,22 +1,27 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Jan 23 2019 / 13:07:11 (a4ce8b560) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
 
 board_name CLRACINGF4
 manufacturer_id 
 mcu_id 0037003a3037470236353634
 signature 
 
-# reset configuration to default settings
-defaults nosave
-
 # name
-name SI-FI
+name SI-FI R2
 
 # resources
 
-# dmaopt
+# timer
+
+# dma
 
 # mixer
 
@@ -27,9 +32,7 @@ name SI-FI
 
 # feature
 #feature -TELEMETRY
-#feature -AIRMODE
 feature TELEMETRY
-feature AIRMODE
 
 # beeper
 #beeper GYRO_CALIBRATED
@@ -131,21 +134,9 @@ adjrange 0 0 1 900 2100 12 1 0 0
 
 # rxfail
 
+# display_name
+
 # master
-#set dyn_lpf_gyro_max_hz = 450
-set dyn_lpf_gyro_max_hz = 500
-#set acc_calibration = 0,0,0
-set acc_calibration = 42,18,-284
-#set rc_interp = AUTO
-set rc_interp = MANUAL
-#set rc_interp_int = 19
-set rc_interp_int = 9
-#set rc_smoothing_input_hz = 0
-set rc_smoothing_input_hz = 30
-#set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 30
-#set rc_smoothing_input_type = BIQUAD
-set rc_smoothing_input_type = PT1
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
@@ -216,7 +207,7 @@ set osd_debug_pos = 1
 set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
-#set osd_warnings_pos = 2377
+#set osd_warnings_pos = 14665
 set osd_warnings_pos = 2049
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
@@ -255,61 +246,59 @@ set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_channel = 1
-set vtx_channel = 7
+set vtx_channel = 3
 #set vtx_freq = 5740
-set vtx_freq = 5860
+set vtx_freq = 5780
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 
 # profile
 profile 0
 
-#set dyn_lpf_dterm_min_hz = 150
-set dyn_lpf_dterm_min_hz = 120
-#set dyn_lpf_dterm_max_hz = 250
-set dyn_lpf_dterm_max_hz = 180
 #set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 120
-#set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 170
-#set dterm_notch_hz = 0
-set dterm_notch_hz = 200
-#set dterm_notch_cutoff = 0
-set dterm_notch_cutoff = 150
-#set crash_recovery = OFF
-set crash_recovery = ON
-#set throttle_boost = 5
-set throttle_boost = 1
-#set i_pitch = 75
-set i_pitch = 70
-#set d_pitch = 44
-set d_pitch = 27
-#set f_pitch = 60
-set f_pitch = 70
-#set p_roll = 46
-set p_roll = 40
-#set i_roll = 65
-set i_roll = 50
-#set d_roll = 40
-set d_roll = 27
-#set f_roll = 60
-set f_roll = 50
-#set p_yaw = 45
-set p_yaw = 40
-#set i_yaw = 100
-set i_yaw = 80
-#set f_yaw = 100
-set f_yaw = 38
-#set launch_angle_limit = 0
-set launch_angle_limit = 68
+set dterm_lowpass_hz = 0
 
 # profile
 profile 1
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
+#set d_min_roll = 20
+set d_min_roll = 0
+#set d_min_pitch = 22
+set d_min_pitch = 0
+#set d_min_boost_gain = 27
+set d_min_boost_gain = 0
+#set d_min_advance = 20
+set d_min_advance = 0
 
 # profile
 profile 2
 
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
+#set iterm_relax_cutoff = 20
+set iterm_relax_cutoff = 35
+#set i_pitch = 70
+set i_pitch = 85
+#set d_pitch = 38
+set d_pitch = 28
+#set i_roll = 60
+set i_roll = 80
+#set d_roll = 35
+set d_roll = 30
+#set p_yaw = 35
+set p_yaw = 30
+#set i_yaw = 100
+set i_yaw = 90
+#set f_yaw = 0
+set f_yaw = 30
+#set abs_control_gain = 10
+set abs_control_gain = 0
+#set d_min_roll = 20
+set d_min_roll = 16
+#set d_min_pitch = 22
+set d_min_pitch = 18
 
 # restore original profile selection
 profile 0
@@ -323,6 +312,10 @@ set roll_srate = 35
 set pitch_srate = 35
 #set yaw_srate = 70
 set yaw_srate = 35
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 1
@@ -333,6 +326,10 @@ set roll_srate = 40
 set pitch_srate = 40
 #set yaw_srate = 70
 set yaw_srate = 40
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 2
@@ -349,6 +346,10 @@ set roll_srate = 45
 set pitch_srate = 45
 #set yaw_srate = 70
 set yaw_srate = 45
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 3
@@ -365,6 +366,10 @@ set roll_srate = 55
 set pitch_srate = 55
 #set yaw_srate = 70
 set yaw_srate = 55
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 4
@@ -381,6 +386,10 @@ set roll_srate = 60
 set pitch_srate = 60
 #set yaw_srate = 70
 set yaw_srate = 60
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # rateprofile
 rateprofile 5
@@ -397,6 +406,10 @@ set roll_srate = 73
 set pitch_srate = 73
 #set yaw_srate = 70
 set yaw_srate = 73
+#set tpa_rate = 50
+set tpa_rate = 75
+#set tpa_breakpoint = 1500
+set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
 rateprofile 2

@@ -15,7 +15,7 @@ mcu_id 001c001f3037470536353634
 signature 
 
 # name
-name SI-FI
+name SI-FI R1
 
 # resources
 #resource MOTOR 1 B00
