@@ -1,0 +1,334 @@
+# diff all defaults
+
+# version
+# Betaflight / MATEKF411 (MK41) 4.0.0 Mar 13 2019 / 19:23:20 (06d2c7b8d) MSP API: 1.41
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name MATEKF411
+manufacturer_id 
+mcu_id 002200393437510335313736
+signature 
+
+# name
+name hawkai
+
+# resources
+
+# timer
+
+# dma
+
+# mixer
+
+# servo
+
+# servo mix
+
+
+# feature
+feature -SOFTSERIAL
+feature -TELEMETRY
+feature -AIRMODE
+#feature SOFTSERIAL
+#feature TELEMETRY
+#feature AIRMODE
+
+# beeper
+#beeper GYRO_CALIBRATED
+beeper -GYRO_CALIBRATED
+#beeper RX_LOST
+beeper -RX_LOST
+#beeper RX_LOST_LANDING
+beeper -RX_LOST_LANDING
+#beeper DISARMING
+beeper -DISARMING
+#beeper ARMING
+beeper -ARMING
+#beeper ARMING_GPS_FIX
+beeper -ARMING_GPS_FIX
+#beeper BAT_CRIT_LOW
+beeper -BAT_CRIT_LOW
+#beeper BAT_LOW
+beeper -BAT_LOW
+#beeper GPS_STATUS
+beeper -GPS_STATUS
+#beeper RX_SET
+beeper -RX_SET
+#beeper ACC_CALIBRATION
+beeper -ACC_CALIBRATION
+#beeper ACC_CALIBRATION_FAIL
+beeper -ACC_CALIBRATION_FAIL
+#beeper READY_BEEP
+beeper -READY_BEEP
+#beeper DISARM_REPEAT
+beeper -DISARM_REPEAT
+#beeper ARMED
+beeper -ARMED
+#beeper SYSTEM_INIT
+beeper -SYSTEM_INIT
+#beeper ON_USB
+beeper -ON_USB
+#beeper BLACKBOX_ERASE
+beeper -BLACKBOX_ERASE
+#beeper CRASH_FLIP
+beeper -CRASH_FLIP
+#beeper CAM_CONNECTION_OPEN
+beeper -CAM_CONNECTION_OPEN
+#beeper CAM_CONNECTION_CLOSE
+beeper -CAM_CONNECTION_CLOSE
+#beeper RC_SMOOTHING_INIT_FAIL
+beeper -RC_SMOOTHING_INIT_FAIL
+
+# beacon
+#beacon -RX_SET
+beacon RX_SET
+
+# map
+#map AETR1234
+map TAER1234
+
+# serial
+#serial 1 0 115200 57600 0 115200
+serial 1 2048 115200 57600 0 115200
+
+# led
+
+# color
+
+# mode_color
+
+# aux
+#aux 0 0 0 900 900 0 0
+aux 0 0 0 1275 2100 0 0
+#aux 1 0 0 900 900 0 0
+aux 1 1 2 1275 1675 0 0
+#aux 2 0 0 900 900 0 0
+aux 2 2 2 1700 2100 0 0
+#aux 3 0 0 900 900 0 0
+aux 3 13 3 1700 2100 0 0
+#aux 4 0 0 900 900 0 0
+aux 4 28 2 900 1300 0 0
+#aux 5 0 0 900 900 0 0
+aux 5 35 3 1800 2100 0 0
+#aux 6 0 0 900 900 0 0
+aux 6 49 3 1350 1650 0 0
+
+# adjrange
+#adjrange 0 0 0 900 900 0 0 0 0
+adjrange 0 1 1 900 2100 12 1 0 0
+
+# rxrange
+
+# vtx
+
+# rxfail
+
+# display_name
+
+# master
+#set gyro_lowpass_hz = 150
+set gyro_lowpass_hz = 0
+#set baro_hardware = AUTO
+set baro_hardware = NONE
+#set fpv_mix_degrees = 0
+set fpv_mix_degrees = 10
+#set airmode_start_throttle_percent = 25
+set airmode_start_throttle_percent = 15
+#set motor_pwm_protocol = ONESHOT125
+set motor_pwm_protocol = DSHOT600
+#set bat_capacity = 0
+set bat_capacity = 450
+#set vbat_max_cell_voltage = 430
+set vbat_max_cell_voltage = 470
+#set vbat_min_cell_voltage = 330
+set vbat_min_cell_voltage = 320
+#set vbat_warning_cell_voltage = 350
+set vbat_warning_cell_voltage = 330
+#set beeper_dshot_beacon_tone = 1
+set beeper_dshot_beacon_tone = 3
+#set small_angle = 25
+set small_angle = 180
+#set pid_process_denom = 4
+set pid_process_denom = 1
+#set osd_vbat_pos = 234
+set osd_vbat_pos = 2456
+#set osd_rssi_pos = 234
+set osd_rssi_pos = 2433
+#set osd_tim_2_pos = 234
+set osd_tim_2_pos = 341
+#set osd_vtx_channel_pos = 234
+set osd_vtx_channel_pos = 2438
+#set osd_craft_name_pos = 234
+set osd_craft_name_pos = 2445
+#set osd_warnings_pos = 14665
+set osd_warnings_pos = 2410
+#set osd_core_temp_pos = 234
+set osd_core_temp_pos = 2451
+#set osd_stat_min_link_quality = OFF
+set osd_stat_min_link_quality = ON
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
+#set rate_6pos_switch = OFF
+set rate_6pos_switch = ON
+#set vtx_channel = 1
+set vtx_channel = 3
+#set vtx_freq = 5740
+set vtx_freq = 5780
+#set vcd_video_system = AUTO
+set vcd_video_system = NTSC
+
+# profile
+profile 0
+
+#set dterm_lowpass_hz = 150
+set dterm_lowpass_hz = 0
+#set vbat_pid_gain = OFF
+set vbat_pid_gain = ON
+#set pidsum_limit = 500
+set pidsum_limit = 1000
+#set pidsum_limit_yaw = 400
+set pidsum_limit_yaw = 1000
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 100
+#set throttle_boost = 5
+set throttle_boost = 8
+#set p_pitch = 46
+set p_pitch = 100
+#set i_pitch = 70
+set i_pitch = 120
+#set d_pitch = 38
+set d_pitch = 46
+#set f_pitch = 75
+set f_pitch = 176
+#set p_roll = 42
+set p_roll = 100
+#set i_roll = 60
+set i_roll = 120
+#set d_roll = 35
+set d_roll = 46
+#set f_roll = 70
+set f_roll = 176
+#set p_yaw = 35
+set p_yaw = 95
+#set i_yaw = 100
+set i_yaw = 90
+#set f_yaw = 0
+set f_yaw = 176
+
+# profile
+profile 1
+
+
+# profile
+profile 2
+
+
+# restore original profile selection
+profile 0
+
+# rateprofile
+rateprofile 0
+
+#set roll_rc_rate = 100
+set roll_rc_rate = 132
+#set pitch_rc_rate = 100
+set pitch_rc_rate = 132
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 132
+#set roll_expo = 0
+set roll_expo = 60
+#set pitch_expo = 0
+set pitch_expo = 60
+#set yaw_expo = 0
+set yaw_expo = 20
+
+# rateprofile
+rateprofile 1
+
+#set roll_rc_rate = 100
+set roll_rc_rate = 145
+#set pitch_rc_rate = 100
+set pitch_rc_rate = 145
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 145
+#set roll_expo = 0
+set roll_expo = 60
+#set pitch_expo = 0
+set pitch_expo = 60
+#set yaw_expo = 0
+set yaw_expo = 20
+#set roll_srate = 70
+set roll_srate = 72
+#set pitch_srate = 70
+set pitch_srate = 72
+#set yaw_srate = 70
+set yaw_srate = 72
+
+# rateprofile
+rateprofile 2
+
+#set roll_rc_rate = 100
+set roll_rc_rate = 1
+#set pitch_rc_rate = 100
+set pitch_rc_rate = 1
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 207
+#set roll_srate = 70
+set roll_srate = 0
+#set pitch_srate = 70
+set pitch_srate = 0
+#set yaw_srate = 70
+set yaw_srate = 0
+
+# rateprofile
+rateprofile 3
+
+#set roll_rc_rate = 100
+set roll_rc_rate = 207
+#set pitch_rc_rate = 100
+set pitch_rc_rate = 207
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 207
+#set roll_srate = 70
+set roll_srate = 0
+#set pitch_srate = 70
+set pitch_srate = 0
+#set yaw_srate = 70
+set yaw_srate = 0
+
+# rateprofile
+rateprofile 4
+
+#set roll_srate = 70
+set roll_srate = 80
+#set pitch_srate = 70
+set pitch_srate = 80
+#set yaw_srate = 70
+set yaw_srate = 80
+
+# rateprofile
+rateprofile 5
+
+#set roll_rc_rate = 100
+set roll_rc_rate = 110
+#set pitch_rc_rate = 100
+set pitch_rc_rate = 110
+#set yaw_rc_rate = 100
+set yaw_rc_rate = 110
+#set roll_srate = 70
+set roll_srate = 82
+#set pitch_srate = 70
+set pitch_srate = 82
+#set yaw_srate = 70
+set yaw_srate = 81
+
+# restore original rateprofile selection
+rateprofile 5
+
+# save configuration
+save
