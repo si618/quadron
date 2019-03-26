@@ -1,4 +1,4 @@
-# diff all defaults
+diff all defaults
 
 # version
 # Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
@@ -147,6 +147,8 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # display_name
 
 # master
+#set gyro_lowpass_hz = 150
+set gyro_lowpass_hz = 0
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set motor_pwm_protocol = ONESHOT125
@@ -307,7 +309,7 @@ set d_min_roll = 16
 set d_min_pitch = 18
 
 # restore original profile selection
-profile 0
+profile 2
 
 # rateprofile
 rateprofile 0
@@ -422,3 +424,4 @@ rateprofile 2
 
 # save configuration
 save
+# 

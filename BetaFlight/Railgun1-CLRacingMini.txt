@@ -1,4 +1,4 @@
-# diff all defaults
+diff all defaults
 
 # version
 # Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
@@ -188,7 +188,7 @@ set pid_process_denom = 1
 #set transient_throttle_limit = 15
 set transient_throttle_limit = 10
 #set osd_vbat_pos = 234
-set osd_vbat_pos = 2529
+set osd_vbat_pos = 2497
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_tim_1_pos = 234
@@ -206,9 +206,11 @@ set osd_ah_pos = 200
 #set osd_current_pos = 234
 set osd_current_pos = 453
 #set osd_mah_drawn_pos = 234
-set osd_mah_drawn_pos = 2552
+set osd_mah_drawn_pos = 2520
+#set osd_motor_diag_pos = 234
+set osd_motor_diag_pos = 236
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2540
+set osd_craft_name_pos = 2507
 #set osd_gps_speed_pos = 234
 set osd_gps_speed_pos = 218
 #set osd_gps_lon_pos = 234
@@ -257,6 +259,8 @@ set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
 set osd_esc_rpm_pos = 83
+#set osd_flip_arrow_pos = 234
+set osd_flip_arrow_pos = 270
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
@@ -279,6 +283,8 @@ set rate_6pos_switch = ON
 set vtx_channel = 3
 #set vtx_freq = 5740
 set vtx_freq = 5780
+#set vcd_video_system = AUTO
+set vcd_video_system = PAL
 
 # profile
 profile 0
@@ -329,7 +335,7 @@ set d_min_roll = 16
 set d_min_pitch = 18
 
 # restore original profile selection
-profile 0
+profile 2
 
 # rateprofile
 rateprofile 0
@@ -440,7 +446,8 @@ set tpa_rate = 75
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 2
 
 # save configuration
 save
+# 
