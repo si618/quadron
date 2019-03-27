@@ -104,19 +104,19 @@ serial 1 2048 115200 57600 0 115200
 
 # aux
 #aux 0 0 0 900 900 0 0
-aux 0 0 0 1275 2100 0 0
+aux 0 0 0 1300 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 1 2 1700 2075 0 0
+aux 1 1 2 1700 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 2 2 1275 1700 0 0
+aux 2 2 2 1300 1700 0 0
 #aux 3 0 0 900 900 0 0
 aux 3 13 3 1700 2100 0 0
 #aux 4 0 0 900 900 0 0
-aux 4 28 2 900 1275 0 0
+aux 4 28 2 900 1700 0 0
 #aux 5 0 0 900 900 0 0
-aux 5 35 3 1800 2100 0 0
+aux 5 35 3 1700 2100 0 0
 #aux 6 0 0 900 900 0 0
-aux 6 49 3 1350 1650 0 0
+aux 6 49 3 1300 1700 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -171,6 +171,10 @@ set osd_craft_name_pos = 2445
 set osd_warnings_pos = 2410
 #set osd_core_temp_pos = 234
 set osd_core_temp_pos = 2439
+#set osd_stat_endbatt = OFF
+set osd_stat_endbatt = ON
+#set osd_stat_battery = OFF
+set osd_stat_battery = ON
 #set osd_stat_used_mah = ON
 set osd_stat_used_mah = OFF
 #set osd_stat_min_link_quality = OFF
@@ -310,7 +314,7 @@ set pitch_srate = 0
 set yaw_srate = 10
 
 # restore original rateprofile selection
-rateprofile 5
+rateprofile 2
 
 # save configuration
 save
