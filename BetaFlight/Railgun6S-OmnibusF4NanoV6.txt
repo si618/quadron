@@ -1,4 +1,4 @@
-diff all defaults
+# diff all defaults
 
 # version
 # Betaflight / OMNIBUSF4V6 (OBV6) 4.0.0 Mar 14 2019 / 11:33:41 (360afd96d) MSP API: 1.41
@@ -223,6 +223,8 @@ set osd_stat_tim_1 = ON
 set osd_stat_max_spd = OFF
 #set osd_stat_endbatt = OFF
 set osd_stat_endbatt = ON
+#set osd_stat_battery = OFF
+set osd_stat_battery = ON
 #set osd_stat_min_rssi = ON
 set osd_stat_min_rssi = OFF
 #set osd_stat_bbox = ON
