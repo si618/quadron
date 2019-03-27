@@ -130,11 +130,11 @@ color 10 120,0,255
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 13 2 1750 2100 0 0
+aux 1 13 2 1800 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 2 1350 1650 0 0
+aux 2 35 2 1300 1800 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 3 1400 2100 0 0
+aux 3 49 3 1300 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -160,11 +160,13 @@ set rc_interp = MANUAL
 #set rc_interp_int = 19
 set rc_interp_int = 9
 #set rc_smoothing_input_hz = 0
-set rc_smoothing_input_hz = 30
+set rc_smoothing_input_hz = 40
 #set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 30
+set rc_smoothing_derivative_hz = 120
 #set rc_smoothing_input_type = BIQUAD
 set rc_smoothing_input_type = PT1
+#set rc_smoothing_derivative_type = BIQUAD
+set rc_smoothing_derivative_type = PT1
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
@@ -267,6 +269,8 @@ set osd_stat_tim_1 = ON
 set osd_stat_max_spd = OFF
 #set osd_stat_endbatt = OFF
 set osd_stat_endbatt = ON
+#set osd_stat_battery = OFF
+set osd_stat_battery = ON
 #set osd_stat_min_rssi = ON
 set osd_stat_min_rssi = OFF
 #set osd_stat_bbox = ON
