@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Apr  1 2019 / 11:07:16 (88665a678) MSP API: 1.41
 
 # start the command batch
 batch start
@@ -11,7 +11,7 @@ defaults nosave
 
 board_name CLRACINGF4
 manufacturer_id 
-mcu_id 0037003a3037470236353634
+mcu_id 005200495848500f20323852
 signature 
 
 # name
@@ -87,10 +87,10 @@ beacon RX_SET
 map TAER1234
 
 # serial
-#serial 2 0 115200 57600 0 115200
-serial 2 64 115200 57600 0 115200
 #serial 3 0 115200 57600 0 115200
 serial 3 8192 115200 57600 0 115200
+#serial 5 0 115200 57600 0 115200
+serial 5 64 115200 57600 0 115200
 
 # led
 #led 0 0,0::C:0
@@ -137,8 +137,6 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # display_name
 
 # master
-#set gyro_lowpass_hz = 150
-set gyro_lowpass_hz = 0
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
@@ -259,14 +257,10 @@ set vcd_video_system = NTSC
 # profile
 profile 0
 
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
 
 # profile
 profile 1
 
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
 #set d_min_roll = 20
 set d_min_roll = 0
 #set d_min_pitch = 22
@@ -279,8 +273,6 @@ set d_min_advance = 0
 # profile
 profile 2
 
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
 #set iterm_relax_cutoff = 20
 set iterm_relax_cutoff = 35
 #set i_pitch = 70
@@ -297,8 +289,6 @@ set p_yaw = 30
 set i_yaw = 90
 #set f_yaw = 0
 set f_yaw = 30
-#set abs_control_gain = 10
-set abs_control_gain = 0
 #set d_min_roll = 20
 set d_min_roll = 16
 #set d_min_pitch = 22
