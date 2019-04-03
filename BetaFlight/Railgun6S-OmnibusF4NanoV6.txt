@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / OMNIBUSF4V6 (OBV6) 4.0.0 Mar 14 2019 / 11:33:41 (360afd96d) MSP API: 1.41
+# Betaflight / OMNIBUSF4V6 (OBV6) 4.0.0 Apr  3 2019 / 14:16:51 (22b9f3453) MSP API: 1.41
 
 # start the command batch
 batch start
@@ -287,8 +287,6 @@ set p_yaw = 30
 set i_yaw = 90
 #set f_yaw = 0
 set f_yaw = 30
-#set abs_control_gain = 10
-set abs_control_gain = 0
 #set d_min_roll = 20
 set d_min_roll = 16
 #set d_min_pitch = 22
