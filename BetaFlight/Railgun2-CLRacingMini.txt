@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Apr  1 2019 / 11:07:16 (88665a678) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Apr  3 2019 / 13:44:35 (22b9f3453) MSP API: 1.41
 
 # start the command batch
 batch start
