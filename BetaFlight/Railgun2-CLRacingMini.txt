@@ -18,6 +18,14 @@ signature
 name SI-FI R2
 
 # resources
+#resource MOTOR 1 B00
+resource MOTOR 1 B01
+#resource MOTOR 2 B01
+resource MOTOR 2 B00
+#resource MOTOR 3 A03
+resource MOTOR 3 A02
+#resource MOTOR 4 A02
+resource MOTOR 4 A03
 
 # timer
 
@@ -157,6 +165,8 @@ set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 #set pid_process_denom = 4
 set pid_process_denom = 1
+#set osd_warn_core_temp = ON
+set osd_warn_core_temp = OFF
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
@@ -227,6 +237,10 @@ set osd_nvario_pos = 279
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
 set osd_esc_rpm_pos = 83
+#set osd_flip_arrow_pos = 234
+set osd_flip_arrow_pos = 2454
+#set osd_core_temp_pos = 234
+set osd_core_temp_pos = 2439
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
