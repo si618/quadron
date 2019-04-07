@@ -21,9 +21,9 @@ name SI-FI R2
 #resource MOTOR 1 B00
 resource MOTOR 1 B01
 #resource MOTOR 2 B01
-resource MOTOR 2 B00
+resource MOTOR 2 A02
 #resource MOTOR 3 A03
-resource MOTOR 3 A02
+resource MOTOR 3 B00
 #resource MOTOR 4 A02
 resource MOTOR 4 A03
 
@@ -263,6 +263,8 @@ set osd_stat_max_fft = ON
 set rate_6pos_switch = ON
 #set vtx_channel = 1
 set vtx_channel = 3
+#set vtx_power = 1
+set vtx_power = 3
 #set vtx_freq = 5740
 set vtx_freq = 5780
 #set vcd_video_system = AUTO
@@ -420,7 +422,7 @@ set tpa_rate = 75
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save
