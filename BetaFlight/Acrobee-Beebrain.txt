@@ -1,0 +1,105 @@
+# diff all defaults
+# Betaflight / BEEBRAIN_V2F (BBV2) 4.0.0 Jan 23 2019 / 13:04:46 (a4ce8b560) MSP API: 1.41
+
+board_name BEEBRAIN_V2F
+manufacturer_id 
+mcu_id 002d00345434570820383734
+defaults nosave
+name Anox FPV
+
+mmix reset
+
+mmix 0  1.000 -0.414  1.000 -1.000
+mmix 1  1.000 -0.414 -1.000  1.000
+mmix 2  1.000  0.414  1.000  1.000
+mmix 3  1.000  0.414 -1.000 -1.000
+
+feature -MOTOR_STOP
+#feature -AIRMODE
+#feature MOTOR_STOP
+feature AIRMODE
+#aux 0 1 1 900 2100 0 0
+aux 0 0 0 1700 2100 0 0
+#aux 1 0 0 900 900 0 0
+aux 1 1 1 900 1225 0 0
+#aux 2 0 0 900 900 0 0
+aux 2 2 1 1250 1650 0 0
+#aux 3 0 0 900 900 0 0
+aux 3 49 2 1700 2100 0 0
+#set gyro_sync_denom = 1
+set gyro_sync_denom = 2
+#set dyn_lpf_gyro_max_hz = 450
+set dyn_lpf_gyro_max_hz = 650
+#set acc_calibration = 0,0,0
+set acc_calibration = -71,14,81
+#set min_check = 1050
+set min_check = 1070
+#set use_unsynced_pwm = ON
+set use_unsynced_pwm = OFF
+#set vbat_max_cell_voltage = 430
+set vbat_max_cell_voltage = 450
+#set vbat_warning_cell_voltage = 330
+set vbat_warning_cell_voltage = 320
+#set current_meter = NONE
+set current_meter = ADC
+#set small_angle = 25
+set small_angle = 180
+#set osd_vbat_pos = 2391
+set osd_vbat_pos = 2433
+#set osd_rssi_pos = 2402
+set osd_rssi_pos = 90
+#set osd_tim_2_pos = 2370
+set osd_tim_2_pos = 322
+#set osd_flymode_pos = 2385
+set osd_flymode_pos = 2401
+#set osd_vtx_channel_pos = 2378
+set osd_vtx_channel_pos = 330
+#set osd_craft_name_pos = 2409
+set osd_craft_name_pos = 2443
+#set osd_warnings_pos = 329
+set osd_warnings_pos = 2377
+#set osd_avg_cell_voltage_pos = 234
+set osd_avg_cell_voltage_pos = 408
+#set osd_disarmed_pos = 234
+set osd_disarmed_pos = 2282
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
+#set vtx_band = 4
+set vtx_band = 5
+#set vtx_channel = 1
+set vtx_channel = 8
+#set vtx_power = 1
+set vtx_power = 3 ###CORRUPTED CONFIG###
+profile 0
+
+profile 1
+
+profile 2
+
+profile 1
+rateprofile 0
+
+#set roll_expo = 15
+set roll_expo = 25
+#set pitch_expo = 15
+set pitch_expo = 25
+#set yaw_expo = 15
+set yaw_expo = 25
+#set roll_srate = 85
+set roll_srate = 76
+#set pitch_srate = 85
+set pitch_srate = 76
+#set yaw_srate = 70
+set yaw_srate = 68
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+rateprofile 4
+
+rateprofile 5
+
+rateprofile 0
+save
