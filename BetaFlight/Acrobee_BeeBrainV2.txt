@@ -1,4 +1,4 @@
-diff all defaults
+# diff all defaults
 # Betaflight / BEEBRAIN_V2F (BBV2) 4.0.2 May  5 2019 / 11:38:35 (56bdc8d26) MSP API: 1.41 / FEATURE CUT LEVEL 1
 batch start
 defaults nosave

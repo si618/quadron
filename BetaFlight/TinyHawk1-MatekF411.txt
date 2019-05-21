@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / MATEKF411 (MK41) 4.0.0 Mar 26 2019 / 19:30:42 (173e958da) MSP API: 1.41
+# Betaflight / MATEKF411 (MK41) 4.0.2 May  5 2019 / 12:03:05 (56bdc8d26) MSP API: 1.41
 
 # start the command batch
 batch start
@@ -186,9 +186,9 @@ set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_channel = 1
-set vtx_channel = 3
+set vtx_channel = 5
 #set vtx_freq = 5740
-set vtx_freq = 5780
+set vtx_freq = 5820
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 
@@ -290,18 +290,14 @@ set yaw_srate = 25
 # rateprofile
 rateprofile 3
 
-#set roll_rc_rate = 100
-set roll_rc_rate = 111
-#set pitch_rc_rate = 100
-set pitch_rc_rate = 111
 #set yaw_rc_rate = 100
-set yaw_rc_rate = 210
+set yaw_rc_rate = 200
 #set roll_srate = 70
-set roll_srate = 82
+set roll_srate = 80
 #set pitch_srate = 70
-set pitch_srate = 82
+set pitch_srate = 80
 #set yaw_srate = 70
-set yaw_srate = 28
+set yaw_srate = 26
 
 # rateprofile
 rateprofile 4
@@ -336,7 +332,7 @@ set pitch_srate = 0
 set yaw_srate = 15
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 0
 
 # save configuration
 save
