@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Apr  3 2019 / 13:44:35 (22b9f3453) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.3 Jun  1 2019 / 11:15:21 (094cfc956) MSP API: 1.41
 
 # start the command batch
 batch start
@@ -19,13 +19,13 @@ name SI-FI R2
 
 # resources
 #resource MOTOR 1 B00
-resource MOTOR 1 B01
+resource MOTOR 1 A03
 #resource MOTOR 2 B01
 resource MOTOR 2 A02
 #resource MOTOR 3 A03
 resource MOTOR 3 B00
 #resource MOTOR 4 A02
-resource MOTOR 4 A03
+resource MOTOR 4 B01
 
 # timer
 
@@ -40,7 +40,9 @@ resource MOTOR 4 A03
 
 # feature
 #feature -TELEMETRY
+#feature -LED_STRIP
 feature TELEMETRY
+feature LED_STRIP
 
 # beeper
 #beeper GYRO_CALIBRATED
@@ -112,13 +114,11 @@ led 3 3,0::CVW:0
 
 # color
 #color 3 30,0,255
-color 3 0,0,255
-#color 4 60,0,255
-color 4 120,0,255
+color 3 240,0,255
 #color 6 120,0,255
-color 6 240,0,255
+color 6 0,0,255
 #color 10 240,0,255
-color 10 0,255,255
+color 10 120,0,255
 
 # mode_color
 
@@ -218,7 +218,7 @@ set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
 #set osd_warnings_pos = 14665
-set osd_warnings_pos = 2049
+set osd_warnings_pos = 2059
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
 #set osd_pit_ang_pos = 234
@@ -228,11 +228,9 @@ set osd_rol_ang_pos = 289
 #set osd_battery_usage_pos = 234
 set osd_battery_usage_pos = 392
 #set osd_disarmed_pos = 234
-set osd_disarmed_pos = 2069
+set osd_disarmed_pos = 2092
 #set osd_nheading_pos = 234
 set osd_nheading_pos = 311
-#set osd_nvario_pos = 234
-set osd_nvario_pos = 279
 #set osd_esc_tmp_pos = 234
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
@@ -263,8 +261,6 @@ set osd_stat_max_fft = ON
 set rate_6pos_switch = ON
 #set vtx_channel = 1
 set vtx_channel = 3
-#set vtx_power = 1
-set vtx_power = 3
 #set vtx_freq = 5740
 set vtx_freq = 5780
 #set vcd_video_system = AUTO
@@ -422,8 +418,7 @@ set tpa_rate = 75
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save
-# 
