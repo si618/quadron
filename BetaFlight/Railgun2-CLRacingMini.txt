@@ -1,4 +1,4 @@
-diff all defaults
+# diff all defaults
 
 # version
 # Betaflight / CLRACINGF4 (CLR4) 4.0.3 Jun  1 2019 / 11:15:21 (094cfc956) MSP API: 1.41
@@ -207,8 +207,6 @@ set beeper_dshot_beacon_tone = 3
 set small_angle = 180
 #set pid_process_denom = 4
 set pid_process_denom = 1
-#set osd_warn_core_temp = ON
-set osd_warn_core_temp = OFF
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
@@ -280,7 +278,7 @@ set osd_esc_rpm_pos = 83
 #set osd_flip_arrow_pos = 234
 set osd_flip_arrow_pos = 2454
 #set osd_core_temp_pos = 234
-set osd_core_temp_pos = 2439
+set osd_core_temp_pos = 391
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
@@ -295,6 +293,8 @@ set osd_stat_min_rssi = OFF
 set osd_stat_bbox = OFF
 #set osd_stat_bb_no = ON
 set osd_stat_bb_no = OFF
+#set osd_stat_max_esc_rpm = OFF
+set osd_stat_max_esc_rpm = ON
 #set osd_stat_min_link_quality = OFF
 set osd_stat_min_link_quality = ON
 #set osd_stat_max_fft = OFF
@@ -355,7 +355,7 @@ set d_min_pitch = 0
 set d_min_boost_gain = 35
 
 # restore original profile selection
-profile 0
+profile 2
 
 # rateprofile
 rateprofile 0
@@ -466,7 +466,7 @@ set tpa_rate = 75
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 4
 
 # save configuration
 save
