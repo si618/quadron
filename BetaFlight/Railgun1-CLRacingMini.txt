@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.0.5 Aug  1 2019 / 11:40:46 (839661b20) MSP API: 1.41
 
 # start the command batch
 batch start
@@ -18,14 +18,6 @@ signature
 name SI-FI R1
 
 # resources
-#resource MOTOR 1 B00
-resource MOTOR 1 B01
-#resource MOTOR 2 B01
-resource MOTOR 2 A02
-#resource MOTOR 3 A03
-resource MOTOR 3 B00
-#resource MOTOR 4 A02
-resource MOTOR 4 A03
 
 # timer
 
@@ -149,12 +141,6 @@ adjrange 0 0 1 900 2100 12 1 0 0
 # display_name
 
 # master
-#set gyro_lowpass_hz = 150
-set gyro_lowpass_hz = 0
-#set dyn_lpf_gyro_min_hz = 150
-set dyn_lpf_gyro_min_hz = 250
-#set dyn_lpf_gyro_max_hz = 450
-set dyn_lpf_gyro_max_hz = 600
 #set rc_interp = AUTO
 set rc_interp = MANUAL
 #set rc_interp_int = 19
@@ -173,8 +159,8 @@ set serialrx_provider = CRSF
 set blackbox_device = NONE
 #set dshot_idle_value = 550
 set dshot_idle_value = 500
-#set motor_pwm_protocol = ONESHOT125
-set motor_pwm_protocol = DSHOT600
+#set motor_pwm_protocol = DSHOT600
+set motor_pwm_protocol = DSHOT1200
 #set bat_capacity = 0
 set bat_capacity = 1300
 #set vbat_scale = 110
@@ -185,8 +171,6 @@ set ibata_scale = 230
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
-#set pid_process_denom = 4
-set pid_process_denom = 1
 #set transient_throttle_limit = 15
 set transient_throttle_limit = 10
 #set osd_vbat_pos = 234
@@ -255,8 +239,6 @@ set osd_battery_usage_pos = 392
 set osd_disarmed_pos = 2069
 #set osd_nheading_pos = 234
 set osd_nheading_pos = 311
-#set osd_nvario_pos = 234
-set osd_nvario_pos = 279
 #set osd_esc_tmp_pos = 234
 set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
@@ -283,63 +265,91 @@ set osd_stat_min_link_quality = ON
 set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
-#set vtx_channel = 1
-set vtx_channel = 3
-#set vtx_freq = 5740
-set vtx_freq = 5780
 #set vcd_video_system = AUTO
 set vcd_video_system = PAL
 
 # profile
 profile 0
 
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
 
 # profile
 profile 1
 
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
-#set d_min_roll = 20
-set d_min_roll = 0
-#set d_min_pitch = 22
-set d_min_pitch = 0
-#set d_min_boost_gain = 27
-set d_min_boost_gain = 0
-#set d_min_advance = 20
-set d_min_advance = 0
-
-# profile
-profile 2
-
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
+#set dterm_lowpass2_type = PT1
+set dterm_lowpass2_type = BIQUAD
+#set dterm_lowpass2_hz = 100
+set dterm_lowpass2_hz = 150
 #set iterm_relax_cutoff = 20
 set iterm_relax_cutoff = 35
+#set p_pitch = 46
+set p_pitch = 30
 #set i_pitch = 70
-set i_pitch = 85
+set i_pitch = 90
 #set d_pitch = 38
-set d_pitch = 28
+set d_pitch = 27
+#set f_pitch = 75
+set f_pitch = 90
+#set p_roll = 42
+set p_roll = 28
 #set i_roll = 60
-set i_roll = 80
+set i_roll = 84
 #set d_roll = 35
-set d_roll = 30
+set d_roll = 25
+#set f_roll = 70
+set f_roll = 84
 #set p_yaw = 35
 set p_yaw = 30
 #set i_yaw = 100
 set i_yaw = 90
 #set f_yaw = 0
 set f_yaw = 30
-#set abs_control_gain = 10
-set abs_control_gain = 0
 #set d_min_roll = 20
 set d_min_roll = 16
 #set d_min_pitch = 22
 set d_min_pitch = 18
+#set d_min_advance = 20
+set d_min_advance = 0
+
+# profile
+profile 2
+
+#set dterm_lowpass2_type = PT1
+set dterm_lowpass2_type = BIQUAD
+#set dterm_lowpass2_hz = 100
+set dterm_lowpass2_hz = 150
+#set iterm_relax_cutoff = 20
+set iterm_relax_cutoff = 35
+#set p_pitch = 46
+set p_pitch = 30
+#set i_pitch = 70
+set i_pitch = 90
+#set d_pitch = 38
+set d_pitch = 27
+#set f_pitch = 75
+set f_pitch = 90
+#set p_roll = 42
+set p_roll = 28
+#set i_roll = 60
+set i_roll = 84
+#set d_roll = 35
+set d_roll = 25
+#set f_roll = 70
+set f_roll = 84
+#set p_yaw = 35
+set p_yaw = 30
+#set i_yaw = 100
+set i_yaw = 90
+#set f_yaw = 0
+set f_yaw = 30
+#set d_min_roll = 20
+set d_min_roll = 16
+#set d_min_pitch = 22
+set d_min_pitch = 18
+#set d_min_advance = 20
+set d_min_advance = 0
 
 # restore original profile selection
-profile 2
+profile 1
 
 # rateprofile
 rateprofile 0
