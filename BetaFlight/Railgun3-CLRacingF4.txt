@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.0.0 Mar 14 2019 / 11:05:31 (360afd96d) MSP API: 1.41
+# Betaflight / CLRACINGF4 (CLR4) 4.1.0 Aug 22 2019 / 21:01:00 (8826175b0) MSP API: 1.42
 
 # start the command batch
 batch start
@@ -10,12 +10,10 @@ batch start
 defaults nosave
 
 board_name CLRACINGF4
-manufacturer_id 
 mcu_id 0048004c5848500d20323852
 signature 
 
-# name
-name SI-FI HD
+# name: SI-FI R3
 
 # resources
 #resource MOTOR 1 B00
@@ -26,26 +24,13 @@ resource MOTOR 2 B00
 resource MOTOR 3 A02
 #resource MOTOR 4 A02
 resource MOTOR 4 B01
-
-# timer
-
-# dma
-
-# mixer
-
-# servo
-
-# servo mix
-
+#feature -TELEMETRY
 
 # feature
-#feature -TELEMETRY
-#feature -LED_STRIP
 feature TELEMETRY
-feature LED_STRIP
+#beeper GYRO_CALIBRATED
 
 # beeper
-#beeper GYRO_CALIBRATED
 beeper -GYRO_CALIBRATED
 #beeper RX_LOST
 beeper -RX_LOST
@@ -89,9 +74,9 @@ beeper -CAM_CONNECTION_OPEN
 beeper -CAM_CONNECTION_CLOSE
 #beeper RC_SMOOTHING_INIT_FAIL
 beeper -RC_SMOOTHING_INIT_FAIL
+#beacon -RX_SET
 
 # beacon
-#beacon -RX_SET
 beacon RX_SET
 
 # map
@@ -122,8 +107,6 @@ color 6 0,0,255
 #color 10 240,0,255
 color 10 120,0,255
 
-# mode_color
-
 # aux
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
@@ -132,27 +115,25 @@ aux 1 13 3 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
 aux 2 35 2 1350 1650 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 2 1725 2100 0 0
+aux 3 49 2 1650 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
 adjrange 0 0 1 900 2100 12 1 0 0
 
-# rxrange
-
-# vtx
-
-# rxfail
-
-# display_name
+# vtxtable
+#vtxtable powerlevels 0
+vtxtable powerlevels 4
+#vtxtable powervalues 0 0 0 0 0 0 0 0
+vtxtable powervalues 7 16 25 40
+#vtxtable powerlabels LV0 LV1 LV2 LV3 LV4 LV5 LV6 LV7
+vtxtable powerlabels 25 200 500 800
 
 # master
-#set gyro_lowpass_hz = 150
-set gyro_lowpass_hz = 0
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
-#set motor_pwm_protocol = ONESHOT125
-set motor_pwm_protocol = DSHOT600
+#set dshot_idle_value = 550
+set dshot_idle_value = 500
 #set bat_capacity = 0
 set bat_capacity = 1300
 #set vbat_scale = 110
@@ -163,8 +144,12 @@ set ibata_scale = 230
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
-#set pid_process_denom = 4
-set pid_process_denom = 1
+#set transient_throttle_limit = 15
+set transient_throttle_limit = 10
+#set osd_warn_rssi = OFF
+set osd_warn_rssi = ON
+#set osd_warn_link_quality = OFF
+set osd_warn_link_quality = ON
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
@@ -216,7 +201,7 @@ set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
 #set osd_warnings_pos = 14665
-set osd_warnings_pos = 2049
+set osd_warnings_pos = 2058
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
 #set osd_pit_ang_pos = 234
@@ -226,7 +211,7 @@ set osd_rol_ang_pos = 289
 #set osd_battery_usage_pos = 234
 set osd_battery_usage_pos = 392
 #set osd_disarmed_pos = 234
-set osd_disarmed_pos = 2069
+set osd_disarmed_pos = 2091
 #set osd_nheading_pos = 234
 set osd_nheading_pos = 311
 #set osd_nvario_pos = 234
@@ -255,95 +240,91 @@ set osd_stat_min_link_quality = ON
 set osd_stat_max_fft = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
-#set vtx_channel = 1
-set vtx_channel = 3
-#set vtx_freq = 5740
+#set vtx_freq = 0
 set vtx_freq = 5780
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
+#set name = -
+set name = SI-FI R3
 
-# profile
 profile 0
 
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
-
-# profile
-profile 1
-
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
-#set d_min_roll = 20
-set d_min_roll = 0
-#set d_min_pitch = 22
-set d_min_pitch = 0
-#set d_min_boost_gain = 27
-set d_min_boost_gain = 0
-#set d_min_advance = 20
-set d_min_advance = 0
-
-# profile
-profile 2
-
-#set dterm_lowpass_hz = 150
-set dterm_lowpass_hz = 0
+# profile 0
+#set dterm_lowpass2_type = PT1
+set dterm_lowpass2_type = BIQUAD
 #set iterm_relax_cutoff = 20
 set iterm_relax_cutoff = 35
+#set p_pitch = 46
+set p_pitch = 30
 #set i_pitch = 70
-set i_pitch = 85
+set i_pitch = 90
 #set d_pitch = 38
-set d_pitch = 28
+set d_pitch = 27
+#set f_pitch = 75
+set f_pitch = 90
+#set p_roll = 42
+set p_roll = 28
 #set i_roll = 60
-set i_roll = 80
+set i_roll = 84
 #set d_roll = 35
-set d_roll = 30
-#set p_yaw = 35
-set p_yaw = 30
-#set i_yaw = 100
+set d_roll = 25
+#set f_roll = 70
+set f_roll = 84
+#set i_yaw = 80
 set i_yaw = 90
-#set f_yaw = 0
+#set f_yaw = 70
 set f_yaw = 30
-#set abs_control_gain = 10
-set abs_control_gain = 0
 #set d_min_roll = 20
 set d_min_roll = 16
 #set d_min_pitch = 22
 set d_min_pitch = 18
+#set d_min_advance = 20
+set d_min_advance = 0
+#set launch_control_mode = NORMAL
+set launch_control_mode = PITCHONLY
+#set launch_angle_limit = 0
+set launch_angle_limit = 68
+#set ff_boost = 15
+set ff_boost = 20
 
-# restore original profile selection
+profile 1
+
 profile 2
 
-# rateprofile
+# restore original profile selection
+profile 0
+
 rateprofile 0
 
+# rateprofile 0
 #set roll_srate = 70
 set roll_srate = 35
 #set pitch_srate = 70
 set pitch_srate = 35
 #set yaw_srate = 70
 set yaw_srate = 35
-#set tpa_rate = 50
+#set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1500
+#set tpa_breakpoint = 1250
 set tpa_breakpoint = 1400
 
-# rateprofile
 rateprofile 1
 
+# rateprofile 1
 #set roll_srate = 70
 set roll_srate = 40
 #set pitch_srate = 70
 set pitch_srate = 40
 #set yaw_srate = 70
 set yaw_srate = 40
-#set tpa_rate = 50
+#set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1500
+#set tpa_breakpoint = 1250
 set tpa_breakpoint = 1400
 
-# rateprofile
 rateprofile 2
 
+# rateprofile 2
 #set roll_rc_rate = 100
 set roll_rc_rate = 123
 #set pitch_rc_rate = 100
@@ -356,14 +337,14 @@ set roll_srate = 45
 set pitch_srate = 45
 #set yaw_srate = 70
 set yaw_srate = 45
-#set tpa_rate = 50
+#set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1500
+#set tpa_breakpoint = 1250
 set tpa_breakpoint = 1400
 
-# rateprofile
 rateprofile 3
 
+# rateprofile 3
 #set roll_rc_rate = 100
 set roll_rc_rate = 110
 #set pitch_rc_rate = 100
@@ -376,14 +357,14 @@ set roll_srate = 55
 set pitch_srate = 55
 #set yaw_srate = 70
 set yaw_srate = 55
-#set tpa_rate = 50
+#set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1500
+#set tpa_breakpoint = 1250
 set tpa_breakpoint = 1400
 
-# rateprofile
 rateprofile 4
 
+# rateprofile 4
 #set roll_rc_rate = 100
 set roll_rc_rate = 160
 #set pitch_rc_rate = 100
@@ -396,33 +377,27 @@ set roll_srate = 60
 set pitch_srate = 60
 #set yaw_srate = 70
 set yaw_srate = 60
-#set tpa_rate = 50
+#set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1500
+#set tpa_breakpoint = 1250
 set tpa_breakpoint = 1400
 
-# rateprofile
 rateprofile 5
 
+# rateprofile 5
 #set roll_rc_rate = 100
 set roll_rc_rate = 162
 #set pitch_rc_rate = 100
 set pitch_rc_rate = 162
 #set yaw_rc_rate = 100
 set yaw_rc_rate = 162
-#set roll_srate = 70
-set roll_srate = 73
-#set pitch_srate = 70
-set pitch_srate = 73
-#set yaw_srate = 70
-set yaw_srate = 73
-#set tpa_rate = 50
+#set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1500
+#set tpa_breakpoint = 1250
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 4
 
 # save configuration
 save
