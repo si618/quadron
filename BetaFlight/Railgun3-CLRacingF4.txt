@@ -1,7 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.1.0 Aug 22 2019 / 21:01:00 (8826175b0) MSP API: 1.42
+# Betaflight / STM32F405 (S405) 4.1.0 Oct 16 2019 / 11:57:16 (c37a7c91a) MSP API: 1.42
+# manufacturer_id: CLRA   board_name: CLRACINGF4   custom defaults: YES
 
 # start the command batch
 batch start
@@ -10,6 +11,7 @@ batch start
 defaults nosave
 
 board_name CLRACINGF4
+manufacturer_id CLRA
 mcu_id 0048004c5848500d20323852
 signature 
 
@@ -24,10 +26,14 @@ resource MOTOR 2 B00
 resource MOTOR 3 A02
 #resource MOTOR 4 A02
 resource MOTOR 4 B01
+#feature -RX_SERIAL
 #feature -TELEMETRY
 
 # feature
+feature -RX_PARALLEL_PWM
+feature RX_SERIAL
 feature TELEMETRY
+#feature RX_PARALLEL_PWM
 #beeper GYRO_CALIBRATED
 
 # beeper
@@ -111,11 +117,11 @@ color 10 120,0,255
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
-aux 1 13 3 1750 2100 0 0
+aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
 aux 2 35 2 1350 1650 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 2 1650 2100 0 0
+aux 3 49 3 1375 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -144,10 +150,28 @@ vtxtable powervalues 0 1 2 3
 vtxtable powerlabels 25 200 500 800
 
 # master
+#set gyro_sync_denom = 1
+set gyro_sync_denom = 2
+#set gyro_lowpass2_hz = 250
+set gyro_lowpass2_hz = 325
+#set dyn_lpf_gyro_min_hz = 200
+set dyn_lpf_gyro_min_hz = 260
+#set dyn_lpf_gyro_max_hz = 500
+set dyn_lpf_gyro_max_hz = 650
+#set acc_calibration = 0,0,0
+set acc_calibration = 8,-25,-214
+#set mag_hardware = AUTO
+set mag_hardware = NONE
+#set baro_hardware = AUTO
+set baro_hardware = NONE
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set dshot_idle_value = 550
 set dshot_idle_value = 500
+#set dshot_bidir = OFF
+set dshot_bidir = ON
+#set motor_pwm_protocol = DSHOT600
+set motor_pwm_protocol = DSHOT300
 #set bat_capacity = 0
 set bat_capacity = 1300
 #set vbat_scale = 110
@@ -158,7 +182,7 @@ set ibata_scale = 230
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
-#set transient_throttle_limit = 15
+#set transient_throttle_limit = 0
 set transient_throttle_limit = 10
 #set osd_warn_rssi = OFF
 set osd_warn_rssi = ON
@@ -175,7 +199,7 @@ set osd_tim_2_pos = 33
 #set osd_flymode_pos = 234
 set osd_flymode_pos = 333
 #set osd_throttle_pos = 234
-set osd_throttle_pos = 225
+set osd_throttle_pos = 2080
 #set osd_vtx_channel_pos = 234
 set osd_vtx_channel_pos = 377
 #set osd_ah_pos = 78
@@ -215,7 +239,7 @@ set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
 #set osd_warnings_pos = 14665
-set osd_warnings_pos = 2058
+set osd_warnings_pos = 2090
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
 #set osd_pit_ang_pos = 234
@@ -225,7 +249,7 @@ set osd_rol_ang_pos = 289
 #set osd_battery_usage_pos = 234
 set osd_battery_usage_pos = 392
 #set osd_disarmed_pos = 234
-set osd_disarmed_pos = 2091
+set osd_disarmed_pos = 2220
 #set osd_nheading_pos = 234
 set osd_nheading_pos = 311
 #set osd_nvario_pos = 234
@@ -260,48 +284,54 @@ set vtx_power = 1
 set vtx_freq = 5780
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
+#set gyro_1_sensor_align = CW0
+set gyro_1_sensor_align = DEFAULT
+#set gyro_1_align_yaw = 0
+set gyro_1_align_yaw = 1800
 #set name = -
 set name = SI-FI R3
 
 profile 0
 
 # profile 0
-#set dterm_lowpass2_type = PT1
-set dterm_lowpass2_type = BIQUAD
-#set iterm_relax_cutoff = 20
-set iterm_relax_cutoff = 35
+#set dyn_lpf_dterm_min_hz = 70
+set dyn_lpf_dterm_min_hz = 91
+#set dyn_lpf_dterm_max_hz = 170
+set dyn_lpf_dterm_max_hz = 221
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 195
+#set throttle_boost = 5
+set throttle_boost = 10
 #set p_pitch = 46
-set p_pitch = 30
-#set i_pitch = 70
-set i_pitch = 90
+set p_pitch = 38
+#set i_pitch = 90
+set i_pitch = 108
 #set d_pitch = 38
-set d_pitch = 27
-#set f_pitch = 75
-set f_pitch = 90
+set d_pitch = 32
+#set f_pitch = 95
+set f_pitch = 114
 #set p_roll = 42
-set p_roll = 28
-#set i_roll = 60
-set i_roll = 84
+set p_roll = 36
+#set i_roll = 85
+set i_roll = 102
 #set d_roll = 35
-set d_roll = 25
-#set f_roll = 70
-set f_roll = 84
-#set i_yaw = 80
-set i_yaw = 90
-#set f_yaw = 70
-set f_yaw = 30
+set d_roll = 30
+#set f_roll = 90
+set f_roll = 108
+#set p_yaw = 30
+set p_yaw = 25
+#set i_yaw = 90
+set i_yaw = 108
+#set f_yaw = 90
+set f_yaw = 108
 #set d_min_roll = 20
-set d_min_roll = 16
+set d_min_roll = 17
 #set d_min_pitch = 22
 set d_min_pitch = 18
-#set d_min_advance = 20
-set d_min_advance = 0
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
-#set ff_boost = 15
-set ff_boost = 20
 
 profile 1
 
@@ -319,10 +349,6 @@ set roll_srate = 35
 set pitch_srate = 35
 #set yaw_srate = 70
 set yaw_srate = 35
-#set tpa_rate = 65
-set tpa_rate = 75
-#set tpa_breakpoint = 1250
-set tpa_breakpoint = 1400
 
 rateprofile 1
 
@@ -333,10 +359,6 @@ set roll_srate = 40
 set pitch_srate = 40
 #set yaw_srate = 70
 set yaw_srate = 40
-#set tpa_rate = 65
-set tpa_rate = 75
-#set tpa_breakpoint = 1250
-set tpa_breakpoint = 1400
 
 rateprofile 2
 
@@ -353,10 +375,6 @@ set roll_srate = 45
 set pitch_srate = 45
 #set yaw_srate = 70
 set yaw_srate = 45
-#set tpa_rate = 65
-set tpa_rate = 75
-#set tpa_breakpoint = 1250
-set tpa_breakpoint = 1400
 
 rateprofile 3
 
@@ -373,10 +391,6 @@ set roll_srate = 55
 set pitch_srate = 55
 #set yaw_srate = 70
 set yaw_srate = 55
-#set tpa_rate = 65
-set tpa_rate = 75
-#set tpa_breakpoint = 1250
-set tpa_breakpoint = 1400
 
 rateprofile 4
 
@@ -393,10 +407,6 @@ set roll_srate = 60
 set pitch_srate = 60
 #set yaw_srate = 70
 set yaw_srate = 60
-#set tpa_rate = 65
-set tpa_rate = 75
-#set tpa_breakpoint = 1250
-set tpa_breakpoint = 1400
 
 rateprofile 5
 
@@ -407,13 +417,9 @@ set roll_rc_rate = 162
 set pitch_rc_rate = 162
 #set yaw_rc_rate = 100
 set yaw_rc_rate = 162
-#set tpa_rate = 65
-set tpa_rate = 75
-#set tpa_breakpoint = 1250
-set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save

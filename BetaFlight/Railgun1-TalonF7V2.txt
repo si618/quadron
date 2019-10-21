@@ -1,7 +1,7 @@
-# diff all defaults
+diff all defaults
 
 # version
-# Betaflight / STM32F7X2 (S7X2) 4.1.0 Oct  6 2019 / 06:48:40 (c6452a55c) MSP API: 1.42
+# Betaflight / STM32F7X2 (S7X2) 4.1.0 Oct 16 2019 / 11:58:45 (c37a7c91a) MSP API: 1.42
 # manufacturer_id: CLRA   board_name: CLRACINGF7   custom defaults: YES
 
 # start the command batch
@@ -131,7 +131,7 @@ vtxtable powerlabels 25 200 500
 #set gyro_sync_denom = 1
 set gyro_sync_denom = 2
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 350
+set gyro_lowpass2_hz = 450
 #set gyro_to_use = BOTH
 set gyro_to_use = FIRST
 #set dyn_notch_range = MEDIUM
@@ -141,9 +141,9 @@ set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
 set dyn_notch_q = 200
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 280
+set dyn_lpf_gyro_min_hz = 360
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 700
+set dyn_lpf_gyro_max_hz = 900
 #set acc_calibration = 0,0,0
 set acc_calibration = -8,0,-198
 #set mag_hardware = AUTO
@@ -261,11 +261,11 @@ set rate_6pos_switch = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 1
+set vtx_channel = 5
 #set vtx_power = 0
 set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5740
+set vtx_freq = 5820
 #set vcd_video_system = AUTO
 set vcd_video_system = PAL
 #set gyro_1_sensor_align = CW0
@@ -277,11 +277,11 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 98
+set dyn_lpf_dterm_min_hz = 126
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 238
+set dyn_lpf_dterm_max_hz = 306
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 210
+set dterm_lowpass2_hz = 270
 #set p_pitch = 46
 set p_pitch = 32
 #set d_pitch = 38
@@ -296,6 +296,10 @@ set p_yaw = 21
 set d_min_roll = 14
 #set d_min_pitch = 22
 set d_min_pitch = 15
+#set launch_control_mode = NORMAL
+set launch_control_mode = PITCHONLY
+#set launch_angle_limit = 0
+set launch_angle_limit = 68
 
 profile 1
 
