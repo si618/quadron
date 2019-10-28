@@ -154,6 +154,8 @@ vtxtable powerlabels 25 200 500 800
 set gyro_sync_denom = 2
 #set gyro_lowpass2_hz = 250
 set gyro_lowpass2_hz = 325
+#set dyn_notch_range = MEDIUM
+set dyn_notch_range = LOW
 #set dyn_notch_width_percent = 8
 set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
@@ -202,6 +204,8 @@ set osd_warn_link_quality = ON
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
+#set osd_link_quality_pos = 234
+set osd_link_quality_pos = 2105
 #set osd_tim_1_pos = 234
 set osd_tim_1_pos = 54
 #set osd_tim_2_pos = 234
