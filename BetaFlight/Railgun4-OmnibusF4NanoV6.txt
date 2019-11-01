@@ -15,7 +15,7 @@ manufacturer_id AIRB
 mcu_id 003b0056574850062038344b
 signature 
 
-# name: si-fi r6
+# name: si-fi r4
 
 # resources
 #resource MOTOR 1 B00
