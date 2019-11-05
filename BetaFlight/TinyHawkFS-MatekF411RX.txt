@@ -101,7 +101,7 @@ mode_color 5 5 3
 
 # aux
 #aux 0 0 0 900 900 0 0
-aux 0 0 0 1700 2100 0 0
+aux 0 0 0 1400 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 1 2 1725 2100 0 0
 #aux 2 0 0 900 900 0 0
@@ -113,7 +113,41 @@ aux 4 35 3 1775 2100 0 0
 #aux 5 0 0 900 900 0 0
 aux 5 49 3 1300 1750 0 0
 
+# adjrange
+#adjrange 0 0 0 900 900 0 0 0 0
+adjrange 0 0 1 900 2100 12 1 0 0
+
+# vtxtable
+#vtxtable bands 0
+vtxtable bands 5
+#vtxtable channels 0
+vtxtable channels 8
+#vtxtable band 1 BAND1    1 CUSTOM 
+vtxtable band 1 BOSCAM_A A FACTORY 5865 5845 5825 5805 5785 5765 5745 5725
+#vtxtable band 2 BAND2    2 CUSTOM 
+vtxtable band 2 BOSCAM_B B FACTORY 5733 5752 5771 5790 5809 5828 5847 5866
+#vtxtable band 3 BAND3    3 CUSTOM 
+vtxtable band 3 BOSCAM_E E FACTORY 5705 5685 5665    0 5885 5905    0    0
+#vtxtable band 4 BAND4    4 CUSTOM 
+vtxtable band 4 FATSHARK F FACTORY 5740 5760 5780 5800 5820 5840 5860 5880
+#vtxtable band 5 BAND5    5 CUSTOM 
+vtxtable band 5 RACEBAND R FACTORY 5658 5695 5732 5769 5806 5843 5880 5917
+#vtxtable powerlevels 0
+vtxtable powerlevels 1
+#vtxtable powerlabels LV0 LV1 LV2 LV3 LV4 LV5 LV6 LV7
+vtxtable powerlabels 25
+
 # master
+#set gyro_lowpass2_hz = 250
+set gyro_lowpass2_hz = 500
+#set dyn_notch_range = MEDIUM
+set dyn_notch_range = HIGH
+#set dyn_notch_min_hz = 150
+set dyn_notch_min_hz = 160
+#set dyn_lpf_gyro_min_hz = 200
+set dyn_lpf_gyro_min_hz = 400
+#set dyn_lpf_gyro_max_hz = 500
+set dyn_lpf_gyro_max_hz = 1000
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
@@ -152,28 +186,38 @@ set small_angle = 180
 set pid_process_denom = 1
 #set runaway_takeoff_deactivate_throttle_percent = 20
 set runaway_takeoff_deactivate_throttle_percent = 25
-#set osd_warn_core_temp = ON
-set osd_warn_core_temp = OFF
-#set osd_warn_rc_smoothing = ON
-set osd_warn_rc_smoothing = OFF
-#set osd_warn_fail_safe = ON
-set osd_warn_fail_safe = OFF
-#set osd_warn_launch_control = ON
-set osd_warn_launch_control = OFF
+#set osd_warn_no_gps_rescue = ON
+set osd_warn_no_gps_rescue = OFF
+#set osd_warn_gps_rescue_disabled = ON
+set osd_warn_gps_rescue_disabled = OFF
+#set osd_warn_link_quality = OFF
+set osd_warn_link_quality = ON
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
-set osd_rssi_pos = 2457
+set osd_rssi_pos = 409
+#set osd_link_quality_pos = 234
+set osd_link_quality_pos = 24
+#set osd_rssi_dbm_pos = 234
+set osd_rssi_dbm_pos = 151
 #set osd_tim_2_pos = 234
 set osd_tim_2_pos = 138
+#set osd_throttle_pos = 234
+set osd_throttle_pos = 2049
 #set osd_vtx_channel_pos = 234
-set osd_vtx_channel_pos = 2451
+set osd_vtx_channel_pos = 403
 #set osd_craft_name_pos = 234
 set osd_craft_name_pos = 2441
 #set osd_warnings_pos = 14665
 set osd_warnings_pos = 2058
 #set osd_disarmed_pos = 234
-set osd_disarmed_pos = 2092
+set osd_disarmed_pos = 2220
+#set osd_flip_arrow_pos = 234
+set osd_flip_arrow_pos = 2288
+#set osd_stat_max_spd = ON
+set osd_stat_max_spd = OFF
+#set osd_stat_endbatt = OFF
+set osd_stat_endbatt = ON
 #set osd_stat_battery = OFF
 set osd_stat_battery = ON
 #set osd_stat_max_curr = ON
@@ -184,8 +228,22 @@ set osd_stat_used_mah = OFF
 set osd_stat_bbox = OFF
 #set osd_stat_bb_no = ON
 set osd_stat_bb_no = OFF
+#set osd_stat_min_link_quality = OFF
+set osd_stat_min_link_quality = ON
+#set osd_stat_max_fft = OFF
+set osd_stat_max_fft = ON
+#set osd_stat_min_rssi_dbm = OFF
+set osd_stat_min_rssi_dbm = ON
+#set rate_6pos_switch = OFF
+set rate_6pos_switch = ON
+#set vtx_band = 0
+set vtx_band = 5
+#set vtx_channel = 0
+set vtx_channel = 5
+#set vtx_power = 0
+set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5780
+set vtx_freq = 5806
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 #set frsky_spi_tx_id = 0,0
@@ -204,6 +262,12 @@ set name = SI-FI THF
 profile 0
 
 # profile 0
+#set dyn_lpf_dterm_min_hz = 70
+set dyn_lpf_dterm_min_hz = 140
+#set dyn_lpf_dterm_max_hz = 170
+set dyn_lpf_dterm_max_hz = 340
+#set dterm_lowpass2_hz = 150
+set dterm_lowpass2_hz = 300
 #set feedforward_transition = 0
 set feedforward_transition = 25
 #set acc_limit_yaw = 0
@@ -223,23 +287,23 @@ set iterm_limit = 150
 #set throttle_boost = 5
 set throttle_boost = 4
 #set p_pitch = 46
-set p_pitch = 55
+set p_pitch = 79
 #set i_pitch = 90
 set i_pitch = 108
 #set d_pitch = 38
-set d_pitch = 46
+set d_pitch = 55
 #set f_pitch = 95
 set f_pitch = 114
 #set p_roll = 42
-set p_roll = 50
+set p_roll = 72
 #set i_roll = 85
 set i_roll = 102
 #set d_roll = 35
-set d_roll = 42
+set d_roll = 50
 #set f_roll = 90
 set f_roll = 108
 #set p_yaw = 30
-set p_yaw = 36
+set p_yaw = 43
 #set i_yaw = 90
 set i_yaw = 108
 #set f_yaw = 90
@@ -247,9 +311,9 @@ set f_yaw = 108
 #set level_limit = 55
 set level_limit = 25
 #set d_min_roll = 20
-set d_min_roll = 24
+set d_min_roll = 29
 #set d_min_pitch = 22
-set d_min_pitch = 26
+set d_min_pitch = 31
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
@@ -306,17 +370,17 @@ rateprofile 2
 
 # rateprofile 2
 #set roll_rc_rate = 100
-set roll_rc_rate = 123
+set roll_rc_rate = 160
 #set pitch_rc_rate = 100
-set pitch_rc_rate = 123
+set pitch_rc_rate = 160
 #set yaw_rc_rate = 100
-set yaw_rc_rate = 123
+set yaw_rc_rate = 160
 #set roll_srate = 70
-set roll_srate = 45
+set roll_srate = 60
 #set pitch_srate = 70
-set pitch_srate = 45
+set pitch_srate = 60
 #set yaw_srate = 70
-set yaw_srate = 45
+set yaw_srate = 60
 #set tpa_rate = 65
 set tpa_rate = 75
 #set tpa_breakpoint = 1250
@@ -383,7 +447,7 @@ set tpa_rate = 75
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
-rateprofile 4
+rateprofile 3
 
 # save configuration
 save
