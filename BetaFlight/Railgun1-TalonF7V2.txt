@@ -93,13 +93,13 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1800 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 2 1300 1800 0 0
+aux 2 35 1 900 1200 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 3 1300 2100 0 0
+aux 3 49 1 1800 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
-adjrange 0 0 1 900 2100 12 1 0 0
+adjrange 0 0 3 900 2100 12 3 0 0
 
 # vtxtable
 #vtxtable bands 0
@@ -267,11 +267,11 @@ set rate_6pos_switch = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 3
+set vtx_channel = 1
 #set vtx_power = 0
-set vtx_power = 3
+set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5780
+set vtx_freq = 5740
 #set vcd_video_system = AUTO
 set vcd_video_system = PAL
 #set gyro_1_sensor_align = CW0
@@ -399,7 +399,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 
 # restore original rateprofile selection
-rateprofile 4
+rateprofile 0
 
 # save configuration
 save
