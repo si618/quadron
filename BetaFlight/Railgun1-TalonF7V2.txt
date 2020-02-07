@@ -1,7 +1,7 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F7X2 (S7X2) 4.1.3 Jan 16 2020 / 11:35:53 (543a5e1ba) MSP API: 1.42
+# Betaflight / STM32F7X2 (S7X2) 4.2.0 Feb  6 2020 / 21:13:53 (c4912847f) MSP API: 1.43
 # manufacturer_id: CLRA   board_name: CLRACINGF7   custom defaults: YES
 
 # start the command batch
@@ -126,33 +126,31 @@ vtxtable powervalues 0 1 2
 vtxtable powerlabels 25 200 500
 
 # master
-#set gyro_sync_denom = 1
-set gyro_sync_denom = 2
 #set gyro_lowpass2_hz = 250
 set gyro_lowpass2_hz = 500
 #set gyro_to_use = BOTH
 set gyro_to_use = FIRST
-#set dyn_notch_range = MEDIUM
-set dyn_notch_range = LOW
 #set dyn_notch_width_percent = 8
 set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
 set dyn_notch_q = 250
 #set dyn_notch_min_hz = 150
 set dyn_notch_min_hz = 90
+#set dyn_notch_max_hz = 600
+set dyn_notch_max_hz = 500
 #set dyn_lpf_gyro_min_hz = 200
 set dyn_lpf_gyro_min_hz = 400
 #set dyn_lpf_gyro_max_hz = 500
 set dyn_lpf_gyro_max_hz = 1000
-#set acc_calibration = 0,0,0
-set acc_calibration = -8,0,-198
+#set acc_calibration = 0,0,0,0
+set acc_calibration = -8,0,-198,1
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
 #set rc_smoothing_derivative_hz = 0
 set rc_smoothing_derivative_hz = 20
-#set rc_smoothing_derivative_type = BIQUAD
+#set rc_smoothing_derivative_type = AUTO
 set rc_smoothing_derivative_type = PT1
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
@@ -170,6 +168,10 @@ set vbat_scale = 161
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
+#set osd_warn_rssi = OFF
+set osd_warn_rssi = ON
+#set osd_warn_link_quality = OFF
+set osd_warn_link_quality = ON
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2497
 #set osd_rssi_pos = 234
@@ -353,18 +355,12 @@ set yaw_srate = 45
 rateprofile 3
 
 # rateprofile 3
-#set roll_rc_rate = 100
-set roll_rc_rate = 110
-#set pitch_rc_rate = 100
-set pitch_rc_rate = 110
-#set yaw_rc_rate = 100
-set yaw_rc_rate = 110
 #set roll_srate = 70
-set roll_srate = 55
+set roll_srate = 59
 #set pitch_srate = 70
-set pitch_srate = 55
+set pitch_srate = 59
 #set yaw_srate = 70
-set yaw_srate = 55
+set yaw_srate = 59
 
 rateprofile 4
 
@@ -386,20 +382,20 @@ rateprofile 5
 
 # rateprofile 5
 #set roll_rc_rate = 100
-set roll_rc_rate = 162
+set roll_rc_rate = 135
 #set pitch_rc_rate = 100
-set pitch_rc_rate = 162
+set pitch_rc_rate = 135
 #set yaw_rc_rate = 100
-set yaw_rc_rate = 162
+set yaw_rc_rate = 135
 #set roll_srate = 70
-set roll_srate = 73
+set roll_srate = 75
 #set pitch_srate = 70
-set pitch_srate = 73
+set pitch_srate = 75
 #set yaw_srate = 70
-set yaw_srate = 73
+set yaw_srate = 75
 
 # restore original rateprofile selection
-rateprofile 0
+rateprofile 3
 
 # save configuration
 save
