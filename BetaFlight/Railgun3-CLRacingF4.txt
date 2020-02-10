@@ -1,7 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / CLRACINGF4 (CLR4) 4.1.0 Oct 16 2019 / 11:28:41 (c37a7c91a) MSP API: 1.42
+# Betaflight / STM32F405 (S405) 4.1.3 Jan 16 2020 / 11:34:00 (543a5e1ba) MSP API: 1.42
+# manufacturer_id: CLRA   board_name: CLRACINGF4   custom defaults: YES
 
 # start the command batch
 batch start
@@ -25,10 +26,14 @@ resource MOTOR 2 B00
 resource MOTOR 3 A02
 #resource MOTOR 4 A02
 resource MOTOR 4 B01
+#feature -RX_SERIAL
 #feature -TELEMETRY
 
 # feature
+feature -RX_PARALLEL_PWM
+feature RX_SERIAL
 feature TELEMETRY
+#feature RX_PARALLEL_PWM
 #beeper GYRO_CALIBRATED
 
 # beeper
@@ -114,13 +119,13 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 2 1350 1650 0 0
+aux 2 35 1 900 1200 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 3 1375 2100 0 0
+aux 3 49 1 1800 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
-adjrange 0 0 1 900 2100 12 1 0 0
+adjrange 0 0 3 900 2100 12 3 0 0
 
 # vtxtable
 #vtxtable bands 0
@@ -148,35 +153,51 @@ vtxtable powerlabels 25 200 500 800
 #set gyro_sync_denom = 1
 set gyro_sync_denom = 2
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 375
+set gyro_lowpass2_hz = 325
+#set dyn_notch_range = MEDIUM
+set dyn_notch_range = LOW
 #set dyn_notch_width_percent = 8
 set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
 set dyn_notch_q = 250
 #set dyn_notch_min_hz = 150
-set dyn_notch_min_hz = 100
+set dyn_notch_min_hz = 90
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 300
+set dyn_lpf_gyro_min_hz = 260
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 750
+set dyn_lpf_gyro_max_hz = 650
 #set acc_calibration = 0,0,0
 set acc_calibration = 8,-25,-214
+#set mag_hardware = AUTO
+set mag_hardware = NONE
+#set baro_hardware = AUTO
+set baro_hardware = NONE
+#set rc_smoothing_input_hz = 0
+set rc_smoothing_input_hz = 40
 #set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 20
+set rc_smoothing_derivative_hz = 100
+#set rc_smoothing_input_type = BIQUAD
+set rc_smoothing_input_type = PT1
 #set rc_smoothing_derivative_type = BIQUAD
 set rc_smoothing_derivative_type = PT1
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set dshot_idle_value = 550
 set dshot_idle_value = 500
+#set dshot_bidir = OFF
+set dshot_bidir = ON
 #set motor_pwm_protocol = DSHOT600
 set motor_pwm_protocol = DSHOT300
 #set bat_capacity = 0
 set bat_capacity = 1300
+#set vbat_scale = 110
+set vbat_scale = 112
 #set ibata_scale = 250
 set ibata_scale = 230
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
+#set yaw_motors_reversed = OFF
+set yaw_motors_reversed = ON
 #set small_angle = 25
 set small_angle = 180
 #set transient_throttle_limit = 0
@@ -190,7 +211,7 @@ set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_link_quality_pos = 234
-set osd_link_quality_pos = 2073
+set osd_link_quality_pos = 2105
 #set osd_tim_1_pos = 234
 set osd_tim_1_pos = 54
 #set osd_tim_2_pos = 234
@@ -198,7 +219,7 @@ set osd_tim_2_pos = 33
 #set osd_flymode_pos = 234
 set osd_flymode_pos = 333
 #set osd_throttle_pos = 234
-set osd_throttle_pos = 2048
+set osd_throttle_pos = 2080
 #set osd_vtx_channel_pos = 234
 set osd_vtx_channel_pos = 377
 #set osd_ah_pos = 78
@@ -238,7 +259,7 @@ set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
 #set osd_warnings_pos = 14665
-set osd_warnings_pos = 2058
+set osd_warnings_pos = 2090
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
 #set osd_pit_ang_pos = 234
@@ -258,7 +279,7 @@ set osd_esc_tmp_pos = 82
 #set osd_esc_rpm_pos = 234
 set osd_esc_rpm_pos = 83
 #set osd_flip_arrow_pos = 234
-set osd_flip_arrow_pos = 2320
+set osd_flip_arrow_pos = 2287
 #set osd_stat_tim_1 = OFF
 set osd_stat_tim_1 = ON
 #set osd_stat_max_spd = ON
@@ -296,11 +317,11 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 105
+set dyn_lpf_dterm_min_hz = 91
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 255
+set dyn_lpf_dterm_max_hz = 221
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 225
+set dterm_lowpass2_hz = 195
 #set throttle_boost = 5
 set throttle_boost = 10
 #set p_pitch = 46
@@ -333,6 +354,8 @@ set d_min_pitch = 18
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
+#set ff_interpolate_sp = AVERAGED
+set ff_interpolate_sp = ON
 
 profile 1
 
@@ -420,7 +443,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save
