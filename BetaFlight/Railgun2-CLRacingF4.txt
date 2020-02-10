@@ -121,13 +121,13 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 2 1350 1650 0 0
+aux 2 35 1 900 1150 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 3 1300 2100 0 0
+aux 3 49 1 1800 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
-adjrange 0 0 1 900 2100 12 1 0 0
+adjrange 0 0 3 900 2100 12 3 0 0
 
 # vtxtable
 #vtxtable bands 0
@@ -170,8 +170,12 @@ set dyn_lpf_gyro_max_hz = 1000
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
+#set rc_smoothing_input_hz = 0
+set rc_smoothing_input_hz = 40
 #set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 20
+set rc_smoothing_derivative_hz = 100
+#set rc_smoothing_input_type = BIQUAD
+set rc_smoothing_input_type = PT1
 #set rc_smoothing_derivative_type = BIQUAD
 set rc_smoothing_derivative_type = PT1
 #set serialrx_provider = SPEK1024
@@ -194,6 +198,8 @@ set ibata_scale = 200
 set beeper_frequency = 0
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
+#set yaw_motors_reversed = OFF
+set yaw_motors_reversed = ON
 #set small_angle = 25
 set small_angle = 180
 #set osd_vbat_pos = 234
@@ -295,11 +301,11 @@ set scheduler_optimize_rate = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 3
+set vtx_channel = 1
 #set vtx_power = 0
 set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5780
+set vtx_freq = 5740
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 #set name = -
@@ -346,6 +352,8 @@ set d_min_pitch = 18
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
+#set ff_interpolate_sp = AVERAGED
+set ff_interpolate_sp = ON
 
 profile 1
 

@@ -109,13 +109,13 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 2 1350 1650 0 0
+aux 2 35 1 900 1200 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 3 1600 2100 0 0
+aux 3 49 1 1775 2100 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
-adjrange 0 0 1 900 2100 12 1 0 0
+adjrange 0 0 3 900 2100 12 3 0 0
 
 # vtxtable
 #vtxtable bands 0
@@ -153,7 +153,7 @@ set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
 set dyn_notch_q = 250
 #set dyn_notch_min_hz = 150
-set dyn_notch_min_hz = 100
+set dyn_notch_min_hz = 90
 #set dyn_lpf_gyro_min_hz = 200
 set dyn_lpf_gyro_min_hz = 300
 #set dyn_lpf_gyro_max_hz = 500
@@ -167,7 +167,7 @@ set baro_hardware = NONE
 #set rc_smoothing_input_hz = 0
 set rc_smoothing_input_hz = 40
 #set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 20
+set rc_smoothing_derivative_hz = 100
 #set rc_smoothing_input_type = BIQUAD
 set rc_smoothing_input_type = PT1
 #set rc_smoothing_derivative_type = BIQUAD
@@ -182,6 +182,8 @@ set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
+#set yaw_motors_reversed = OFF
+set yaw_motors_reversed = ON
 #set small_angle = 25
 set small_angle = 180
 #set ledstrip_profile = STATUS
@@ -317,37 +319,33 @@ set dterm_lowpass2_hz = 225
 #set throttle_boost = 5
 set throttle_boost = 10
 #set p_pitch = 46
-set p_pitch = 35
-#set i_pitch = 90
-set i_pitch = 99
+set p_pitch = 32
 #set d_pitch = 38
-set d_pitch = 30
-#set f_pitch = 95
-set f_pitch = 105
+set d_pitch = 27
 #set p_roll = 42
-set p_roll = 33
-#set i_roll = 85
-set i_roll = 94
+set p_roll = 30
 #set d_roll = 35
-set d_roll = 28
-#set f_roll = 90
-set f_roll = 99
+set d_roll = 25
 #set p_yaw = 30
-set p_yaw = 23
-#set i_yaw = 90
-set i_yaw = 99
-#set f_yaw = 90
-set f_yaw = 99
+set p_yaw = 21
 #set d_min_roll = 20
-set d_min_roll = 15
+set d_min_roll = 14
 #set d_min_pitch = 22
-set d_min_pitch = 17
+set d_min_pitch = 15
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
 
 profile 1
+
+# profile 1
+#set launch_control_mode = NORMAL
+set launch_control_mode = PITCHONLY
+#set launch_angle_limit = 0
+set launch_angle_limit = 68
+#set ff_interpolate_sp = AVERAGED
+set ff_interpolate_sp = ON
 
 profile 2
 
