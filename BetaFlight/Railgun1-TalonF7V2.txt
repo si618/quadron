@@ -1,8 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F7X2 (S7X2) 4.2.0 Mar 10 2020 / 03:28:59 (0bb5c021e) MSP API: 1.43
-# manufacturer_id: CLRA   board_name: CLRACINGF7   custom defaults: YES
+# Betaflight / STM32F7X2 (S7X2) 4.1.6 Apr 25 2020 / 05:12:26 (283bda8bf) MSP API: 1.42
+# manufacturer_id: HENA   board_name: TALONF7V2   custom defaults: YES
 
 # start the command batch
 batch start
@@ -10,17 +10,15 @@ batch start
 # reset configuration to default settings
 defaults nosave
 
-board_name CLRACINGF7
-manufacturer_id CLRA
+board_name TALONF7V2
+manufacturer_id HENA
 mcu_id 004300323237510831313935
 signature 
 
 # name: SI-FI R1
 
 # resources
-#resource MOTOR 4 B09
-resource MOTOR 4 C08
-#resource MOTOR 6 C08
+#resource MOTOR 6 B09
 resource MOTOR 6 NONE
 #feature -TELEMETRY
 #feature -ESC_SENSOR
@@ -80,15 +78,15 @@ beeper -RC_SMOOTHING_INIT_FAIL
 map TAER1234
 
 # serial
-#serial 0 0 115200 57600 0 115200
-serial 0 2048 115200 57600 0 115200
-#serial 4 64 115200 57600 0 115200
+#serial 2 64 115200 57600 0 115200
+serial 2 0 115200 57600 0 115200
+#serial 4 0 115200 57600 0 115200
 serial 4 1024 115200 57600 0 115200
 #serial 5 0 115200 57600 0 115200
 serial 5 64 115200 57600 0 115200
 
 # aux
-#aux 0 0 0 900 900 0 0
+#aux 0 40 0 900 2100 0 0
 aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1800 2100 0 0
@@ -128,33 +126,25 @@ vtxtable powerlabels 25 200 500
 # master
 #set gyro_lowpass2_hz = 250
 set gyro_lowpass2_hz = 500
-#set gyro_to_use = BOTH
-set gyro_to_use = FIRST
 #set dyn_notch_width_percent = 8
 set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
 set dyn_notch_q = 250
 #set dyn_notch_min_hz = 150
 set dyn_notch_min_hz = 90
-#set dyn_notch_max_hz = 600
-set dyn_notch_max_hz = 500
 #set dyn_lpf_gyro_min_hz = 200
 set dyn_lpf_gyro_min_hz = 400
 #set dyn_lpf_gyro_max_hz = 500
 set dyn_lpf_gyro_max_hz = 1000
-#set acc_calibration = 0,0,0,0
-set acc_calibration = -44,-68,-92,1
-#set mag_hardware = AUTO
-set mag_hardware = NONE
-#set baro_hardware = AUTO
-set baro_hardware = NONE
+#set acc_calibration = 0,0,0
+set acc_calibration = -44,-68,-92
 #set rc_smoothing_input_hz = 0
 set rc_smoothing_input_hz = 40
 #set rc_smoothing_derivative_hz = 0
 set rc_smoothing_derivative_hz = 100
 #set rc_smoothing_input_type = BIQUAD
 set rc_smoothing_input_type = PT1
-#set rc_smoothing_derivative_type = AUTO
+#set rc_smoothing_derivative_type = BIQUAD
 set rc_smoothing_derivative_type = PT1
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
@@ -166,7 +156,7 @@ set dshot_bidir = ON
 set motor_pwm_protocol = DSHOT300
 #set align_board_yaw = 0
 set align_board_yaw = 180
-#set vbat_scale = 110
+#set vbat_scale = 160
 set vbat_scale = 161
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
@@ -178,31 +168,31 @@ set small_angle = 180
 set osd_warn_rssi = ON
 #set osd_warn_link_quality = OFF
 set osd_warn_link_quality = ON
-#set osd_vbat_pos = 234
+#set osd_vbat_pos = 2447
 set osd_vbat_pos = 2497
-#set osd_rssi_pos = 234
+#set osd_rssi_pos = 2074
 set osd_rssi_pos = 40
 #set osd_link_quality_pos = 234
 set osd_link_quality_pos = 2105
 #set osd_tim_1_pos = 234
 set osd_tim_1_pos = 54
-#set osd_tim_2_pos = 234
+#set osd_tim_2_pos = 2456
 set osd_tim_2_pos = 33
 #set osd_flymode_pos = 234
 set osd_flymode_pos = 333
 #set osd_throttle_pos = 234
 set osd_throttle_pos = 2081
-#set osd_vtx_channel_pos = 234
+#set osd_vtx_channel_pos = 2049
 set osd_vtx_channel_pos = 377
 #set osd_ah_pos = 78
 set osd_ah_pos = 200
-#set osd_current_pos = 234
+#set osd_current_pos = 2439
 set osd_current_pos = 453
-#set osd_mah_drawn_pos = 234
+#set osd_mah_drawn_pos = 2433
 set osd_mah_drawn_pos = 2520
 #set osd_motor_diag_pos = 234
 set osd_motor_diag_pos = 236
-#set osd_craft_name_pos = 234
+#set osd_craft_name_pos = 2058
 set osd_craft_name_pos = 2507
 #set osd_gps_speed_pos = 234
 set osd_gps_speed_pos = 218
@@ -232,7 +222,7 @@ set osd_debug_pos = 1
 set osd_power_pos = 321
 #set osd_pidrate_profile_pos = 234
 set osd_pidrate_profile_pos = 345
-#set osd_warnings_pos = 14665
+#set osd_warnings_pos = 14378
 set osd_warnings_pos = 2090
 #set osd_avg_cell_voltage_pos = 234
 set osd_avg_cell_voltage_pos = 76
@@ -277,7 +267,7 @@ set vtx_band = 4
 #set vtx_channel = 0
 set vtx_channel = 7
 #set vtx_power = 0
-set vtx_power = 1
+set vtx_power = 3
 #set vtx_freq = 0
 set vtx_freq = 5860
 #set vcd_video_system = AUTO
@@ -297,19 +287,31 @@ set dyn_lpf_dterm_max_hz = 340
 #set dterm_lowpass2_hz = 150
 set dterm_lowpass2_hz = 300
 #set p_pitch = 46
-set p_pitch = 32
+set p_pitch = 47
+#set i_pitch = 90
+set i_pitch = 108
 #set d_pitch = 38
-set d_pitch = 27
+set d_pitch = 32
+#set f_pitch = 95
+set f_pitch = 114
 #set p_roll = 42
-set p_roll = 30
+set p_roll = 43
+#set i_roll = 85
+set i_roll = 102
 #set d_roll = 35
-set d_roll = 25
+set d_roll = 30
+#set f_roll = 90
+set f_roll = 108
 #set p_yaw = 30
-set p_yaw = 21
+set p_yaw = 25
+#set i_yaw = 90
+set i_yaw = 108
+#set f_yaw = 90
+set f_yaw = 108
 #set d_min_roll = 20
-set d_min_roll = 14
+set d_min_roll = 17
 #set d_min_pitch = 22
-set d_min_pitch = 15
+set d_min_pitch = 18
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
@@ -401,7 +403,7 @@ set pitch_srate = 75
 set yaw_srate = 75
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 4
 
 # save configuration
 save
