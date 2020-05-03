@@ -1,8 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F7X2 (S7X2) 4.1.6 Apr 25 2020 / 05:12:26 (283bda8bf) MSP API: 1.42
-# manufacturer_id: HENA   board_name: TALONF7V2   custom defaults: YES
+# Betaflight / STM32F7X2 (S7X2) 4.2.0 Apr 29 2020 / 08:09:54 (b480103d4) MSP API: 1.43
+# config: manufacturer_id: HENA, board_name: TALONF7V2, version: 16ff4788, date: 2020-03-21T09:14:27Z
 
 # start the command batch
 batch start
@@ -125,35 +125,23 @@ vtxtable powerlabels 25 200 500
 
 # master
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 500
-#set dyn_notch_width_percent = 8
-set dyn_notch_width_percent = 0
-#set dyn_notch_q = 120
-set dyn_notch_q = 250
-#set dyn_notch_min_hz = 150
-set dyn_notch_min_hz = 90
+set gyro_lowpass2_hz = 325
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 400
+set dyn_lpf_gyro_min_hz = 260
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 1000
-#set acc_calibration = 0,0,0
-set acc_calibration = -44,-68,-92
-#set rc_smoothing_input_hz = 0
-set rc_smoothing_input_hz = 40
-#set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 100
-#set rc_smoothing_input_type = BIQUAD
-set rc_smoothing_input_type = PT1
-#set rc_smoothing_derivative_type = BIQUAD
-set rc_smoothing_derivative_type = PT1
+set dyn_lpf_gyro_max_hz = 650
+#set acc_calibration = 0,0,0,0
+set acc_calibration = -55,-51,-55,1
+#set rc_smoothing_auto_smoothness = 10
+set rc_smoothing_auto_smoothness = 5
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
+#set blackbox_device = SPIFLASH
+set blackbox_device = NONE
 #set dshot_idle_value = 550
 set dshot_idle_value = 500
 #set dshot_bidir = OFF
 set dshot_bidir = ON
-#set motor_pwm_protocol = DSHOT600
-set motor_pwm_protocol = DSHOT300
 #set align_board_yaw = 0
 set align_board_yaw = 180
 #set vbat_scale = 160
@@ -274,6 +262,8 @@ set vtx_freq = 5860
 set vcd_video_system = PAL
 #set gyro_1_sensor_align = CW0
 set gyro_1_sensor_align = DEFAULT
+#set gyro_rpm_notch_q = 500
+set gyro_rpm_notch_q = 600
 #set name = -
 set name = SI-FI R1
 
@@ -281,41 +271,57 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 140
+set dyn_lpf_dterm_min_hz = 91
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 340
+set dyn_lpf_dterm_max_hz = 221
+#set dyn_lpf_dterm_curve_expo = 5
+set dyn_lpf_dterm_curve_expo = 7
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 300
+set dterm_lowpass2_hz = 195
+#set iterm_relax_cutoff = 15
+set iterm_relax_cutoff = 30
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 100
+#set throttle_boost = 5
+set throttle_boost = 7
+#set throttle_boost_cutoff = 15
+set throttle_boost_cutoff = 25
 #set p_pitch = 46
-set p_pitch = 47
+set p_pitch = 38
 #set i_pitch = 90
 set i_pitch = 108
 #set d_pitch = 38
-set d_pitch = 32
+set d_pitch = 42
 #set f_pitch = 95
 set f_pitch = 114
 #set p_roll = 42
-set p_roll = 43
+set p_roll = 35
 #set i_roll = 85
 set i_roll = 102
 #set d_roll = 35
-set d_roll = 30
+set d_roll = 38
 #set f_roll = 90
 set f_roll = 108
-#set p_yaw = 30
-set p_yaw = 25
+#set p_yaw = 45
+set p_yaw = 37
 #set i_yaw = 90
 set i_yaw = 108
 #set f_yaw = 90
 set f_yaw = 108
-#set d_min_roll = 20
-set d_min_roll = 17
-#set d_min_pitch = 22
-set d_min_pitch = 18
+#set d_min_roll = 23
+set d_min_roll = 25
+#set d_min_pitch = 25
+set d_min_pitch = 28
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
+#set ff_interpolate_sp = AVERAGED_2
+set ff_interpolate_sp = ON
+#set ff_spike_limit = 60
+set ff_spike_limit = 70
+#set ff_smooth_factor = 37
+set ff_smooth_factor = 20
 
 profile 1
 
@@ -403,7 +409,7 @@ set pitch_srate = 75
 set yaw_srate = 75
 
 # restore original rateprofile selection
-rateprofile 4
+rateprofile 2
 
 # save configuration
 save

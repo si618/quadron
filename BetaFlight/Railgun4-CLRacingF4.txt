@@ -1,8 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.1.3 Jan 16 2020 / 11:34:00 (543a5e1ba) MSP API: 1.42
-# manufacturer_id: CLRA   board_name: CLRACINGF4   custom defaults: YES
+# Betaflight / STM32F405 (S405) 4.2.0 Apr 29 2020 / 08:08:49 (b480103d4) MSP API: 1.43
+# config: manufacturer_id: CLRA, board_name: CLRACINGF4, version: b3487114, date: 2019-10-19T00:26:29Z
 
 # start the command batch
 batch start
@@ -103,6 +103,14 @@ led 2 2,0::CVW:0
 #led 3 0,0::C:0
 led 3 3,0::CVW:0
 
+# color
+#color 3 30,0,255
+color 3 240,0,255
+#color 6 120,0,255
+color 6 0,0,255
+#color 10 240,0,255
+color 10 120,0,255
+
 # aux
 #aux 0 0 0 900 900 0 0
 aux 0 0 0 1800 2100 0 0
@@ -142,52 +150,34 @@ vtxtable powervalues 25 100 200 400 600
 vtxtable powerlabels 25 100 200 400 600
 
 # master
-#set gyro_sync_denom = 1
-set gyro_sync_denom = 2
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 375
-#set dyn_notch_range = MEDIUM
-set dyn_notch_range = LOW
-#set dyn_notch_width_percent = 8
-set dyn_notch_width_percent = 0
-#set dyn_notch_q = 120
-set dyn_notch_q = 250
-#set dyn_notch_min_hz = 150
-set dyn_notch_min_hz = 90
+set gyro_lowpass2_hz = 325
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 300
+set dyn_lpf_gyro_min_hz = 260
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 750
-#set acc_calibration = 0,0,0
-set acc_calibration = -29,-8,-150
+set dyn_lpf_gyro_max_hz = 650
+#set acc_calibration = 0,0,0,0
+set acc_calibration = -40,5,-130,1
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
-#set rc_smoothing_input_hz = 0
-set rc_smoothing_input_hz = 40
-#set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 100
-#set rc_smoothing_input_type = BIQUAD
-set rc_smoothing_input_type = PT1
-#set rc_smoothing_derivative_type = BIQUAD
-set rc_smoothing_derivative_type = PT1
+#set rc_smoothing_auto_smoothness = 10
+set rc_smoothing_auto_smoothness = 5
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set dshot_idle_value = 550
 set dshot_idle_value = 500
 #set dshot_bidir = OFF
 set dshot_bidir = ON
-#set motor_pwm_protocol = DSHOT600
-set motor_pwm_protocol = DSHOT300
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
 #set yaw_motors_reversed = OFF
 set yaw_motors_reversed = ON
 #set small_angle = 25
 set small_angle = 180
-#set ledstrip_profile = STATUS
-set ledstrip_profile = RACE
+#set ledstrip_visual_beeper = OFF
+set ledstrip_visual_beeper = ON
 #set ledstrip_race_color = ORANGE
 set ledstrip_race_color = RED
 #set osd_warn_rssi = OFF
@@ -297,13 +287,15 @@ set rate_6pos_switch = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 1
+set vtx_channel = 7
 #set vtx_power = 0
-set vtx_power = 1
+set vtx_power = 5
 #set vtx_freq = 0
-set vtx_freq = 5740
+set vtx_freq = 5860
 #set vcd_video_system = AUTO
 set vcd_video_system = PAL
+#set gyro_rpm_notch_q = 500
+set gyro_rpm_notch_q = 600
 #set name = -
 set name = si-fi r4
 
@@ -311,41 +303,59 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 105
+set dyn_lpf_dterm_min_hz = 91
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 255
+set dyn_lpf_dterm_max_hz = 221
+#set dyn_lpf_dterm_curve_expo = 5
+set dyn_lpf_dterm_curve_expo = 7
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 225
+set dterm_lowpass2_hz = 195
+#set iterm_relax_cutoff = 15
+set iterm_relax_cutoff = 30
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 100
 #set throttle_boost = 5
-set throttle_boost = 10
+set throttle_boost = 7
+#set throttle_boost_cutoff = 15
+set throttle_boost_cutoff = 25
 #set p_pitch = 46
-set p_pitch = 32
+set p_pitch = 38
+#set i_pitch = 90
+set i_pitch = 108
 #set d_pitch = 38
-set d_pitch = 27
+set d_pitch = 42
+#set f_pitch = 95
+set f_pitch = 114
 #set p_roll = 42
-set p_roll = 30
+set p_roll = 35
+#set i_roll = 85
+set i_roll = 102
 #set d_roll = 35
-set d_roll = 25
-#set p_yaw = 30
-set p_yaw = 21
-#set d_min_roll = 20
-set d_min_roll = 14
-#set d_min_pitch = 22
-set d_min_pitch = 15
+set d_roll = 38
+#set f_roll = 90
+set f_roll = 108
+#set p_yaw = 45
+set p_yaw = 37
+#set i_yaw = 90
+set i_yaw = 108
+#set f_yaw = 90
+set f_yaw = 108
+#set d_min_roll = 23
+set d_min_roll = 25
+#set d_min_pitch = 25
+set d_min_pitch = 28
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
+#set ff_interpolate_sp = AVERAGED_2
+set ff_interpolate_sp = ON
+#set ff_spike_limit = 60
+set ff_spike_limit = 70
+#set ff_smooth_factor = 37
+set ff_smooth_factor = 20
 
 profile 1
-
-# profile 1
-#set launch_control_mode = NORMAL
-set launch_control_mode = PITCHONLY
-#set launch_angle_limit = 0
-set launch_angle_limit = 68
-#set ff_interpolate_sp = AVERAGED
-set ff_interpolate_sp = ON
 
 profile 2
 
@@ -431,7 +441,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save

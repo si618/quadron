@@ -1,8 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.1.3 Jan 16 2020 / 11:34:00 (543a5e1ba) MSP API: 1.42
-# manufacturer_id: CLRA   board_name: CLRACINGF4   custom defaults: YES
+# Betaflight / STM32F405 (S405) 4.2.0 Apr 29 2020 / 08:08:49 (b480103d4) MSP API: 1.43
+# config: manufacturer_id: CLRA, board_name: CLRACINGF4, version: b3487114, date: 2019-10-19T00:26:29Z
 
 # start the command batch
 batch start
@@ -150,44 +150,26 @@ vtxtable powervalues 0 1 2 3
 vtxtable powerlabels 25 200 500 800
 
 # master
-#set gyro_sync_denom = 1
-set gyro_sync_denom = 2
 #set gyro_lowpass2_hz = 250
 set gyro_lowpass2_hz = 325
-#set dyn_notch_range = MEDIUM
-set dyn_notch_range = LOW
-#set dyn_notch_width_percent = 8
-set dyn_notch_width_percent = 0
-#set dyn_notch_q = 120
-set dyn_notch_q = 250
-#set dyn_notch_min_hz = 150
-set dyn_notch_min_hz = 90
 #set dyn_lpf_gyro_min_hz = 200
 set dyn_lpf_gyro_min_hz = 260
 #set dyn_lpf_gyro_max_hz = 500
 set dyn_lpf_gyro_max_hz = 650
-#set acc_calibration = 0,0,0
-set acc_calibration = 8,-25,-214
+#set acc_calibration = 0,0,0,0
+set acc_calibration = 12,-22,-178,1
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
-#set rc_smoothing_input_hz = 0
-set rc_smoothing_input_hz = 40
-#set rc_smoothing_derivative_hz = 0
-set rc_smoothing_derivative_hz = 100
-#set rc_smoothing_input_type = BIQUAD
-set rc_smoothing_input_type = PT1
-#set rc_smoothing_derivative_type = BIQUAD
-set rc_smoothing_derivative_type = PT1
+#set rc_smoothing_auto_smoothness = 10
+set rc_smoothing_auto_smoothness = 20
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set dshot_idle_value = 550
 set dshot_idle_value = 500
 #set dshot_bidir = OFF
 set dshot_bidir = ON
-#set motor_pwm_protocol = DSHOT600
-set motor_pwm_protocol = DSHOT300
 #set bat_capacity = 0
 set bat_capacity = 1300
 #set vbat_scale = 110
@@ -303,13 +285,15 @@ set rate_6pos_switch = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 1
+set vtx_channel = 7
 #set vtx_power = 0
-set vtx_power = 1
+set vtx_power = 4
 #set vtx_freq = 0
-set vtx_freq = 5740
+set vtx_freq = 5860
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
+#set gyro_rpm_notch_q = 500
+set gyro_rpm_notch_q = 800
 #set name = -
 set name = SI-FI R3
 
@@ -320,10 +304,18 @@ profile 0
 set dyn_lpf_dterm_min_hz = 91
 #set dyn_lpf_dterm_max_hz = 170
 set dyn_lpf_dterm_max_hz = 221
+#set dyn_lpf_dterm_curve_expo = 5
+set dyn_lpf_dterm_curve_expo = 7
 #set dterm_lowpass2_hz = 150
 set dterm_lowpass2_hz = 195
-#set throttle_boost = 5
-set throttle_boost = 10
+#set feedforward_transition = 0
+set feedforward_transition = 40
+#set iterm_relax_cutoff = 15
+set iterm_relax_cutoff = 10
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 60
+#set throttle_boost_cutoff = 15
+set throttle_boost_cutoff = 10
 #set p_pitch = 46
 set p_pitch = 38
 #set i_pitch = 90
@@ -333,29 +325,33 @@ set d_pitch = 32
 #set f_pitch = 95
 set f_pitch = 114
 #set p_roll = 42
-set p_roll = 36
+set p_roll = 35
 #set i_roll = 85
 set i_roll = 102
 #set d_roll = 35
 set d_roll = 30
 #set f_roll = 90
 set f_roll = 108
-#set p_yaw = 30
-set p_yaw = 25
+#set p_yaw = 45
+set p_yaw = 37
 #set i_yaw = 90
 set i_yaw = 108
 #set f_yaw = 90
 set f_yaw = 108
-#set d_min_roll = 20
-set d_min_roll = 17
-#set d_min_pitch = 22
-set d_min_pitch = 18
+#set d_min_roll = 23
+set d_min_roll = 19
+#set d_min_pitch = 25
+set d_min_pitch = 22
 #set launch_control_mode = NORMAL
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
-#set ff_interpolate_sp = AVERAGED
-set ff_interpolate_sp = ON
+#set ff_interpolate_sp = AVERAGED_2
+set ff_interpolate_sp = AVERAGED_3
+#set ff_spike_limit = 60
+set ff_spike_limit = 55
+#set ff_smooth_factor = 37
+set ff_smooth_factor = 40
 
 profile 1
 
@@ -443,7 +439,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save
