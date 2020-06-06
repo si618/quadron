@@ -1,8 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F411 (S411) 4.1.0 Oct 16 2019 / 11:57:34 (c37a7c91a) MSP API: 1.42
-# manufacturer_id: MTKS   board_name: MATEKF411RX   custom defaults: YES
+# Betaflight / STM32F411 (S411) 4.2.0 Jun  3 2020 / 11:51:31 (9718914fd) MSP API: 1.43
+# config: manufacturer_id: MTKS, board_name: MATEKF411RX, version: ee671311, date: 2019-10-16T11:49:37Z
 
 # start the command batch
 batch start
@@ -28,6 +28,10 @@ resource MOTOR 3 B10
 resource MOTOR 4 B07
 #resource RX_BIND 1 NONE
 resource RX_BIND 1 B02
+#feature -TELEMETRY
+
+# feature
+feature TELEMETRY
 #beeper GYRO_CALIBRATED
 
 # beeper
@@ -48,6 +52,8 @@ beeper -BAT_CRIT_LOW
 beeper -BAT_LOW
 #beeper GPS_STATUS
 beeper -GPS_STATUS
+#beeper RX_SET
+beeper -RX_SET
 #beeper ACC_CALIBRATION
 beeper -ACC_CALIBRATION
 #beeper ACC_CALIBRATION_FAIL
@@ -139,25 +145,21 @@ vtxtable powerlabels 25
 
 # master
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 500
-#set dyn_notch_range = MEDIUM
-set dyn_notch_range = HIGH
-#set dyn_notch_min_hz = 150
-set dyn_notch_min_hz = 160
+set gyro_lowpass2_hz = 375
+#set dyn_notch_width_percent = 8
+set dyn_notch_width_percent = 0
+#set dyn_notch_q = 120
+set dyn_notch_q = 250
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 400
+set dyn_lpf_gyro_min_hz = 300
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 1000
+set dyn_lpf_gyro_max_hz = 750
+#set acc_calibration = 0,0,0,0
+set acc_calibration = -9,-19,58,1
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
-#set min_check = 1050
-set min_check = 1020
-#set max_check = 1900
-set max_check = 2000
-#set rc_smoothing_type = FILTER
-set rc_smoothing_type = INTERPOLATION
 #set serialrx_provider = SPEK1024
 set serialrx_provider = SBUS
 #set airmode_start_throttle_percent = 25
@@ -165,9 +167,11 @@ set airmode_start_throttle_percent = 32
 #set rx_spi_protocol = FRSKY_X
 set rx_spi_protocol = FRSKY_D
 #set dshot_idle_value = 550
-set dshot_idle_value = 300
-#set motor_pwm_protocol = ONESHOT125
+set dshot_idle_value = 350
+#set motor_pwm_protocol = DISABLED
 set motor_pwm_protocol = DSHOT600
+#set motor_poles = 14
+set motor_poles = 12
 #set align_board_yaw = 0
 set align_board_yaw = 90
 #set vbat_max_cell_voltage = 430
@@ -182,7 +186,7 @@ set vbat_detect_cell_voltage = 30
 set beeper_dshot_beacon_tone = 3
 #set small_angle = 25
 set small_angle = 180
-#set pid_process_denom = 4
+#set pid_process_denom = 2
 set pid_process_denom = 1
 #set runaway_takeoff_deactivate_throttle_percent = 20
 set runaway_takeoff_deactivate_throttle_percent = 25
@@ -195,9 +199,9 @@ set osd_warn_link_quality = ON
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
-set osd_rssi_pos = 409
+set osd_rssi_pos = 2457
 #set osd_link_quality_pos = 234
-set osd_link_quality_pos = 24
+set osd_link_quality_pos = 25
 #set osd_rssi_dbm_pos = 234
 set osd_rssi_dbm_pos = 151
 #set osd_tim_2_pos = 234
@@ -207,13 +211,13 @@ set osd_throttle_pos = 2049
 #set osd_vtx_channel_pos = 234
 set osd_vtx_channel_pos = 403
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2441
+set osd_craft_name_pos = 2443
 #set osd_warnings_pos = 14665
 set osd_warnings_pos = 2058
 #set osd_disarmed_pos = 234
 set osd_disarmed_pos = 2220
 #set osd_flip_arrow_pos = 234
-set osd_flip_arrow_pos = 2288
+set osd_flip_arrow_pos = 2255
 #set osd_stat_max_spd = ON
 set osd_stat_max_spd = OFF
 #set osd_stat_endbatt = OFF
@@ -228,22 +232,22 @@ set osd_stat_used_mah = OFF
 set osd_stat_bbox = OFF
 #set osd_stat_bb_no = ON
 set osd_stat_bb_no = OFF
+#set osd_stat_max_esc_rpm = OFF
+set osd_stat_max_esc_rpm = ON
 #set osd_stat_min_link_quality = OFF
 set osd_stat_min_link_quality = ON
 #set osd_stat_max_fft = OFF
 set osd_stat_max_fft = ON
-#set osd_stat_min_rssi_dbm = OFF
-set osd_stat_min_rssi_dbm = ON
 #set rate_6pos_switch = OFF
 set rate_6pos_switch = ON
 #set vtx_band = 0
 set vtx_band = 5
 #set vtx_channel = 0
-set vtx_channel = 5
+set vtx_channel = 6
 #set vtx_power = 0
 set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5806
+set vtx_freq = 5843
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 #set frsky_spi_tx_id = 0,0
@@ -263,61 +267,41 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 140
+set dyn_lpf_dterm_min_hz = 105
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 340
+set dyn_lpf_dterm_max_hz = 255
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 300
-#set feedforward_transition = 0
-set feedforward_transition = 25
-#set acc_limit_yaw = 0
-set acc_limit_yaw = 100
-#set iterm_rotation = OFF
-set iterm_rotation = ON
-#set iterm_relax = RP
-set iterm_relax = RPY
-#set iterm_relax_type = SETPOINT
-set iterm_relax_type = GYRO
-#set iterm_relax_cutoff = 20
-set iterm_relax_cutoff = 11
-#set iterm_windup = 100
-set iterm_windup = 40
-#set iterm_limit = 400
-set iterm_limit = 150
-#set throttle_boost = 5
-set throttle_boost = 4
+set dterm_lowpass2_hz = 225
+#set vbat_pid_gain = OFF
+set vbat_pid_gain = ON
+#set vbat_sag_compensation = 0
+set vbat_sag_compensation = 100
 #set p_pitch = 46
-set p_pitch = 79
+set p_pitch = 55
 #set i_pitch = 90
 set i_pitch = 108
 #set d_pitch = 38
-set d_pitch = 55
+set d_pitch = 46
 #set f_pitch = 95
 set f_pitch = 114
 #set p_roll = 42
-set p_roll = 72
+set p_roll = 50
 #set i_roll = 85
 set i_roll = 102
 #set d_roll = 35
-set d_roll = 50
+set d_roll = 42
 #set f_roll = 90
 set f_roll = 108
-#set p_yaw = 30
-set p_yaw = 43
+#set p_yaw = 45
+set p_yaw = 54
 #set i_yaw = 90
 set i_yaw = 108
 #set f_yaw = 90
 set f_yaw = 108
-#set level_limit = 55
-set level_limit = 25
-#set d_min_roll = 20
-set d_min_roll = 29
-#set d_min_pitch = 22
-set d_min_pitch = 31
-#set launch_control_mode = NORMAL
-set launch_control_mode = PITCHONLY
-#set launch_angle_limit = 0
-set launch_angle_limit = 60
+#set d_min_roll = 23
+set d_min_roll = 28
+#set d_min_pitch = 25
+set d_min_pitch = 30
 
 profile 1
 
@@ -337,7 +321,7 @@ set pitch_srate = 35
 set yaw_srate = 35
 #set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1250
+#set tpa_breakpoint = 1350
 set tpa_breakpoint = 1400
 
 rateprofile 1
@@ -363,7 +347,7 @@ set pitch_srate = 40
 set yaw_srate = 40
 #set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1250
+#set tpa_breakpoint = 1350
 set tpa_breakpoint = 1400
 
 rateprofile 2
@@ -383,7 +367,7 @@ set pitch_srate = 60
 set yaw_srate = 60
 #set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1250
+#set tpa_breakpoint = 1350
 set tpa_breakpoint = 1400
 
 rateprofile 3
@@ -403,7 +387,7 @@ set pitch_srate = 55
 set yaw_srate = 55
 #set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1250
+#set tpa_breakpoint = 1350
 set tpa_breakpoint = 1400
 
 rateprofile 4
@@ -423,7 +407,7 @@ set pitch_srate = 60
 set yaw_srate = 60
 #set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1250
+#set tpa_breakpoint = 1350
 set tpa_breakpoint = 1400
 
 rateprofile 5
@@ -443,7 +427,7 @@ set pitch_srate = 73
 set yaw_srate = 73
 #set tpa_rate = 65
 set tpa_rate = 75
-#set tpa_breakpoint = 1250
+#set tpa_breakpoint = 1350
 set tpa_breakpoint = 1400
 
 # restore original rateprofile selection
