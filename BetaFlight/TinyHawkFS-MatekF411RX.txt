@@ -145,21 +145,23 @@ vtxtable powerlabels 25
 
 # master
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 375
+set gyro_lowpass2_hz = 425
 #set dyn_notch_width_percent = 8
 set dyn_notch_width_percent = 0
 #set dyn_notch_q = 120
 set dyn_notch_q = 250
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 300
+set dyn_lpf_gyro_min_hz = 340
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 750
+set dyn_lpf_gyro_max_hz = 850
 #set acc_calibration = 0,0,0,0
 set acc_calibration = -9,-19,58,1
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
+#set rc_smoothing_auto_smoothness = 10
+set rc_smoothing_auto_smoothness = 20
 #set serialrx_provider = SPEK1024
 set serialrx_provider = SBUS
 #set airmode_start_throttle_percent = 25
@@ -260,6 +262,8 @@ set frsky_spi_bind_hop_data = 2,92,182,37,127,217,72,162,17,107,197,52,142,232,8
 set cc2500_spi_chip_detect = ON
 #set gyro_1_align_yaw = 0
 set gyro_1_align_yaw = 1800
+#set gyro_rpm_notch_q = 500
+set gyro_rpm_notch_q = 800
 #set name = -
 set name = SI-FI THF
 
@@ -267,15 +271,23 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 105
+set dyn_lpf_dterm_min_hz = 119
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 255
+set dyn_lpf_dterm_max_hz = 289
+#set dyn_lpf_dterm_curve_expo = 5
+set dyn_lpf_dterm_curve_expo = 7
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 225
-#set vbat_pid_gain = OFF
-set vbat_pid_gain = ON
+set dterm_lowpass2_hz = 255
 #set vbat_sag_compensation = 0
 set vbat_sag_compensation = 100
+#set feedforward_transition = 0
+set feedforward_transition = 40
+#set iterm_relax_cutoff = 15
+set iterm_relax_cutoff = 10
+#set yaw_lowpass_hz = 0
+set yaw_lowpass_hz = 70
+#set throttle_boost_cutoff = 15
+set throttle_boost_cutoff = 10
 #set p_pitch = 46
 set p_pitch = 55
 #set i_pitch = 90
@@ -302,6 +314,18 @@ set f_yaw = 108
 set d_min_roll = 28
 #set d_min_pitch = 25
 set d_min_pitch = 30
+#set launch_control_mode = NORMAL
+set launch_control_mode = PITCHONLY
+#set launch_angle_limit = 0
+set launch_angle_limit = 60
+#set ff_interpolate_sp = AVERAGED_2
+set ff_interpolate_sp = AVERAGED_3
+#set ff_spike_limit = 60
+set ff_spike_limit = 55
+#set ff_smooth_factor = 37
+set ff_smooth_factor = 40
+#set ff_boost = 15
+set ff_boost = 0
 
 profile 1
 
