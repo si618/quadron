@@ -1,0 +1,11 @@
+L01  Edge SE↓  [0.3:1.3]       ; Arm if SE is pressed between 0.3 and 1.3 seconds
+L02  AND  SD↓  L01             ; ... but only if SD switch is down
+L03  a<x  Thr  -99       L02   ; ... and throttle is idle
+L04  Stky L03  L06             ; Arming switch in mixes sent to FC
+L05  Edge SE↓  [0.3:1.3] L04   ; Disarm if SE pressed between 0.3s and 1.3s
+L06  OR   !SD↓ L05             ; ... or if SD switch is up
+L07  a>x  SE   SD↓  Delay:0.3  ; Start of 0.3s SE window when arm/disarm active
+L08  a>x  SE   SD↓  Delay:1.3  ; End of 1.3s SE window when arm/disarm active
+
+SF01 L07 Play Track x          ; Start of arm/disarm window e.g. short single chirp
+SF02 L08 Play Track xx         ; End of arm/disarm window e.g. short double chirp

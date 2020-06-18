@@ -1,9 +1,7 @@
-
-
 # diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.2.0 May 27 2020 / 13:31:02 (6bada9c5e) MSP API: 1.43
+# Betaflight / STM32F405 (S405) 4.2.0 Jun 14 2020 / 03:04:22 (8f2d21460) MSP API: 1.43
 # config: manufacturer_id: MTKS, board_name: MATEKF405MINI, version: f173f9bc, date: 2019-10-02T14:43:13Z
 
 # start the command batch
@@ -101,13 +99,17 @@ serial 4 2048 115200 57600 0 115200
 
 # led
 #led 0 0,0::C:0
-led 0 0,0::CVW:0
+led 0 0,0::COW:2
 #led 1 0,0::C:0
-led 1 1,0::CVW:0
+led 1 1,0::COW:2
 #led 2 0,0::C:0
-led 2 2,0::CVW:0
+led 2 2,0::COW:2
 #led 3 0,0::C:0
-led 3 3,0::CVW:0
+led 3 3,0::COW:2
+#led 4 0,0::C:0
+led 4 4,0::COW:2
+#led 5 0,0::C:0
+led 5 5,0::COW:2
 
 # aux
 #aux 0 0 0 900 900 0 0
@@ -125,7 +127,7 @@ adjrange 0 0 3 900 2100 12 3 0 0
 
 # vtxtable
 #vtxtable bands 0
-vtxtable bands 6
+vtxtable bands 5
 #vtxtable channels 0
 vtxtable channels 8
 #vtxtable band 1 BAND1    1 CUSTOM 
@@ -138,14 +140,12 @@ vtxtable band 3 BOSCAM_E E FACTORY 5705 5685 5665 5645 5885 5905 5925 5945
 vtxtable band 4 FATSHARK F FACTORY 5740 5760 5780 5800 5820 5840 5860 5880
 #vtxtable band 5 BAND5    5 CUSTOM 
 vtxtable band 5 RACEBAND R FACTORY 5658 5695 5732 5769 5806 5843 5880 5917
-#vtxtable band 6 BAND6    6 CUSTOM 
-vtxtable band 6 IMD6     I CUSTOM  5732 5765 5828 5840 5866 5740    0    0
 #vtxtable powerlevels 0
-vtxtable powerlevels 3
+vtxtable powerlevels 4
 #vtxtable powervalues 0 0 0 0 0 0 0 0
-vtxtable powervalues 13 20 26
+vtxtable powervalues 0 1 2 3
 #vtxtable powerlabels LV0 LV1 LV2 LV3 LV4 LV5 LV6 LV7
-vtxtable powerlabels 25 100 400
+vtxtable powerlabels 25 200 500 800
 
 # master
 #set gyro_lowpass2_hz = 250
@@ -186,6 +186,8 @@ set osd_warn_gps_rescue_disabled = OFF
 set osd_warn_rssi = ON
 #set osd_warn_link_quality = OFF
 set osd_warn_link_quality = ON
+#set osd_logo_on_arming = OFF
+set osd_logo_on_arming = FIRST_ARMING
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2433
 #set osd_rssi_pos = 234
@@ -435,7 +437,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 3
 
 # save configuration
 save

@@ -1,9 +1,7 @@
-
-
 # diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.2.0 May 27 2020 / 13:31:02 (6bada9c5e) MSP API: 1.43
+# Betaflight / STM32F405 (S405) 4.2.0 Jun 14 2020 / 03:04:22 (8f2d21460) MSP API: 1.43
 # config: manufacturer_id: FPVM, board_name: XRACERF4, version: 3cf2dd69, date: 2019-12-05T12:02:42Z
 
 # start the command batch
@@ -379,7 +377,7 @@ set pitch_srate = 75
 set yaw_srate = 75
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save
