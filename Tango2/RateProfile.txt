@@ -1,0 +1,33 @@
+Tango II 
+
+Flight mode
+G1 Rat own -20       ; Default rate profile 3
+
+Mixes
+CH8 Rat MAX          ; Output value of G1 global variable
+
+Logical Switches
+L10 AND SA↓ SF↓      ; Trigger when SA down and SF pressed
+L11 AND SA↓ SE↓      ; Trigger when SA down and SE pressed
+L12 a=x G1  -100     ; Rate profile 1
+L13 a=x G1  -60      ; Rate profile 2
+L14 a=x G1  -20      ; Rate profile 3
+L15 a=x G1  20       ; Rate profile 4
+L16 a=x G1  60       ; Rate profile 5
+L17 a=x G1  100      ; Rate profile 6
+
+Special Functions
+SA↓ Play Track rate  ; Rate profile change is active
+L10 Adjust G1 -=40   ; Decrement rate profile
+L11 Adjust G1 +=40   ; Increment rate profile
+L12 Play Track 1     ; Rate profile 1
+L13 Play Track 2     ; Rate profile 2
+...
+
+
+Betaflight
+
+# Enable 6 rate profile settings via switch
+set rate_6pos_switch = ON
+# Set adjustment on AUX 4 (CH8) for rate profile selection
+adjrange 0 0 3 900 2100 12 3 0 0
