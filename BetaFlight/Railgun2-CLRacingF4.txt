@@ -1,4 +1,4 @@
-# diff all defaults
+diff all defaults
 
 # version
 # Betaflight / STM32F405 (S405) 4.2.0 Jun 14 2020 / 03:04:22 (8f2d21460) MSP API: 1.43
@@ -123,9 +123,11 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 1 900 1150 0 0
+aux 2 26 2 1300 1700 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 1 1800 2100 0 0
+aux 3 35 1 1800 2100 0 0
+#aux 4 0 0 900 900 0 0
+aux 4 49 1 900 1200 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -155,11 +157,11 @@ vtxtable powerlabels 25 100 200 400 600
 
 # master
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 325
+set gyro_lowpass2_hz = 450
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 260
+set dyn_lpf_gyro_min_hz = 360
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 650
+set dyn_lpf_gyro_max_hz = 900
 #set acc_calibration = 0,0,0,0
 set acc_calibration = 5,43,-146,1
 #set mag_hardware = AUTO
@@ -171,7 +173,7 @@ set rc_smoothing_auto_smoothness = 5
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
-set blackbox_device = NONE
+set blackbox_device = SERIAL
 #set dshot_bidir = OFF
 set dshot_bidir = ON
 #set bat_capacity = 0
@@ -293,11 +295,11 @@ set scheduler_optimize_rate = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 1
+set vtx_channel = 7
 #set vtx_power = 0
 set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5740
+set vtx_freq = 5860
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 #set gyro_rpm_notch_q = 500
@@ -309,13 +311,13 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 91
+set dyn_lpf_dterm_min_hz = 126
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 221
+set dyn_lpf_dterm_max_hz = 306
 #set dyn_lpf_dterm_curve_expo = 5
 set dyn_lpf_dterm_curve_expo = 7
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 195
+set dterm_lowpass2_hz = 270
 #set vbat_sag_compensation = 0
 set vbat_sag_compensation = 100
 #set iterm_relax_cutoff = 15
@@ -449,7 +451,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 2
+rateprofile 1
 
 # save configuration
 save
