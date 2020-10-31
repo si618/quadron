@@ -29,5 +29,5 @@ Betaflight
 
 # Enable 6 rate profile settings via switch
 set rate_6pos_switch = ON
-# Set adjustment on AUX 4 (CH8) for rate profile selection
+# Set AUX 4 (CH8) for rate profile selection
 adjrange 0 0 3 900 2100 12 3 0 0
