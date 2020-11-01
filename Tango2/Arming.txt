@@ -1,5 +1,5 @@
 Logical Switches
-L01  Edge SE↓  [0.2:1.2]       ; Arm if SE is pressed between 0.2 and 1.2 seconds
+L01  Edge SE↓  [0.2:1.2]       ; Arm if SE pressed between 0.2s and 1.2s
 L02  AND  SD↓  L01             ; ... but only if SD switch is down
 L03  a<x  Thr  -99       L02   ; ... and throttle is idle
 L04  Stky L03  L06             ; Arming switch in mixes sent to FC
