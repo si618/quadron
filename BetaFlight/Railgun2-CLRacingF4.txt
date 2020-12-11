@@ -1,8 +1,8 @@
-diff all defaults
+#diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.2.0 Jun 14 2020 / 03:04:22 (8f2d21460) MSP API: 1.43
-# config: manufacturer_id: CLRA, board_name: CLRACINGF4, version: b3487114, date: 2019-10-19T00:26:29Z
+# Betaflight / STM32F405 (S405) 4.2.5 Nov 22 2020 / 18:38:23 (afdac08b3) MSP API: 1.43
+# config: manufacturer_id: CLRA, board_name: CLRACINGF4, version: 14929e39, date: 2020-08-31T10:05:16Z
 
 # start the command batch
 batch start
@@ -163,13 +163,13 @@ set dyn_lpf_gyro_min_hz = 360
 #set dyn_lpf_gyro_max_hz = 500
 set dyn_lpf_gyro_max_hz = 900
 #set acc_calibration = 0,0,0,0
-set acc_calibration = 5,43,-146,1
+set acc_calibration = 58,18,-186,1
 #set mag_hardware = AUTO
 set mag_hardware = NONE
 #set baro_hardware = AUTO
 set baro_hardware = NONE
-#set rc_smoothing_auto_smoothness = 10
-set rc_smoothing_auto_smoothness = 5
+#set rc_smoothing_derivative_type = AUTO
+set rc_smoothing_derivative_type = PT1
 #set serialrx_provider = SPEK1024
 set serialrx_provider = CRSF
 #set blackbox_device = SDCARD
@@ -295,15 +295,15 @@ set scheduler_optimize_rate = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 7
+set vtx_channel = 1
 #set vtx_power = 0
 set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5860
+set vtx_freq = 5740
 #set vcd_video_system = AUTO
 set vcd_video_system = NTSC
 #set gyro_rpm_notch_q = 500
-set gyro_rpm_notch_q = 600
+set gyro_rpm_notch_q = 700
 #set name = -
 set name = SI-FI R2
 
@@ -315,13 +315,13 @@ set dyn_lpf_dterm_min_hz = 126
 #set dyn_lpf_dterm_max_hz = 170
 set dyn_lpf_dterm_max_hz = 306
 #set dyn_lpf_dterm_curve_expo = 5
-set dyn_lpf_dterm_curve_expo = 7
+set dyn_lpf_dterm_curve_expo = 6
 #set dterm_lowpass2_hz = 150
 set dterm_lowpass2_hz = 270
 #set vbat_sag_compensation = 0
 set vbat_sag_compensation = 100
 #set iterm_relax_cutoff = 15
-set iterm_relax_cutoff = 30
+set iterm_relax_cutoff = 20
 #set yaw_lowpass_hz = 0
 set yaw_lowpass_hz = 100
 #set throttle_boost = 5
@@ -358,8 +358,6 @@ set d_min_pitch = 24
 set launch_control_mode = PITCHONLY
 #set launch_angle_limit = 0
 set launch_angle_limit = 68
-#set ff_interpolate_sp = AVERAGED_2
-set ff_interpolate_sp = ON
 #set ff_spike_limit = 60
 set ff_spike_limit = 70
 #set ff_smooth_factor = 37
@@ -451,7 +449,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 1
+rateprofile 3
 
 # save configuration
 save

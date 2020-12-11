@@ -1,7 +1,7 @@
-# diff all defaults
+#diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.2.0 Jun 14 2020 / 03:04:22 (8f2d21460) MSP API: 1.43
+# Betaflight / STM32F405 (S405) 4.2.5 Nov 22 2020 / 18:38:23 (afdac08b3) MSP API: 1.43
 # config: manufacturer_id: MTKS, board_name: MATEKF405MINI, version: f173f9bc, date: 2019-10-02T14:43:13Z
 
 # start the command batch
@@ -92,10 +92,10 @@ map TAER1234
 # serial
 #serial 1 64 115200 57600 0 115200
 serial 1 0 115200 57600 0 115200
+#serial 2 0 115200 57600 0 115200
+serial 2 2048 115200 57600 0 115200
 #serial 3 0 115200 57600 0 115200
 serial 3 64 115200 57600 0 115200
-#serial 4 0 115200 57600 0 115200
-serial 4 2048 115200 57600 0 115200
 
 # led
 #led 0 0,0::C:0
@@ -117,9 +117,9 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 1 900 1200 0 0
+aux 2 35 1 1800 2100 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 1 1800 2100 0 0
+aux 3 49 1 900 1200 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -437,7 +437,7 @@ set pitch_rc_rate = 162
 set yaw_rc_rate = 162
 
 # restore original rateprofile selection
-rateprofile 3
+rateprofile 2
 
 # save configuration
 save

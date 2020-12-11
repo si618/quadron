@@ -1,8 +1,8 @@
-# diff all defaults
+#diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.2.0 Jun 14 2020 / 03:04:22 (8f2d21460) MSP API: 1.43
-# config: manufacturer_id: CLRA, board_name: CLRACINGF4, version: b3487114, date: 2019-10-19T00:26:29Z
+# Betaflight / STM32F405 (S405) 4.2.5 Nov 22 2020 / 18:38:23 (afdac08b3) MSP API: 1.43
+# config: manufacturer_id: CLRA, board_name: CLRACINGF4, version: 14929e39, date: 2020-08-31T10:05:16Z
 
 # start the command batch
 batch start
@@ -80,6 +80,10 @@ beeper -CAM_CONNECTION_OPEN
 beeper -CAM_CONNECTION_CLOSE
 #beeper RC_SMOOTHING_INIT_FAIL
 beeper -RC_SMOOTHING_INIT_FAIL
+#beacon -RX_SET
+
+# beacon
+beacon RX_SET
 
 # map
 #map AETR1234
@@ -102,6 +106,10 @@ led 1 1,0::CVW:0
 led 2 2,0::CVW:0
 #led 3 0,0::C:0
 led 3 3,0::CVW:0
+#led 4 0,0::C:0
+led 4 4,0::CVW:0
+#led 5 0,0::C:0
+led 5 5,0::CVW:0
 
 # color
 #color 3 30,0,255
@@ -117,9 +125,11 @@ aux 0 0 0 1800 2100 0 0
 #aux 1 0 0 900 900 0 0
 aux 1 13 2 1750 2100 0 0
 #aux 2 0 0 900 900 0 0
-aux 2 35 1 900 1200 0 0
+aux 2 26 2 1300 1700 0 0
 #aux 3 0 0 900 900 0 0
-aux 3 49 1 1775 2100 0 0
+aux 3 35 1 1800 2100 0 0
+#aux 4 0 0 900 900 0 0
+aux 4 49 1 900 1225 0 0
 
 # adjrange
 #adjrange 0 0 0 900 900 0 0 0 0
@@ -149,11 +159,11 @@ vtxtable powerlabels 25 100 200 400 600
 
 # master
 #set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 325
+set gyro_lowpass2_hz = 400
 #set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 260
+set dyn_lpf_gyro_min_hz = 320
 #set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 650
+set dyn_lpf_gyro_max_hz = 800
 #set acc_calibration = 0,0,0,0
 set acc_calibration = -40,5,-130,1
 #set mag_hardware = AUTO
@@ -182,14 +192,12 @@ set ledstrip_race_color = RED
 set osd_warn_rssi = ON
 #set osd_warn_link_quality = OFF
 set osd_warn_link_quality = ON
-#set osd_logo_on_arming = OFF
-set osd_logo_on_arming = FIRST_ARMING
 #set osd_vbat_pos = 234
 set osd_vbat_pos = 2497
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_link_quality_pos = 234
-set osd_link_quality_pos = 2105
+set osd_link_quality_pos = 2104
 #set osd_tim_1_pos = 234
 set osd_tim_1_pos = 54
 #set osd_tim_2_pos = 234
@@ -205,7 +213,7 @@ set osd_ah_pos = 200
 #set osd_current_pos = 234
 set osd_current_pos = 453
 #set osd_mah_drawn_pos = 234
-set osd_mah_drawn_pos = 2520
+set osd_mah_drawn_pos = 2519
 #set osd_craft_name_pos = 234
 set osd_craft_name_pos = 2508
 #set osd_gps_speed_pos = 234
@@ -303,13 +311,13 @@ profile 0
 
 # profile 0
 #set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 91
+set dyn_lpf_dterm_min_hz = 112
 #set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 221
+set dyn_lpf_dterm_max_hz = 272
 #set dyn_lpf_dterm_curve_expo = 5
 set dyn_lpf_dterm_curve_expo = 7
 #set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 195
+set dterm_lowpass2_hz = 240
 #set vbat_sag_compensation = 0
 set vbat_sag_compensation = 100
 #set iterm_relax_cutoff = 15
