@@ -1,7 +1,9 @@
-diff all defaults
+
+
+# diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.3.0 Aug  5 2021 / 11:41:58 (55f2be55f) MSP API: 1.44
+# Betaflight / STM32F405 (S405) 4.3.0 Oct  5 2021 / 19:26:59 (42f2fc28e) MSP API: 1.44
 # config: manufacturer_id: MTKS, board_name: MATEKF405MINI, version: f173f9bc, date: 2019-10-02T14:43:13Z
 
 # start the command batch
@@ -106,10 +108,6 @@ led 1 1,0::COW:2
 led 2 2,0::COW:2
 #led 3 0,0::C:0
 led 3 3,0::COW:2
-#led 4 0,0::C:0
-led 4 4,0::COW:2
-#led 5 0,0::C:0
-led 5 5,0::COW:2
 
 # aux
 #aux 0 0 0 900 900 0 0
@@ -148,26 +146,28 @@ vtxtable powervalues 0 1 2 3
 vtxtable powerlabels 25 200 500 800
 
 # master
-#set gyro_lowpass2_hz = 250
-set gyro_lowpass2_hz = 500
-#set dyn_lpf_gyro_min_hz = 200
-set dyn_lpf_gyro_min_hz = 400
-#set dyn_lpf_gyro_max_hz = 500
-set dyn_lpf_gyro_max_hz = 1000
+#set gyro_lpf2_static_hz = 500
+set gyro_lpf2_static_hz = 1000
+#set gyro_lpf1_dyn_min_hz = 250
+set gyro_lpf1_dyn_min_hz = 500
+#set gyro_lpf1_dyn_max_hz = 500
+set gyro_lpf1_dyn_max_hz = 1000
 #set acc_calibration = 0,0,0,0
-set acc_calibration = -24,43,21,1
+set acc_calibration = 11,27,38,1
 #set serialrx_provider = SBUS
 set serialrx_provider = CRSF
-#set dshot_idle_value = 550
-set dshot_idle_value = 500
 #set dshot_bidir = OFF
 set dshot_bidir = ON
+#set motor_output_reordering = 0,1,2,3,4,5,6,7
+set motor_output_reordering = 2,0,3,1,4,5,6,7
 #set beeper_dshot_beacon_tone = 1
 set beeper_dshot_beacon_tone = 3
 #set yaw_motors_reversed = OFF
 set yaw_motors_reversed = ON
 #set small_angle = 25
 set small_angle = 180
+#set pid_process_denom = 1
+set pid_process_denom = 2
 #set simplified_gyro_filter_multiplier = 100
 set simplified_gyro_filter_multiplier = 200
 #set osd_warn_rc_smoothing = ON
@@ -183,11 +183,11 @@ set osd_warn_link_quality = ON
 #set osd_logo_on_arming = OFF
 set osd_logo_on_arming = FIRST_ARMING
 #set osd_vbat_pos = 234
-set osd_vbat_pos = 2433
+set osd_vbat_pos = 2497
 #set osd_rssi_pos = 234
 set osd_rssi_pos = 40
 #set osd_link_quality_pos = 234
-set osd_link_quality_pos = 2105
+set osd_link_quality_pos = 2103
 #set osd_tim_1_pos = 234
 set osd_tim_1_pos = 54
 #set osd_tim_2_pos = 234
@@ -203,9 +203,9 @@ set osd_ah_pos = 200
 #set osd_current_pos = 234
 set osd_current_pos = 453
 #set osd_mah_drawn_pos = 234
-set osd_mah_drawn_pos = 2456
+set osd_mah_drawn_pos = 2520
 #set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2444
+set osd_craft_name_pos = 2508
 #set osd_gps_speed_pos = 234
 set osd_gps_speed_pos = 218
 #set osd_gps_lon_pos = 234
@@ -256,6 +256,8 @@ set osd_esc_tmp_pos = 82
 set osd_esc_rpm_pos = 83
 #set osd_flip_arrow_pos = 234
 set osd_flip_arrow_pos = 2287
+#set osd_core_temp_pos = 234
+set osd_core_temp_pos = 37
 #set osd_stat_tim_2 = ON
 set osd_stat_tim_2 = OFF
 #set osd_stat_max_spd = ON
@@ -277,41 +279,27 @@ set rate_6pos_switch = ON
 #set vtx_band = 0
 set vtx_band = 4
 #set vtx_channel = 0
-set vtx_channel = 1
+set vtx_channel = 5
 #set vtx_power = 0
 set vtx_power = 1
 #set vtx_freq = 0
-set vtx_freq = 5740
+set vtx_freq = 5820
 #set vcd_video_system = AUTO
-set vcd_video_system = NTSC
+set vcd_video_system = PAL
 #set name = -
 set name = SI-FI R3
 
 profile 0
 
 # profile 0
-#set dyn_lpf_dterm_min_hz = 70
-set dyn_lpf_dterm_min_hz = 140
-#set dyn_lpf_dterm_max_hz = 170
-set dyn_lpf_dterm_max_hz = 340
-#set dterm_lowpass2_hz = 150
-set dterm_lowpass2_hz = 300
-#set vbat_sag_compensation = 0
-set vbat_sag_compensation = 100
-#set iterm_relax_cutoff = 15
-set iterm_relax_cutoff = 30
-#set throttle_boost = 5
-set throttle_boost = 7
-#set launch_control_mode = NORMAL
-set launch_control_mode = PITCHONLY
-#set launch_angle_limit = 0
-set launch_angle_limit = 68
-#set feedforward_averaging = OFF
-set feedforward_averaging = 2_POINT
-#set simplified_pids_mode = OFF
-set simplified_pids_mode = RPY
+#set dterm_lpf1_dyn_min_hz = 75
+set dterm_lpf1_dyn_min_hz = 120
+#set dterm_lpf1_dyn_max_hz = 150
+set dterm_lpf1_dyn_max_hz = 240
+#set dterm_lpf2_static_hz = 150
+set dterm_lpf2_static_hz = 240
 #set simplified_dterm_filter_multiplier = 100
-set simplified_dterm_filter_multiplier = 200
+set simplified_dterm_filter_multiplier = 160
 
 profile 1
 
@@ -323,34 +311,44 @@ profile 0
 rateprofile 0
 
 # rateprofile 0
-#set rates_type = ACTUAL
-set rates_type = BETAFLIGHT
 #set roll_rc_rate = 7
-set roll_rc_rate = 85
+set roll_rc_rate = 20
 #set pitch_rc_rate = 7
-set pitch_rc_rate = 85
+set pitch_rc_rate = 20
 #set yaw_rc_rate = 7
-set yaw_rc_rate = 85
+set yaw_rc_rate = 20
 #set roll_srate = 67
-set roll_srate = 70
+set roll_srate = 62
 #set pitch_srate = 67
-set pitch_srate = 70
+set pitch_srate = 62
 #set yaw_srate = 67
-set yaw_srate = 70
+set yaw_srate = 62
 
 rateprofile 1
 
 # rateprofile 1
+#set roll_rc_rate = 7
+set roll_rc_rate = 16
+#set pitch_rc_rate = 7
+set pitch_rc_rate = 16
+#set yaw_rc_rate = 7
+set yaw_rc_rate = 16
 #set roll_srate = 67
-set roll_srate = 42
+set roll_srate = 60
 #set pitch_srate = 67
-set pitch_srate = 42
+set pitch_srate = 60
 #set yaw_srate = 67
-set yaw_srate = 42
+set yaw_srate = 60
 
 rateprofile 2
 
 # rateprofile 2
+#set roll_rc_rate = 7
+set roll_rc_rate = 14
+#set pitch_rc_rate = 7
+set pitch_rc_rate = 14
+#set yaw_rc_rate = 7
+set yaw_rc_rate = 14
 #set roll_srate = 67
 set roll_srate = 46
 #set pitch_srate = 67
