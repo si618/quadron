@@ -1,4 +1,4 @@
-# diff all defaults
+diff all defaults
 
 # version
 # Betaflight / STM32F411 (S411) 4.2.0 Jun  3 2020 / 11:51:31 (9718914fd) MSP API: 1.43
